@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   etc.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 21:40:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/06 22:03:43 by jincpark         ###   ########.fr       */
+/*   Created: 2022/10/07 01:57:47 by jincpark          #+#    #+#             */
+/*   Updated: 2022/10/07 02:18:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
-{
-	t_raw_map raw_map;
-	t_map_data map_data;
+#include "fdf.h"
 
-	/* parsing */
-	read_and_save(&raw_map, argv[1]);
-	is_valid_map(&raw_map);
-	put_map_data(&raw_map, &map_data);
+int	ft_htoi(char *str)
+{
+	int	res;
+	int	idx;
+	int	c;
+
+	res = 0;
+	while (str[idx++])
+	while (str[idx] != 'x')
+	{
+		c = str[idx--];
+		if (c >= 48 && c <= 57)
+			res += (c - 48);
+		else if (c >= 65 && c <= 70)
+			res += (c - 55);
+		res << 64;
+	}
+	return (res);
 }
