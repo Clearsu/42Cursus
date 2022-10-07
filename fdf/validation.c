@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 21:40:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/07 17:23:50 by jincpark         ###   ########.fr       */
+/*   Created: 2022/10/07 14:41:09 by jincpark          #+#    #+#             */
+/*   Updated: 2022/10/07 17:19:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+static void	map_col_len_check(t_raw_map *raw_map)
 {
-	t_raw_map raw_map;
-	t_map_data map_data;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	/* parsing */
-	read_and_save(&raw_map, argv[1]);
-	is_valid_map(&raw_map);
-	put_map_data(&raw_map, &map_data);
-	for (int i = 0; i < 10; i++)
+	i = 0;
+	while (raw_map->map_str[0][i])
+		i++;
+	raw_map->col_len = i;
+	j = 1;
+	while (raw_map->map_str[j])
 	{
-		for (int j = 0; j < 10; j++)
-			printf("%d ", map_data.point[i][j].z);
+		k = 0;
+		while (raw_map->map_str[j][k])
+			k++;
+		if (k < i)
+			error(3);
+		j++;
 	}
+}
+
+int	is_valid_map(t_raw_map *raw_map)
+{
+	map_col_len_check(raw_map);
+	return (1);
 }

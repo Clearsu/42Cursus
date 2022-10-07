@@ -6,13 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 20:59:45 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/06 21:51:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/07 17:23:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACRO_H
 # define MACRO_H
 
-define MAX_ROW 1024;
+#define  MAX_ROW 1024
 
 #endif

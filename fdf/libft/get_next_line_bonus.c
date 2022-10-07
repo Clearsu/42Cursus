@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:33:57 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/06 16:18:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/07 16:50:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static char	*get_new_save(char *save)
 
 char	*get_next_line(int fd)
 {
-	static char	*save[0xFFFFFFFF];
+	static char	*save[512];
 	char		*buffer;
 	char		*line;
 

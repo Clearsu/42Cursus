@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 01:57:47 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/07 02:18:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/07 17:47:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,20 @@ int	ft_htoi(char *str)
 			res += (c - 48);
 		else if (c >= 65 && c <= 70)
 			res += (c - 55);
-		res << 64;
+		res += 256;
 	}
 	return (res);
 }
+/*
+void	ft_free(void **ptr, size_t idx)
+{
+	if (!idx)
+		free(*ptr);
+	else
+	{
+		while (idx >= 0)
+			free(ptr[idx--]);
+		free(ptr);
+	}
+}
+*/
