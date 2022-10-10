@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:12:19 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/07 17:45:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:48:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ typedef struct s_img_data
 
 typedef struct s_point
 {
-	int	x;
-	int	y;
 	int	z;
 	int	color;
 }	t_point;

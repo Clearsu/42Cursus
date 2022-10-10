@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:41:09 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/07 17:19:17 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/10 18:29:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
+#include "stdio.h"
 static void	map_col_len_check(t_raw_map *raw_map)
 {
 	size_t	i;

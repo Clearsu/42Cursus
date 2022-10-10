@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 01:57:47 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/07 17:47:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/10 21:05:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 int	ft_htoi(char *str)
 {
-	int	res;
-	int	idx;
-	int	c;
+	int		res;
+	int		idx;
+	char	c;
 
 	res = 0;
-	while (str[idx++])
-	while (str[idx] != 'x')
+	while (str[idx])
+		idx++;
+	while (str[--idx] != 'x')
 	{
-		c = str[idx--];
+		c = str[idx];
 		if (c >= 48 && c <= 57)
 			res += (c - 48);
 		else if (c >= 65 && c <= 70)
