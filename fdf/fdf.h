@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:12:19 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/10 17:48:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/11 02:14:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,19 @@
 # include "macro.h"
 # include "libft.h"
 
-typedef struct s_img_data
+typedef struct s_data
 {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}	t_img_data;
+}	t_data;
 
 typedef struct s_point
 {
+	int	x;
+	int	y;
 	int	z;
 	int	color;
 }	t_point;
@@ -53,4 +55,8 @@ void	read_and_save(t_raw_map *raw_map, char *argv);
 void	put_map_data(t_raw_map *raw_map, t_map_data *map_data);
 void	error(size_t n);
 int		ft_htoi(char *str);
+void	show_image(t_map_data *map_data);
+void	my_mlx_pixel_put(t_data *img, int x, int y, int color);
+void	put_lines(t_map_data *map_data, t_data *img);
+void	rotate_map(t_map_data *map_data, size_t row_len, size_t col_len);
 #endif

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:01:01 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/10 21:04:04 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/11 00:06:54 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static void	split_and_put(t_raw_map *raw_map, t_map_data *map_data, size_t row_l
 		j = 0;
 		while (j < col_len)
 		{
+			map_data->point[i][j].x = j;
+			map_data->point[i][j].y = i;
 			temp = ft_split(raw_map->map_str[i][j], ',');
 			map_data->point[i][j].z = ft_atoi(temp[0]);
 			if (temp[1])
