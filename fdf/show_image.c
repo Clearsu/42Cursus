@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:28:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/11 02:18:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/11 21:02:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ static void	mlx_put_dots_to_image(t_map_data *map_data, t_data *img)
 		j = 0;
 		while (j < col_len)
 		{
-			my_mlx_pixel_put(img, map_data->point[i][j].x * SPACE,
-					map_data->point[i][j].y * SPACE, 0x00FF0000);
+			my_mlx_pixel_put(img, map_data->point[i][j].x,
+					map_data->point[i][j].y, map_data->point[i][j].color);
 			j++;
 		}
 		i++;
@@ -61,6 +61,6 @@ void	show_image(t_map_data *map_data)
 	mlx_set_window_and_image(&mlx, &win, &img);
 	mlx_put_dots_to_image(map_data, &img);
 //	put_lines(map_data, &img);
-	mlx_put_image_to_window(mlx, win, img.img, 1000, 1000);
+	mlx_put_image_to_window(mlx, win, img.img, 0, 0);
 	mlx_loop(mlx);
 }

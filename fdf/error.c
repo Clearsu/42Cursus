@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:01:43 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/07 16:44:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:01:00 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	error(size_t n)
 {
 	if (n == 1)
-		ft_putstr_fd("Error : there is no map given\n", 0);
+		ft_putstr_fd("Error : there should be only/at least one argument\n", 0);
 	else if (n == 2)
 		ft_putstr_fd("Error : you can put only one map to excute this program\n", 0);
 	else if (n == 3)
