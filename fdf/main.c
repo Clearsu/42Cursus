@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:40:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/11 21:51:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/12 19:38:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int argc, char **argv)
 	t_raw_map raw_map;
 	t_map_data map_data;
 
-	argc = 0;
 	if (argc != 2)
 		error(1);
 	read_and_save(&raw_map, argv[1]);

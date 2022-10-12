@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:01:01 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/11 19:21:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/12 21:39:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,6 @@ static void	split_and_put(t_raw_map *raw_map, t_map_data *map_data, size_t row_l
 			map_data->point[i][j].y = height_space + (i * SPACE);
 			temp = ft_split(raw_map->map_str[i][j], ',');
 			map_data->point[i][j].z = ft_atoi(temp[0]) * SPACE;
-			if (temp[1])
-				map_data->point[i][j].color = ft_htoi(temp[1]);
-			else
-				map_data->point[i][j].color = 0x00FFFFFF;
 			j++;
 		}
 		i++;
