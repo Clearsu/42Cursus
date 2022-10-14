@@ -6,13 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:02:23 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/13 20:12:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:54:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
 #include "fdf.h"
-#include "mlx.h"
 
 void	iso_projection(t_map_data *map_data)
 {

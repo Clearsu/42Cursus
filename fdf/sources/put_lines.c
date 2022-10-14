@@ -6,12 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 00:13:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/13 21:27:02 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:54:21 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "mlx.h"
 
 void	put_lines_x(t_map_data *map_data, t_data *img)
 {

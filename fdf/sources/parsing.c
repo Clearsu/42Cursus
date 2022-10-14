@@ -6,43 +6,49 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:01:01 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/14 12:51:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:55:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "libft.h"
-#include <unistd.h>
-#include <fcntl.h>
 #include <stdio.h>
+void	get_line_and_split(char ****temp, int fd, size_t *row_len)
+{
+	char	*line;
+	size_t	i;
+
+	line = get_next_line(fd);
+	if (!line)
+		error(6);
+	i = 0;
+	while (1)
+	{
+		(*temp)[i] = ft_split(line, ' ');
+		if (!(*temp)[i++])
+			error(4);
+		free(line);
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+	}	
+	(*temp)[i] = NULL;
+	*row_len = i;
+}
 
 void	read_and_save(t_raw_map *raw_map, char *argv)
 {
 	int		fd;
-	int		i;
-	char	*line;
 	char	***temp;
 
 	fd = open(argv, O_RDONLY);
 	if (fd < 0 || fd > 256)
 		error(5);
 	temp = (char ***)malloc(sizeof(char **) * (MAX_ROW + 1));
-	line = get_next_line(fd);
-	i = 0;
-	while (1)
-	{
-		temp[i] = ft_split(line, ' ');
-		if (!temp[i++])
-			error(4);
-		free(line);
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-	}
+	if (!temp)
+		error(4);
+	get_line_and_split(&temp, fd, &(raw_map->row_len));
 	close(fd);
-	temp[i] = NULL;
 	raw_map->map_str = temp;
-	raw_map->row_len = i;
 }
 
 static void	split_and_put(t_raw_map *raw_map, t_map_data *map_data,

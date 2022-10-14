@@ -6,12 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:01:43 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/13 20:10:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:55:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "libft.h"
 
 void	argument_check(int argc)
 {
@@ -29,11 +28,11 @@ void	error(size_t n)
 		ft_putstr_fd("Error : put only one file to excute this program\n", 0);
 	else if (n == 3)
 		ft_putstr_fd("Error : there is a row shorter than the first row\n", 0);
-	else if (n == 3)
-		ft_putstr_fd("Error : data must consist of numeric data\n", 0);
 	else if (n == 4)
 		ft_putstr_fd("Error : memory allocation failed\n", 0);
 	else if (n == 5)
 		ft_putstr_fd("Error : failed to open a file\n", 0);
+	else if (n == 6)
+		ft_putstr_fd("Error : empty file or is not a file\n", 0);
 	exit(1);
 }

@@ -6,12 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 21:25:45 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/13 21:26:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:53:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "mlx.h"
 
 void	case_delta_lower_than_zero(int *delta, int *increment)
 {

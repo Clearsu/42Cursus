@@ -6,11 +6,10 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:28:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/13 21:21:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:54:27 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "fdf.h"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
