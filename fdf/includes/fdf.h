@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:12:19 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/14 14:17:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 18:28:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 # include <math.h>
 # include <fcntl.h>
 # include "mlx.h"

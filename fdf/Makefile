@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 19:10:29 by jincpark          #+#    #+#              #
-#    Updated: 2022/10/14 13:18:21 by jincpark         ###   ########.fr        #
+#    Updated: 2022/10/14 19:37:58 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ SRCS_DIR		= ./sources
 SRCS 			= adjust_center.c \
 	   			bresenham.c \
 	   			error.c \
-	   			free.c \
 	   			main.c \
 	   			parsing.c \
 	   			projection.c \
