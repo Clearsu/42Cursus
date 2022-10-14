@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:01:01 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/13 20:11:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:51:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,7 @@ static void	split_and_put(t_raw_map *raw_map, t_map_data *map_data,
 	size_t	i;
 	size_t	j;
 	char	**temp;
-	int		width_space;
-	int		height_space;
 
-	width_space = (WIDTH - (col_len * SPACE)) / 2;
-	height_space = (HEIGHT - (row_len * SPACE)) / 2;
 	i = 0;
 	while (i < row_len)
 	{
