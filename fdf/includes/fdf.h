@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:12:19 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/14 13:07:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 14:17:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,10 @@ typedef struct s_boundary_vals
 	int	y_max;
 }	t_boundary_vals;
 
-int		is_valid_map(t_raw_map *raw_map);
+void	is_valid_map(t_raw_map *raw_map);
 void	read_and_save(t_raw_map *raw_map, char *argv);
 void	put_map_data(t_raw_map *raw_map, t_map_data *map_data);
 void	error(size_t n);
-int		ft_htoi(char *str);
 void	show_image(t_map_data *map_data);
 void	my_mlx_pixel_put(t_data *img, int x, int y, int color);
 void	put_lines_x(t_map_data *map_data, t_data *img);

@@ -6,19 +6,19 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 21:25:45 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/14 12:53:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 14:20:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	case_delta_lower_than_zero(int *delta, int *increment)
+static void	case_delta_lower_than_zero(int *delta, int *increment)
 {
 	*delta = -*delta;
 	*increment = -1;
 }
 
-void	case_slope_lower_than_1(t_data *img, t_point point1, t_point point2,
+static void	case_slope_lower_than_1(t_data *img, t_point point1, t_point point2,
 		t_line_factors br_fac)
 {
 	int	p;
@@ -42,8 +42,8 @@ void	case_slope_lower_than_1(t_data *img, t_point point1, t_point point2,
 	}
 }
 
-void	case_slope_higher_than_1(t_data *img, t_point point1, t_point point2,
-		t_line_factors br_fac)
+static void	case_slope_higher_than_1(t_data *img, t_point point1,
+		t_point point2, t_line_factors br_fac)
 {
 	int	p;
 

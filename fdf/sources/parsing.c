@@ -6,13 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:01:01 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/14 13:55:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 14:21:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
-void	get_line_and_split(char ****temp, int fd, size_t *row_len)
+
+static void	get_line_and_split(char ****temp, int fd, size_t *row_len)
 {
 	char	*line;
 	size_t	i;
@@ -86,7 +86,13 @@ void	put_map_data(t_raw_map *raw_map, t_map_data *map_data)
 	map_data->col_len = col_len_cp;
 	i = 0;
 	map_data->point = (t_point **)malloc(sizeof(t_point *) * row_len_cp);
+	if (!(map_data->point))
+		error(4);
 	while (i < row_len_cp)
-		map_data->point[i++] = (t_point *)malloc(sizeof(t_point) * col_len_cp);
+	{
+		map_data->point[i] = (t_point *)malloc(sizeof(t_point) * col_len_cp);
+		if (!(map_data->point[i++]))
+			error(4);
+	}
 	split_and_put(raw_map, map_data, row_len_cp, col_len_cp);
 }

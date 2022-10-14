@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:41:09 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/14 13:02:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 14:11:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ static void	map_col_len_check(t_raw_map *raw_map)
 	}
 }
 
-int	is_valid_map(t_raw_map *raw_map)
+void	is_valid_map(t_raw_map *raw_map)
 {
 	map_col_len_check(raw_map);
-	return (1);
 }

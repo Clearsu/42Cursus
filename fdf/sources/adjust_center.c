@@ -6,14 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:51:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/13 20:08:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 14:20:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	get_boundary_vals(t_map_data *map_data, t_boundary_vals *boundary_vals,
-		size_t row_len, size_t col_len)
+static void	get_boundary_vals(t_map_data *map_data,
+		t_boundary_vals *boundary_vals, size_t row_len, size_t col_len)
 {
 	size_t	i;
 	size_t	j;
@@ -42,7 +42,7 @@ void	get_boundary_vals(t_map_data *map_data, t_boundary_vals *boundary_vals,
 	boundary_vals->y_max = y_max;
 }
 
-void	add_delta(t_map_data *map_data, t_boundary_vals boundary_vals,
+static void	add_delta(t_map_data *map_data, t_boundary_vals boundary_vals,
 		size_t row_len, size_t col_len)
 {
 	size_t	i;

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:28:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/14 12:54:27 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/14 14:17:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	mlx_set_window_and_image(void **mlx, void **win, t_data *img)
 			&img->line_length, &img->endian);
 }
 
-int	win_close(int keycode, t_mlx_vars *mlx_vars)
+static int	win_close(int keycode, t_mlx_vars *mlx_vars)
 {
 	if (keycode == 53)
 	{
