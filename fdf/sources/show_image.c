@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:28:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/16 01:36:43 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/16 15:25:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 static void	mlx_set_window_and_image(void **mlx, void **win, t_data *img)
 {	
 	*mlx = mlx_init();
-	*win = mlx_new_window(*mlx, WIDTH, HEIGHT, "TEST");
+	*win = mlx_new_window(*mlx, WIDTH, HEIGHT, "FDF");
 	img->img = mlx_new_image(*mlx, WIDTH, HEIGHT);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);

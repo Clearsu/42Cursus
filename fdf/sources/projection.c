@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:02:23 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/14 12:54:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/16 15:24:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	iso_projection(t_map_data *map_data)
 		j = 0;
 		while (j < col_len)
 		{
-			map_data->point[i][j].u = map_data->point[i][j].x * cos(M_PI / 6)
-				+ map_data->point[i][j].y * cos(5 * M_PI / 6)
-				+ map_data->point[i][j].z * cos(-(M_PI / 2));
-			map_data->point[i][j].v = map_data->point[i][j].x * sin(M_PI / 6)
-				+ map_data->point[i][j].y * sin(5 * M_PI / 6)
-				+ map_data->point[i][j].z * sin(-(M_PI / 2));
+			map_data->point[i][j].u = map_data->point[i][j].x * cos(RAD)
+				+ map_data->point[i][j].y * cos(RAD + 0.66666 * M_PI)
+				+ map_data->point[i][j].z * cos(RAD - 0.66666 * M_PI);
+			map_data->point[i][j].v = map_data->point[i][j].x * sin(RAD)
+				+ map_data->point[i][j].y * sin(RAD + 0.66666 * M_PI)
+				+ map_data->point[i][j].z * sin(RAD - 0.66666 * M_PI);
 			j++;
 		}
 		i++;
