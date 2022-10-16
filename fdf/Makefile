@@ -6,14 +6,15 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 19:10:29 by jincpark          #+#    #+#              #
-#    Updated: 2022/10/14 19:37:58 by jincpark         ###   ########.fr        #
+#    Updated: 2022/10/16 02:19:16 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 			= fdf
 
-CC 				= gcc
+CC 				= cc
 FLAGS 			= -Wall -Wextra -Werror
+DEBUG			= -fsanitize=address -g
 
 INC_DIR			= ./includes
 
@@ -34,7 +35,8 @@ SRCS 			= adjust_center.c \
 	   			projection.c \
 	   			put_lines.c \
 	   			show_image.c \
-	   			validation.c
+	   			validation.c \
+				free.c
 
 OBJS 			= $(SRCS:%.c=$(SRCS_DIR)/%.o)
 

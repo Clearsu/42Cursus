@@ -6,19 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:01:43 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/14 19:32:29 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/15 00:58:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void	argument_check(int argc)
-{
-	if (argc == 1)
-		error(1);
-	else if (argc > 2)
-		error(2);
-}
 
 void	error(size_t n)
 {

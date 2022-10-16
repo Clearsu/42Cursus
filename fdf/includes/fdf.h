@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:12:19 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/14 18:28:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:58:31 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void	iso_projection(t_map_data *map_data);
 void	bresenham(t_data *img, t_point point1, t_point point2);
 void	adjust_center(t_map_data *map_data);
 void	argument_check(int argc);
+void	free_splitted_line(char **ptr);
 
 #endif

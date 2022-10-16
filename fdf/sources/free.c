@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macro.h                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 20:59:45 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/16 14:55:56 by jincpark         ###   ########.fr       */
+/*   Created: 2022/10/16 01:54:52 by jincpark          #+#    #+#             */
+/*   Updated: 2022/10/16 14:58:11 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACRO_H
-# define MACRO_H
+#include "fdf.h"
 
-# define MAX_ROW 1024
-# define WIDTH 1280
-# define HEIGHT 900
-# define SPACE 10 
-# define RAD 30
+void	free_splitted_line(char **ptr)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while (ptr[i])
+		free(ptr[i++]);
+	free(ptr);
+}
