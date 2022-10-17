@@ -6,18 +6,18 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:28:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/16 15:25:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/17 21:54:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_data *img, int x, int y, int color)
 {
 	char	*dest;
 
-	dest = data->addr + (y * data->line_length
-			+ x * (data->bits_per_pixel / 8));
+	dest = img->addr + (y * img->line_length
+			+ x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dest = color;
 }
 
@@ -40,6 +40,7 @@ static int	win_close(int keycode, t_mlx_vars *mlx_vars)
 	return (0);
 }
 
+#include <stdio.h>
 void	show_image(t_map_data *map_data)
 {
 	t_mlx_vars	mlx_vars;
