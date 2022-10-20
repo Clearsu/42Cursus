@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:28:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/17 21:54:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/20 16:34:58 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ static int	win_close(int keycode, t_mlx_vars *mlx_vars)
 	if (keycode == 53)
 	{
 		mlx_destroy_window(mlx_vars->mlx, mlx_vars->win);
-		exit(1);
+		exit(0);
 	}
 	return (0);
 }
 
-#include <stdio.h>
 void	show_image(t_map_data *map_data)
 {
 	t_mlx_vars	mlx_vars;

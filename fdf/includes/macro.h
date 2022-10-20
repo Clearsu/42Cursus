@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 20:59:45 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/16 16:24:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/20 16:50:07 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define MACRO_H
 
 # define MAX_ROW 1024
-# define WIDTH 1280
-# define HEIGHT 900
+# define WIDTH 1920
+# define HEIGHT 1080
 # define SPACE 30
-# define RAD M_PI / 6
 
 #endif
