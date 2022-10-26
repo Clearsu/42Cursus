@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 21:14:15 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 00:20:56 by jincpark         ###   ########.fr       */
+/*   Created: 2022/07/07 20:18:48 by jincpark          #+#    #+#             */
+/*   Updated: 2022/10/27 00:19:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(int argc, char **argv, char **envp)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_vars	vars;
-	argc_check(argc);
-	parse(argv, &vars);
-	printf("infile : %s\ncmd1 : %s\ncmd1_flag : %s\ncmd2 : %s\ncmd2_flag : %s\noutfile : %s\n", vars.infile, vars.cmd1, vars.cmd1_flag, vars.cmd2, vars.cmd2_flag, vars.outfile);
+	if (s != NULL)
+	{
+		while (*s != '\0')
+			write(1, s++, 1);
+	}
 }
