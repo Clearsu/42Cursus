@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:35:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 00:33:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/27 02:29:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ typedef struct	s_vars
 	char	*outfile;
 	char	*cmd1;
 	char	*cmd1_flag;
+	char	*cmd1_path;
 	char	*cmd2;
 	char	*cmd2_flag;
+	char	*cmd2_path;
 }	t_vars;
 
 void	argc_check(int argc);

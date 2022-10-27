@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:34:20 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 00:42:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/27 02:35:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	parse_cmd(char *argv, char **cmd, char **cmd_flag)
 	else
 		*cmd_flag = NULL;
 }
+
 void	parse(char **argv, char **envp, t_vars *vars)
 {
 	vars->infile = argv[1];
