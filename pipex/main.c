@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 21:14:15 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 21:00:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:18:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,25 @@
 int	main(int argc, char **argv, char **envp)
 {
 	t_vars	vars;
+	int		i = 0;
 
 	if (argc < 5)
-		error(0);
+		error(0, NULL);
 	parse(&vars, argc, argv, envp);
+	/*
 	printf("infile : %s\n", vars.infile);
 	printf("outfile : %s\n", vars.outfile);
-	printf("cmd1 : %s, cmd2 : %s\n", vars.cmd[0], vars.cmd[1]);
-	printf("path1 : %s, path2 : %s, path3 : %s\n", vars.path[0], vars.path[1], vars.path[2]);
-	printf("cmd_flag1 : %s, cmd_flag2 : %s\n", vars.cmd_flag[0], vars.cmd_flag[1]);
-	printf("cmd_path1 : %s, cmd_path2 : %s\n", vars.cmd_path[0], vars.cmd_path[1]);
+	while (vars.cmd[i])
+	{
+		printf("cmd%d : %s  cmd%d_path : %s  cmd%d_flag : %s\n", i, vars.cmd[i], i, vars.cmd_path[i], i, vars.cmd_flag[i]);
+		i++;
+	}
+	i = 0;
+	while (vars.path[i])
+	{
+		printf("path%d : %s\n", i, vars.path[i]);
+		i++;
+	}
+	*/
 	return (0);
 }
