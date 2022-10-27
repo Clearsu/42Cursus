@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 21:14:15 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/28 02:39:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/28 05:19:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv, char **envp)
 
 	arg_check(argc, argv);
 	parse(&vars, argc, argv, envp);
-//	parsing_check(vars);
+	parsing_check(vars);
 	pipex(&vars);
 	return (0);
 }
