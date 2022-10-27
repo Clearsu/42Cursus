@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 21:14:15 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 21:18:41 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/27 22:29:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ int	main(int argc, char **argv, char **envp)
 	t_vars	vars;
 	int		i = 0;
 
-	if (argc < 5)
-		error(0, NULL);
+	arg_check(argc, argv);
 	parse(&vars, argc, argv, envp);
-	/*
 	printf("infile : %s\n", vars.infile);
 	printf("outfile : %s\n", vars.outfile);
 	while (vars.cmd[i])
@@ -34,6 +32,5 @@ int	main(int argc, char **argv, char **envp)
 		printf("path%d : %s\n", i, vars.path[i]);
 		i++;
 	}
-	*/
 	return (0);
 }

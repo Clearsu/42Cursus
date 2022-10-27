@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:34:20 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 21:04:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/27 23:27:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	search_path(t_vars *vars)
 				free(temp);
 		}
 		if (vars->path[j] == NULL)
-			error(1, vars->cmd[i]);
+			ft_error(1, vars->cmd[i]);
 		i++;
 	}
 }
@@ -93,7 +93,7 @@ void	search_path(t_vars *vars)
 void	parse(t_vars *vars, int argc, char **argv, char **envp)
 {
 	vars->infile = argv[1];
-	vars->outfile = argv[4];
+	vars->outfile = argv[argc - 1];
 	vars->cmd_num = argc - 3;
 	cmd_malloc(vars);
 	parse_cmd(vars, argv);

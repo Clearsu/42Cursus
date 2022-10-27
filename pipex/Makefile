@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 20:40:49 by jincpark          #+#    #+#              #
-#    Updated: 2022/10/27 21:00:26 by jincpark         ###   ########.fr        #
+#    Updated: 2022/10/27 22:55:17 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,18 @@ endif
 SRCS	= main.c \
 		  parse.c \
 		  free.c \
-		  ft_putstr_fd.c \
+		  ft_printf.c \
+		  ft_printf_utils_nbr.c \
+		  ft_printf_utils_str.c \
+		  format_char.c \
+		  format_hexa.c \
+		  format_nbr.c \
 		  ft_split.c \
+		  ft_strncmp.c \
 		  get_next_line_bonus.c \
 		  get_next_line_utils_bonus.c \
-		  error.c
+		  ft_error.c \
+		  arg_check.c
 
 OBJS	= $(SRCS:%.c=%.o)
 

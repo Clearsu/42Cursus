@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   format_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 20:18:48 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 19:52:30 by jincpark         ###   ########.fr       */
+/*   Created: 2022/07/28 17:56:57 by jincpark          #+#    #+#             */
+/*   Updated: 2022/07/29 17:17:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	print_char(int c)
 {
-	if (s != NULL)
+	char	res;
+
+	res = (char)c;
+	write(1, &res, 1);
+	return (1);
+}
+
+int	print_str(char *s)
+{
+	int	len;
+
+	if (s)
 	{
-		while (*s != '\0')
-			write(fd, s++, 1);
+		len = ft_strlen(s);
+		ft_putstr(s);
+		return (len);
 	}
+	ft_putstr("(null)");
+	return (6);
 }
