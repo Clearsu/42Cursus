@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:34:20 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 23:27:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/28 02:00:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	parse(t_vars *vars, int argc, char **argv, char **envp)
 	vars->infile = argv[1];
 	vars->outfile = argv[argc - 1];
 	vars->cmd_num = argc - 3;
+	vars->envp = envp;
 	cmd_malloc(vars);
 	parse_cmd(vars, argv);
 	parse_path(vars, envp);

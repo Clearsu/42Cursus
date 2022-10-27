@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:35:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 22:58:09 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/28 02:40:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,21 @@ typedef struct	s_vars
 {
 	char	*infile;
 	char	*outfile;
+	int		fd_in;
+	int		fd_out;
 	char	**cmd;
 	char	**cmd_flag;
 	char	**cmd_path;
 	char	**path;
+	char	**argv;
+	char	**envp;
 	size_t	cmd_num;
 }	t_vars;
 
 void	parse(t_vars *vars, int argc, char **argv, char **envp);
 void	ft_error(int n, char *str);
 void	arg_check(int argc, char **argv);
+void	pipex(t_vars *vars);
 
 int		ft_printf(const char *str, ...);
 void	free_split(char **ptr);

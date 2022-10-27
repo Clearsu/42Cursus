@@ -6,19 +6,16 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 21:14:15 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 22:29:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/28 02:39:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(int argc, char **argv, char **envp)
+void	parsing_check(t_vars vars)
 {
-	t_vars	vars;
 	int		i = 0;
 
-	arg_check(argc, argv);
-	parse(&vars, argc, argv, envp);
 	printf("infile : %s\n", vars.infile);
 	printf("outfile : %s\n", vars.outfile);
 	while (vars.cmd[i])
@@ -31,6 +28,16 @@ int	main(int argc, char **argv, char **envp)
 	{
 		printf("path%d : %s\n", i, vars.path[i]);
 		i++;
-	}
+	}	
+}
+
+int	main(int argc, char **argv, char **envp)
+{
+	t_vars	vars;
+
+	arg_check(argc, argv);
+	parse(&vars, argc, argv, envp);
+//	parsing_check(vars);
+	pipex(&vars);
 	return (0);
 }

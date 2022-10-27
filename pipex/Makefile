@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 20:40:49 by jincpark          #+#    #+#              #
-#    Updated: 2022/10/27 22:55:17 by jincpark         ###   ########.fr        #
+#    Updated: 2022/10/28 01:33:21 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ FLAGS += $(DEBUG_OPT)
 endif
 
 SRCS	= main.c \
+		  pipex.c \
 		  parse.c \
 		  free.c \
 		  ft_printf.c \
