@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 23:53:17 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 19:55:56 by jincpark         ###   ########.fr       */
+/*   Created: 2022/10/27 20:54:32 by jincpark          #+#    #+#             */
+/*   Updated: 2022/10/27 21:01:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	argc_check(int argc)
+void	error(int n, char *str)
 {
-	if (argc  < 5)
-	{
-		ft_putstr_fd("invalid argument number\n", 1);
-		exit(1);
-	}
+	if (n == 0)
+		ft_putstr_fd("Invalid argument number\n", 1);
+	else if (n == 1)
+		perror(str);
+	exit(1);
 }

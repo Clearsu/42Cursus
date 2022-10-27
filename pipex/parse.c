@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:34:20 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 20:37:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:02:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ void	search_path(t_vars *vars)
 			else
 				free(temp);
 		}
-//		if (vars->path[j] == NULL)
-//			exit(1);
+		if (vars->path[j] == NULL)
+			error(1, vars->cmd[i]);
 		i++;
 	}
 }

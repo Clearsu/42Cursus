@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:35:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 20:29:45 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:02:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct	s_vars
 	size_t	cmd_num;
 }	t_vars;
 
-void	argc_check(int argc);
 void	parse(t_vars *vars, int argc, char **argv, char **envp);
+void	error(int n, char *str);
 
 void	ft_putstr_fd(char *str, int fd);
 void	free_split(char **ptr);
