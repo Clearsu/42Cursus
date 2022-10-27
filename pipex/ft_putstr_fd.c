@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:18:48 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 00:19:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/27 19:52:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	ft_putstr_fd(char *s, int fd)
 	if (s != NULL)
 	{
 		while (*s != '\0')
-			write(1, s++, 1);
+			write(fd, s++, 1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 23:53:17 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 00:07:21 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/27 19:55:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	argc_check(int argc)
 {
-	if (argc != 5)
+	if (argc  < 5)
 	{
 		ft_putstr_fd("invalid argument number\n", 1);
 		exit(1);
