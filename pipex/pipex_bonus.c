@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 06:08:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/28 09:46:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/31 16:10:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,5 @@ void	pipex(t_vars *vars)
 	vars->argv = (char **)malloc(sizeof(char *) * 3);
 	i = 0;
 	while (i < vars->cmd_num)
-	{
 		multiple_pipes(vars, fd_pipe, i++);
-	}
 }
