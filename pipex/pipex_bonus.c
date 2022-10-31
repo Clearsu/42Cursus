@@ -6,31 +6,15 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 06:08:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/31 23:00:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/31 23:25:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	multiple_pipes(t_vars *vars, size_t i)
+static void	dup2_and_close(t_vars *vars, int prev_read_end, int fd_pipe[], size_t i)
 {
-	pid_t		pid;
-	int			fd_pipe[2];
-	static int	prev_read_end;
-	
-	if (i < vars->cmd_num - 1)
-		pipe(fd_pipe);
-	pid = fork();
-	if (pid > 0) // parent process
-	{
-		prev_read_end = fd_pipe[0];
-		close(fd_pipe[1]);
-		printf("waiting child process %lu...\n", i + 1);
-		waitpid(0, NULL, 0);
-		return ;
-	}
-	// input
-	if (i == 0)	
+	if (i == 0)
 	{
 		dup2(vars->fd_in, 0);
 		close(vars->fd_in);
@@ -41,7 +25,6 @@ void	multiple_pipes(t_vars *vars, size_t i)
 		close(prev_read_end);
 	}
 	close(fd_pipe[0]);
-	// output
 	if (i == vars->cmd_num - 1)
 	{
 		dup2(vars->fd_out, 1);
@@ -52,6 +35,28 @@ void	multiple_pipes(t_vars *vars, size_t i)
 		dup2(fd_pipe[1], 1);
 		close(fd_pipe[1]);
 	}
+}
+
+static void	multiple_pipes(t_vars *vars, size_t i)
+{
+	pid_t		pid;
+	int			fd_pipe[2];
+	static int	prev_read_end;
+	
+	if (i < vars->cmd_num - 1)
+		pipe(fd_pipe);
+	pid = fork();
+	if (pid > 0)
+	{
+		if (i > 0)
+			close(prev_read_end);
+		prev_read_end = fd_pipe[0];
+		close(fd_pipe[1]);
+		printf("waiting child process %lu...\n", i + 1);
+		waitpid(0, NULL, 0);
+		return ;
+	}
+	dup2_and_close(vars, prev_read_end, fd_pipe, i);
 	execve(vars->cmd_path[i], vars->argv[i], vars->envp);
 }
 
