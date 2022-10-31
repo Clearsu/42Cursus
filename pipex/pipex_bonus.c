@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 06:08:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/31 23:25:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/31 23:31:21 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	multiple_pipes(t_vars *vars, size_t i)
 			close(prev_read_end);
 		prev_read_end = fd_pipe[0];
 		close(fd_pipe[1]);
-		printf("waiting child process %lu...\n", i + 1);
+		printf("waiting for command %lu...\n", i + 1);
 		waitpid(0, NULL, 0);
 		return ;
 	}
