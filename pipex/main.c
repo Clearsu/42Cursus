@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 21:14:15 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/31 16:12:45 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/31 20:57:23 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,17 @@
 void	parsing_check(t_vars vars)
 {
 	int		i = 0;
+	int		j;
 
-	printf("infile : %s\n", vars.infile);
-	printf("outfile : %s\n", vars.outfile);
-	while (vars.cmd[i])
+	printf("infile_fd : %d\n", vars.fd_in);
+	printf("outfile_fd : %d\n", vars.fd_out);
+	while (vars.cmd_path[i])
 	{
-		printf("cmd%d : %s  cmd%d_path : %s  cmd%d_flag : %s\n", i, vars.cmd[i], i, vars.cmd_path[i], i, vars.cmd_flag[i]);
+		printf("cmd%d_path : %s  cmd%d_argv : ", i, vars.cmd_path[i], i);
+		j = 0;
+		while (vars.argv[i][j])
+			printf("%s ", vars.argv[i][j++]);
+		printf("\n");
 		i++;
 	}
 	i = 0;
@@ -37,7 +42,7 @@ int	main(int argc, char **argv, char **envp)
 
 	arg_check(argc, argv);
 	parse(&vars, argc, argv, envp);
-	parsing_check(vars);
 	pipex(&vars);
+	//parsing_check(vars);
 	return (0);
 }

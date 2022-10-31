@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:35:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/28 06:04:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/31 17:03:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,9 @@ typedef struct	s_vars
 	char	*outfile;
 	int		fd_in;
 	int		fd_out;
-	char	**cmd;
-	char	**cmd_flag;
 	char	**cmd_path;
 	char	**path;
-	char	**argv;
+	char	***argv;
 	char	**envp;
 	size_t	cmd_num;
 }	t_vars;
