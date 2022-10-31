@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 06:08:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/31 22:58:18 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/31 23:00:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,13 @@ void	multiple_pipes(t_vars *vars, size_t i)
 	{
 		dup2(vars->fd_in, 0);
 		close(vars->fd_in);
-		close(fd_pipe[0]);
 	}
 	else
 	{
 		dup2(prev_read_end, 0);
 		close(prev_read_end);
-		close(fd_pipe[0]);
 	}
+	close(fd_pipe[0]);
 	// output
 	if (i == vars->cmd_num - 1)
 	{
