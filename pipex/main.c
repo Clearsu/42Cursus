@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 21:14:15 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/31 20:57:23 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/10/31 23:43:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,16 @@ void	parsing_check(t_vars vars)
 int	main(int argc, char **argv, char **envp)
 {
 	t_vars	vars;
+	int		h;
 
-	arg_check(argc, argv);
-	parse(&vars, argc, argv, envp);
-	pipex(&vars);
+	h = arg_check(argc, argv);
+	if (h)
+		here_doc(argv, envp);
+	else
+	{
+		parse(&vars, argc, argv, envp);
+		pipex(&vars);
+	}
 	//parsing_check(vars);
 	return (0);
 }
