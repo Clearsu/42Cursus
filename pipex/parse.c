@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:34:20 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/01 15:13:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/01 17:50:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	put_argv_4_execve(t_vars *vars, char **argv)
 	}
 }
 
-static void	parse_path(t_vars *vars, char **envp)
+void	parse_path(t_vars *vars, char **envp)
 {
 	char	**temp_list;
 	char	*temp;
@@ -64,7 +64,7 @@ static void	parse_path(t_vars *vars, char **envp)
 	}
 }
 
-static void	search_path(t_vars *vars)
+void	search_path(t_vars *vars)
 {	
 	char	*temp;
 	size_t	i;

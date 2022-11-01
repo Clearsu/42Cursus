@@ -6,13 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:20:05 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/01 15:01:27 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:42:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	arg_check(int argc, char **argv)
+int	arg_check(int argc, char **argv)
 {
 	int	open_test;
 
@@ -22,4 +22,5 @@ void	arg_check(int argc, char **argv)
 	if (open_test == -1)
 		ft_error(0, argv[1]);
 	close(fd_test);
+	return (0);
 }

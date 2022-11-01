@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 20:40:49 by jincpark          #+#    #+#              #
-#    Updated: 2022/10/28 07:56:26 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/01 17:51:00 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,9 @@ MAN_SRCS	=	main.c \
 				ft_error.c \
 				arg_check.c
 
-BNS_SRCS	= 	main.c \
+BNS_SRCS	= 	main_bonus.c \
 		  		pipex_bonus.c \
+				here_doc_bonus.c \
 		  		parse.c \
 		  		free.c \
 		  		ft_printf.c \

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 21:14:15 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/01 15:43:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/01 17:49:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 int	main(int argc, char **argv, char **envp)
 {
 	t_vars	vars;
+	int		h;
 
-	arg_check(argc, argv);
-	parse(&vars, argc, argv, envp);
-	pipex(&vars);
+	h = arg_check(argc, argv);
+	if (h)
+		here_doc(&vars, argc, argv, envp);
+	else
+	{
+		parse(&vars, argc, argv, envp);
+		pipex(&vars);
+	}
 	return (0);
 }
