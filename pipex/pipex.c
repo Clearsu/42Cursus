@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 02:54:14 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/31 17:28:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:26:58 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	single_pipe(t_vars *vars)
 	pid = fork();
 	if (pid > 0)
 	{
-		waitpid(0, NULL, 0);
 		dup2(fd_pipe[0], 0);
 		close(fd_pipe[1]);
 		dup2(vars->fd_out, 1);
+		waitpid(0, NULL, 0);
 		execve(vars->cmd_path[1], vars->argv[1], vars->envp);
 	}
 	else
@@ -38,7 +38,6 @@ void	single_pipe(t_vars *vars)
 
 void	pipex(t_vars *vars)
 {
-
 	vars->fd_in = open(vars->infile, O_RDONLY);
 	vars->fd_out = open(vars->outfile, O_WRONLY | O_TRUNC | O_CREAT, 0666);
 	single_pipe(vars);

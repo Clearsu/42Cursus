@@ -1,6 +1,0 @@
--rw-r--r--   1 jincpark  2022_seoul    976 Oct 31 23:31 ft_error.o$
--rw-r--r--   1 jincpark  2022_seoul   2644 Oct 31 23:31 ft_printf.o$
--rw-r--r--   1 jincpark  2022_seoul   1364 Oct 31 23:31 ft_printf_utils_nbr.o$
--rw-r--r--   1 jincpark  2022_seoul   1124 Oct 31 23:31 ft_printf_utils_str.o$
--rw-r--r--   1 jincpark  2022_seoul   2204 Oct 31 23:31 ft_split.o$
--rw-r--r--   1 jincpark  2022_seoul    840 Oct 31 23:31 ft_strncmp.o$

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 06:08:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/31 23:36:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:28:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ static void	multiple_pipes(t_vars *vars, size_t i)
 			close(prev_read_end);
 		prev_read_end = fd_pipe[0];
 		close(fd_pipe[1]);
-		printf("waiting for command %lu...\n", i + 1);
-		waitpid(0, NULL, 0);
+	//	printf("waiting for command %lu...\n", i + 1);
+	//	waitpid(0, NULL, 0);
 		return ;
 	}
 	dup2_and_close(vars, prev_read_end, fd_pipe, i);
@@ -69,4 +69,7 @@ void	pipex(t_vars *vars)
 	i = 0;
 	while (i < vars->cmd_num)
 		multiple_pipes(vars, i++);
+	i = 0;
+	while (i++ < vars->cmd_num)
+		wait(NULL);
 }
