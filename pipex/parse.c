@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:34:20 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/01 21:40:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:21:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	parse_path(t_vars *vars, char **envp)
 	while (envp[i])
 	{
 		if (ft_strncmp(envp[i++], "PATH", 4) == 0)
-			break;
+			break ;
 	}
 	temp_list = ft_split(envp[--i], '=');
 	vars->path = ft_split(temp_list[1], ':');

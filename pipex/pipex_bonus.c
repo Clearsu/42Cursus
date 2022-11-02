@@ -6,13 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 06:08:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/01 15:38:27 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:22:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static void	dup2_and_close(t_vars *vars, int prev_read_end, int fd_pipe[], size_t i)
+static void	dup2_and_close(t_vars *vars, int prev_read_end,
+		int fd_pipe[], size_t i)
 {
 	if (i == 0)
 	{
@@ -42,7 +43,7 @@ static void	multiple_pipes(t_vars *vars, size_t i)
 	pid_t		pid;
 	int			fd_pipe[2];
 	static int	prev_read_end;
-	
+
 	if (i < vars->cmd_num - 1)
 		pipe(fd_pipe);
 	pid = fork();

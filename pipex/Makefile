@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 20:40:49 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/01 17:51:00 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/02 18:05:26 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,4 +91,4 @@ debug	:
 bonusdebug	:
 	@$(MAKE) IF_BONUS=1 DEBUG_FLAG=1 all
 
-.PHONY	:	all clean fclean re bonus debug
+.PHONY	:	all clean fclean re bonus debug bonusdebug

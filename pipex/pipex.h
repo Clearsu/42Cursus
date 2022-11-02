@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:35:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/01 18:22:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:21:38 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define BUFFER_SIZE 128
 
-typedef struct	s_vars
+typedef struct s_vars
 {
 	char	*infile;
 	char	*outfile;

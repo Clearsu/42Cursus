@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 21:01:43 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/15 00:58:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:36:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	error(size_t n)
 		perror("Failed to open a file");
 	else if (n == 6)
 		perror("Empty file or is not a file");
-	exit(1);
+	exit(errno);
 }

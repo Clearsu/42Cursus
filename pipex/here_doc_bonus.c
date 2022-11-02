@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 23:44:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/01 23:04:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:21:00 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	parse_heredoc(t_vars *vars, char **argv, char **envp)
 void	heredoc_single_pipe(t_vars *vars, int read_end)
 {
 	pid_t	pid;
-	int	fd_pipe[2];
-	int	fd_out;
+	int		fd_pipe[2];
+	int		fd_out;
 
 	pipe(fd_pipe);
 	pid = fork();
@@ -86,8 +86,8 @@ void	pipe_heredoc(t_vars *vars)
 
 void	here_doc(t_vars *vars, int argc, char **argv, char **envp)
 {
-	(void)argc;
-
+	if (argc != 6)
+		ft_error(3, NULL);
 	parse_heredoc(vars, argv, envp);
 	parse_path(vars, envp);
 	search_path(vars);
