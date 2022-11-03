@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:38:00 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/03 17:01:56 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:15:18 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stdlib.h>
 # include <unistd.h>

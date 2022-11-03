@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:35:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/03 17:02:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:16:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 # include <unistd.h>
 # include <fcntl.h>
