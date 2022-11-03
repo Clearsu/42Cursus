@@ -6,11 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:01:42 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/03 19:26:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/03 21:01:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 int	arg_check(int argc, char **argv)
 {
