@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:33:57 by jincpark          #+#    #+#             */
-/*   Updated: 2022/10/27 19:03:56 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:56:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "get_next_line.h"
 
 static char	*read_and_save(int fd, char *buffer, char *save)
 {

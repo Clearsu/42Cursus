@@ -6,11 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 06:08:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/02 17:22:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:55:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 static void	dup2_and_close(t_vars *vars, int prev_read_end,
 		int fd_pipe[], size_t i)

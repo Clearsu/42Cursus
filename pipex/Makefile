@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 20:40:49 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/02 18:05:26 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/03 17:06:51 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,7 @@ MAN_SRCS	=	main.c \
 				format_nbr.c \
 				ft_split.c \
 				ft_strncmp.c \
-				get_next_line_bonus.c \
-				get_next_line_utils_bonus.c \
+				get_next_line_utils.c \
 				ft_error.c \
 				arg_check.c
 
@@ -46,14 +45,12 @@ BNS_SRCS	= 	main_bonus.c \
 		  		format_nbr.c \
 		  		ft_split.c \
 		  		ft_strncmp.c \
-		  		get_next_line_bonus.c \
-		  		get_next_line_utils_bonus.c \
+		  		get_next_line.c \
+		  		get_next_line_utils.c \
 		  		ft_error.c \
 		  		arg_check_bonus.c
 
-
 MAN_OBJS	= $(MAN_SRCS:%.c=%.o)
-
 BNS_OBJS	= $(BNS_SRCS:%.c=%.o)
 
 ifeq ($(DEBUG_FLAG), 1)

@@ -6,11 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 23:44:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/02 17:21:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:55:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 void	parse_heredoc(t_vars *vars, char **argv, char **envp)
 {
