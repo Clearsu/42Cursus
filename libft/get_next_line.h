@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dup2.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 13:50:04 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/03 23:10:04 by jincpark         ###   ########.fr       */
+/*   Created: 2022/07/21 21:38:00 by jincpark          #+#    #+#             */
+/*   Updated: 2022/11/04 16:54:54 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(int argc, char **argv)
-{
-	int	fd;
+# include <stdlib.h>
+# include <unistd.h>
 
-	if (argc != 2)
-	{
-		printf("invalid argument number\n");
-		return (1);
-	}
-	fd = open(argv[1], O_WRONLY|O_CREAT|O_TRUNC, 0666);
-	dup2(fd, 1);
-	printf("fd : %d\n", fd);
-	for (int i = 0; i < 10; i++)
-		printf("Negin is very adorable\n");
-}
+char	*get_next_line(int fd);
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+#endif

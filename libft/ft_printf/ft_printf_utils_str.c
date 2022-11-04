@@ -1,31 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dup2.c                                             :+:      :+:    :+:   */
+/*   ft_printf_utils_str.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 13:50:04 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/03 23:10:04 by jincpark         ###   ########.fr       */
+/*   Created: 2022/07/28 20:05:00 by jincpark          #+#    #+#             */
+/*   Updated: 2022/07/29 20:07:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	ft_strlen(const char *s)
 {
-	int	fd;
+	int	i;
 
-	if (argc != 2)
+	i = 0;
+	while (*(s + i))
+		i++;
+	return (i);
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *s)
+{
+	if (s)
 	{
-		printf("invalid argument number\n");
-		return (1);
+		while (*s)
+			ft_putchar(*s++);
 	}
-	fd = open(argv[1], O_WRONLY|O_CREAT|O_TRUNC, 0666);
-	dup2(fd, 1);
-	printf("fd : %d\n", fd);
-	for (int i = 0; i < 10; i++)
-		printf("Negin is very adorable\n");
+}
+
+char	*ft_findchr(const char *s, int c)
+{
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (c == 0)
+		return ((char *)s);
+	return (NULL);
 }

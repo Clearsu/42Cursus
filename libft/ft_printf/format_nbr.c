@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dup2.c                                             :+:      :+:    :+:   */
+/*   format_nbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 13:50:04 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/03 23:10:04 by jincpark         ###   ########.fr       */
+/*   Created: 2022/07/28 20:08:06 by jincpark          #+#    #+#             */
+/*   Updated: 2022/07/29 18:54:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	print_demi(int n)
 {
-	int	fd;
-
-	if (argc != 2)
-	{
-		printf("invalid argument number\n");
+	ft_putnbr(n);
+	if (n == 0)
 		return (1);
-	}
-	fd = open(argv[1], O_WRONLY|O_CREAT|O_TRUNC, 0666);
-	dup2(fd, 1);
-	printf("fd : %d\n", fd);
-	for (int i = 0; i < 10; i++)
-		printf("Negin is very adorable\n");
+	return (ft_nbr_len(n));
+}
+
+int	print_unsign(unsigned int n)
+{
+	ft_putnbr(n);
+	if (n == 0)
+		return (1);
+	return (ft_nbr_len(n));
 }

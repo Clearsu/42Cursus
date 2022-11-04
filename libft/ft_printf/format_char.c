@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dup2.c                                             :+:      :+:    :+:   */
+/*   format_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 13:50:04 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/03 23:10:04 by jincpark         ###   ########.fr       */
+/*   Created: 2022/07/28 17:56:57 by jincpark          #+#    #+#             */
+/*   Updated: 2022/07/29 17:17:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	print_char(int c)
 {
-	int	fd;
+	char	res;
 
-	if (argc != 2)
+	res = (char)c;
+	write(1, &res, 1);
+	return (1);
+}
+
+int	print_str(char *s)
+{
+	int	len;
+
+	if (s)
 	{
-		printf("invalid argument number\n");
-		return (1);
+		len = ft_strlen(s);
+		ft_putstr(s);
+		return (len);
 	}
-	fd = open(argv[1], O_WRONLY|O_CREAT|O_TRUNC, 0666);
-	dup2(fd, 1);
-	printf("fd : %d\n", fd);
-	for (int i = 0; i < 10; i++)
-		printf("Negin is very adorable\n");
+	ft_putstr("(null)");
+	return (6);
 }

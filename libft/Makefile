@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 11:08:32 by jincpark          #+#    #+#              #
-#    Updated: 2022/07/16 15:55:05 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/04 18:22:12 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,39 +27,35 @@ SRCS					= ft_atoi.c ft_bzero.c ft_calloc.c \
 					  ft_strlcpy.c ft_strlen.c ft_strmapi.c \
 					  ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 					  ft_strtrim.c ft_substr.c ft_tolower.c \
-					  ft_toupper.c
-
-BNS_SRCS				= ft_lstsize.c ft_lstadd_back.c ft_lstadd_front.c \
+					  ft_toupper.c get_next_line.c \
+					  ft_lstsize.c ft_lstadd_back.c ft_lstadd_front.c \
 					  ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
 					  ft_lstmap.c ft_lstnew.c
+
+FT_PRINTF_DIR			= ft_printf
+FT_PRINTF_AR			= libftprintf.a
 
 %.o	:	%.c
 	$(CC) $(FLAGS) -c $^
 
-MAN_OBJS					= $(SRCS:%.c=%.o)
-
-BNS_OBJS				= $(BNS_SRCS:%.c=%.o)
-
-ifdef IF_BONUS
-	OBJS = $(MAN_OBJS) $(BNS_OBJS)
-else
-	OBJS = $(MAN_OBJS)
-endif
+OBJS					= $(SRCS:%.c=%.o)
 
 $(NAME)		:	$(OBJS)
+			@make -C $(FT_PRINTF_DIR) 
+			@cp $(FT_PRINTF_DIR)/$(FT_PRINTF_AR) .
+			@mv $(FT_PRINTF_AR) $(NAME)
 			ar rc $(NAME) $(OBJS)
 
 all	:	$(NAME)
 
-bonus	:
-		make IF_BONUS=1 all
-
 clean	:
-		rm -f $(MAN_OBJS) $(BNS_OBJS)
+		@make clean -C $(FT_PRINTF_DIR)
+		rm -f $(OBJS)
 
 fclean	:	clean
+		@rm -f $(FT_PRINTF_DIR)/$(FT_PRINTF_AR)
 		rm -f $(NAME)
 
 re	:	fclean all
 
-.PHONY	:	all clean fclean re bonus
+.PHONY	:	all clean fclean re
