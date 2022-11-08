@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 19:10:29 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/07 22:25:25 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/08 20:35:41 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME 			= push_swap
 
 CC 				= cc
 FLAGS 			= -Wall -Wextra -Werror
-DEBUG			= -fsanitize=address -g
+DEBUG			= -fsanitize=address -g3
 
 INC_DIR			= ./includes
 
@@ -22,18 +22,19 @@ LIBFT_DIR 		= ./libft
 LIBFT_LIB 		= libft.a
 
 SRCS_DIR		= ./sources
-SRCS 			=
+SRCS 			= test.c circle_queue.c operations.c
 
 OBJS 			= $(SRCS:%.c=$(SRCS_DIR)/%.o)
 
+ifeq ($(DEBUG_FLAG), 1)
+	FLAGS += $(DEBUG)
+endif
 
 %.o :	%.c
-	$(CC) $(FLAGS) -c $^ -I $(INC_DIR) -L $(LIBFT_LIB) -o $@
+	$(CC) $(FLAGS) -c $^ -I $(INC_DIR) -o $@
 
 $(NAME)	:	$(OBJS)
-	@make -C $(MLX_DIR)
-	@cp $(MLX_DIR)/$(MLX_LIB) .
-	@make bonus -C $(LIBFT_DIR)
+	@make -C $(LIBFT_DIR)
 	$(CC) $(FLAGS) -I $(INC_DIR) $(LIBFT_DIR)/$(LIBFT_LIB) $(LIB_FLAGS) $^ -o $@
 
 all	:	$(NAME)
@@ -47,3 +48,8 @@ fclean	:	clean
 	rm -f $(NAME)
 
 re	:	fclean all
+
+debug	:
+	$(MAKE) DEBUG_FLAG=1 all
+
+.PHONY	:	all clean fclean re debug

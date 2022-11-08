@@ -6,49 +6,57 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 23:13:02 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/08 16:23:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:23:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "circle_queue.h"
+#include "stdio.h"
 
-void	swap(t_stack *stack)
+void	swap(t_circle_queue *circle_queue)
 {
 	int	temp;
 
-	temp = stack->stack[stack->top];
-	stack->stack[stack->top] = stack->stack[stack->top - 1];
-	stack->stack[stack->top - 1] = temp;
+	temp = circle_queue->queue[circle_queue->top];
+	circle_queue->queue[circle_queue->top] = circle_queue->queue[circle_queue->top - 1];
+	circle_queue->queue[circle_queue->top - 1] = temp;
 }
 
-void	push(t_stack *stack1, t_stack *stack2)
+void	push(t_circle_queue *circle_queue1, t_circle_queue *circle_queue2)
 {
 	int	temp;
 
-	if (is_stack_empty(stack1))
+	if (is_circle_queue_empty(circle_queue1))
 		return ;
-	temp = stack1->stack[stack1->top];
-	decrease_idx(stack1, 't');
-	increase_idx(stack2, 't');
-	stack2->stack[stack2->top] = temp;
+	temp = circle_queue1->queue[circle_queue1->top];
+	circle_queue1->queue[circle_queue1->top] = 0;
+	decrease_idx(circle_queue1, 't');
+	increase_idx(circle_queue2, 't');
+	circle_queue2->queue[circle_queue2->top] = temp;
+	printf("\npush\n\n");
 }
 
-void	rotate(t_stack *stack)
+void	rotate(t_circle_queue *circle_queue)
 {
 	int	temp;
 
-	temp = stack->stack[stack->top];
-	decrease_idx(stack, 't');
-	decrease_idx(stack, 'b');
-	stack->stack[stack->bottom] = temp;	
+	temp = circle_queue->queue[circle_queue->top];
+	circle_queue->queue[circle_queue->top] = 0;;
+	decrease_idx(circle_queue, 't');
+	circle_queue->queue[circle_queue->bottom] = temp;	
+	decrease_idx(circle_queue, 'b');
+	circle_queue->queue[circle_queue->bottom] = 0;	
+	printf("\nrotate\n\n");
 }
 
-void	r_rotate(t_stack *stack)
+void	r_rotate(t_circle_queue *circle_queue)
 {
 	int	temp;
 
-	temp = stack->stack[stack->bottom];
-	increase_idx(stack, 't');
-	increase_idx(stack, 'b');
-	stack->stack[stack->top] = temp;
+	temp = circle_queue->queue[circle_queue->bottom + 1];
+	increase_idx(circle_queue, 'b');
+	circle_queue->queue[circle_queue->bottom] = 0;
+	increase_idx(circle_queue, 't');
+	circle_queue->queue[circle_queue->top] = temp;
+	printf("\nreverse rotate\n\n");
 }
