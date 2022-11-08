@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 04:47:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 05:11:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int	is_all_num(char *str)
 	return (1);
 }
 
-void	check_duplicate(int *queue, int i)
+void	check_duplicate(int *arr, int i)
 {
 	int	curr;
 
-	curr = queue[i--];
+	curr = arr[i--];
 	while (i > 0)
 	{
-		if (queue[i--] == curr)
+		if (arr[i--] == curr)
 			error();
 	}
 }
@@ -43,7 +43,7 @@ void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv)
 	int			i;
 	long long	num;
 
-	i = 1; // top starts from index 1 in a queue
+	i = 1; // top starts from index 1 in a arr
 	while (argv[i])	
 	{
 		if (is_all_num(argv[i]))
@@ -51,8 +51,8 @@ void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv)
 			num = ft_atol(argv[i]);
 			if (num > INT_MAX || num < INT_MIN)
 				error();
-			circle_queue->queue[i] = (int)num;
-			check_duplicate(circle_queue->queue, i++);
+			circle_queue->arr[i] = (int)num;
+			check_duplicate(circle_queue->arr, i++);
 		}
 		else
 			error();

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:27:27 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/08 20:28:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 05:07:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct s_circle_queue
 {
-	int	*queue;
-	int	bottom;
+	int	*arr;
+	int	bot;
 	int	top;
 	int	size;
 }	t_circle_queue;
