@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:25:50 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/07 23:49:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:31:27 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	is_stack_full(int bottom, int top, int size)
 	return (0);
 }
 
-int is_stack_empty(int bottom, int top)
+int is_stack_empty(t_stack *stack)
 {
-	if (bottom == top)
+	if (stack->bottom == stack->top)
 		return (1);
 	return (0);
 }
