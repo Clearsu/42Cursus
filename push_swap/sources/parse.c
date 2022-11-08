@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 03:58:02 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 04:47:53 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ int	is_all_num(char *str)
 		str++;
 	while (*str)
 	{
-		if (!ft_isdigit(*str)) 
+		if (!ft_isdigit(*str++)) 
 			return (0);
-		str++;
 	}
 	return (1);
 }
@@ -34,9 +33,8 @@ void	check_duplicate(int *queue, int i)
 	curr = queue[i--];
 	while (i > 0)
 	{
-		if (queue[i] == curr)
+		if (queue[i--] == curr)
 			error();
-		i--;
 	}
 }
 
@@ -54,8 +52,7 @@ void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv)
 			if (num > INT_MAX || num < INT_MIN)
 				error();
 			circle_queue->queue[i] = (int)num;
-			check_duplicate(circle_queue->queue, i);
-			i++;
+			check_duplicate(circle_queue->queue, i++);
 		}
 		else
 			error();
