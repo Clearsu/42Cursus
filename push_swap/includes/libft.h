@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 20:24:04 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/04 18:27:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:47:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t blen);
 char	*ft_strdup(const char *s);
 int		ft_atoi(const char *nptr);
+long long	ft_atol(const char *nptr);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

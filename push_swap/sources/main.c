@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:46:31 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/08 23:41:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:08:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ void	print_circle_queues(t_circle_queue *circle_queue_a,
 int	main(int argc, char **argv)
 {
 	t_circle_queue	*circle_queue_a;
-	t_circle_queue	*circle_queue_b;
+//	t_circle_queue	*circle_queue_b;
 
+	if (argc == 1)
+		error();
 	circle_queue_a = create_circle_queue(argc - 1);
-	circle_queue_b = create_circle_queue(argc - 1);
+//	circle_queue_b = create_circle_queue(argc - 1);
 	
 	put_argv_to_queue(circle_queue_a, argv);
-	
+/*	
 	print_circle_queues(circle_queue_a, circle_queue_b);
 	push(circle_queue_a, circle_queue_b);
 	print_circle_queues(circle_queue_a, circle_queue_b);
@@ -51,5 +53,6 @@ int	main(int argc, char **argv)
 	print_circle_queues(circle_queue_a, circle_queue_b);
 	r_rotate(circle_queue_b);
 	print_circle_queues(circle_queue_a, circle_queue_b);
+	*/
 	return (0);
 }

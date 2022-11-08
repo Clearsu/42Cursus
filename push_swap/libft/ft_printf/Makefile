@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/29 15:18:35 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/04 16:50:56 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/09 01:56:36 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,22 +23,22 @@ SRCS = ft_printf.c \
 	   ft_printf_utils_nbr.c \
 	   ft_printf_utils_str.c
 
-.o	:	$(SRCS)
-	$(CC) $(FLAGS) -c $^
+%.o	:	%.c
+	@$(CC) $(FLAGS) -c $^
 
 OBJS = $(SRCS:.c=.o)
 
 $(NAME) :	$(OBJS)
-		ar rc $(NAME) $(OBJS)
+		@ar rc  $(NAME) $(OBJS)
 
 all	:	$(NAME)
 
 
 clean	:
-		rm -f $(OBJS)
+		@rm -f $(OBJS)
 
 fclean	:	clean
-		rm -f $(NAME)
+		@rm -f $(NAME)
 
 re	:	fclean all
 

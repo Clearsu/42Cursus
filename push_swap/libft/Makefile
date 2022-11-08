@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 11:08:32 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/04 18:22:12 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/09 01:53:30 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC						= gcc
 
 FLAGS					= -Wall -Wextra -Werror -I.
 
-SRCS					= ft_atoi.c ft_bzero.c ft_calloc.c \
+SRCS					= ft_atoi.c ft_atol.c ft_bzero.c ft_calloc.c \
 					  ft_isalnum.c ft_isalpha.c ft_isascii.c \
 					  ft_isdigit.c ft_isprint.c ft_itoa.c \
 					  ft_memchr.c ft_memcmp.c ft_memcpy.c \
@@ -36,25 +36,25 @@ FT_PRINTF_DIR			= ft_printf
 FT_PRINTF_AR			= libftprintf.a
 
 %.o	:	%.c
-	$(CC) $(FLAGS) -c $^
+	@$(CC) $(FLAGS) -c $^
 
-OBJS					= $(SRCS:%.c=%.o)
+OBJS		= $(SRCS:%.c=%.o)
 
 $(NAME)		:	$(OBJS)
 			@make -C $(FT_PRINTF_DIR) 
 			@cp $(FT_PRINTF_DIR)/$(FT_PRINTF_AR) .
 			@mv $(FT_PRINTF_AR) $(NAME)
-			ar rc $(NAME) $(OBJS)
+			@ar rc $(NAME) $(OBJS)
 
 all	:	$(NAME)
 
 clean	:
 		@make clean -C $(FT_PRINTF_DIR)
-		rm -f $(OBJS)
+		@rm -f $(OBJS)
 
 fclean	:	clean
 		@rm -f $(FT_PRINTF_DIR)/$(FT_PRINTF_AR)
-		rm -f $(NAME)
+		@rm -f $(NAME)
 
 re	:	fclean all
 

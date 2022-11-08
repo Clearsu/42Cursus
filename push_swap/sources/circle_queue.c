@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:25:50 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/08 21:11:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 00:41:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_circle_queue	*create_circle_queue(int size)
 	t_circle_queue *circle_queue;
 
 	circle_queue = (t_circle_queue *)malloc(sizeof(t_circle_queue));
-	circle_queue->queue = (int *)malloc(sizeof(int) * size + 1);
+	circle_queue->queue = (int *)malloc(sizeof(int) * (size + 1));
 	circle_queue->bottom = 0;
 	circle_queue->top = 0;
 	circle_queue->size = size + 1;
