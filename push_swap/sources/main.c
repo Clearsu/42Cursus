@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:46:31 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 01:08:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 04:43:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 //	t_circle_queue	*circle_queue_b;
 
 	if (argc == 1)
-		error();
+		return (1);
 	circle_queue_a = create_circle_queue(argc - 1);
 //	circle_queue_b = create_circle_queue(argc - 1);
 	
