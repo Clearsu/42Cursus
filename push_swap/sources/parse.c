@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 05:11:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 14:26:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,25 @@ void	check_duplicate(int *arr, int i)
 	}
 }
 
+void	check_if_sorted(int *arr, int n)
+{
+	int i;
+
+	i = 1;
+	while (i < n)
+	{
+		if (arr[i] > arr[i + 1])
+			error();
+		i++;
+	}
+}
+
 void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv)
 {
 	int			i;
 	long long	num;
 
-	i = 1; // top starts from index 1 in a arr
+	i = 1; // bottom starts from index 1 in a arr
 	while (argv[i])	
 	{
 		if (is_all_num(argv[i]))
@@ -57,5 +70,6 @@ void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv)
 		else
 			error();
 	}
-	circle_queue->top = --i;
+	circle_queue->bottom = --i;
+	check_if_sorted(circle_queue->arr, i);
 }
