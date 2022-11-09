@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:46:31 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 15:39:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:30:18 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ void	print_circle_queues(t_circle_queue *circle_queue_a,
 	for (int i = 0; i < n; i++)
 		printf("   %d     %d   %d\n",i, 
 				circle_queue_a->arr[i], circle_queue_b->arr[i]);
-	printf("   [ bot ]\n\n");
-	printf("[A] top : %d bot : %d\n", circle_queue_a->top, circle_queue_a->bot);
-	printf("[B] top : %d bot : %d\n\n", circle_queue_b->top, circle_queue_b->bot);
+	printf("     [ bot ]\n\n");
+	printf("   [A]    [B]\n");
+	printf(" top : %d top : %d\n", circle_queue_a->top, circle_queue_b->top);
+	printf(" bot : %d bot : %d\n\n", circle_queue_a->bot, circle_queue_b->bot);
 }
 
 int	main(int argc, char **argv)
