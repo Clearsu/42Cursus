@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:46:31 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 21:31:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 22:25:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ void	print_circle_queues(t_circle_queue *a,
 
 void	print_states(t_circle_queue *a, t_circle_queue *b)
 {
-	printf("    Initial state\n\n");
-	print_circle_queues(a, b);
-	sort(a);
-	printf("    Final state\n\n");
-	print_circle_queues(a, b);
-/*
 	printf("    push B\n\n");
 	push(a, b);
 	print_circle_queues(a, b);
@@ -83,7 +77,6 @@ void	print_states(t_circle_queue *a, t_circle_queue *b)
 	printf("    push A\n\n");
 	push(b, a);
 	print_circle_queues(a, b);
-	*/
 }
 
 int	main(int argc, char **argv)
@@ -97,7 +90,12 @@ int	main(int argc, char **argv)
 	b = create_circle_queue(argc - 1);
 	
 	put_argv_to_queue(a, argv);
+	//print_states(a, b);
 
-	print_states(a, b);
+	printf("    Initial state\n\n");
+	print_circle_queues(a, b);
+	sort(a, b);
+	printf("    Final state\n\n");
+	print_circle_queues(a, b);
 	return (0);
 }
