@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:46:31 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 17:30:18 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:09:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,68 @@
 #include "circle_queue.h"
 #include <stdio.h>
 
-void	print_circle_queues(t_circle_queue *circle_queue_a, 
-		t_circle_queue *circle_queue_b)
+void	print_circle_queues(t_circle_queue *a, 
+		t_circle_queue *b)
 {
 	int	n;
 
-	n = circle_queue_a->size;
+	n = a->size;
 	printf("    [ top ]\n");
 	printf("[index] [A] [B]\n");
 	for (int i = 0; i < n; i++)
 		printf("   %d     %d   %d\n",i, 
-				circle_queue_a->arr[i], circle_queue_b->arr[i]);
+				a->arr[i], b->arr[i]);
 	printf("     [ bot ]\n\n");
 	printf("   [A]    [B]\n");
-	printf(" top : %d top : %d\n", circle_queue_a->top, circle_queue_b->top);
-	printf(" bot : %d bot : %d\n\n", circle_queue_a->bot, circle_queue_b->bot);
+	printf(" top : %d top : %d\n", a->top, b->top);
+	printf(" bot : %d bot : %d\n\n\n", a->bot, b->bot);
 }
 
 int	main(int argc, char **argv)
 {
-	t_circle_queue	*circle_queue_a;
-	t_circle_queue	*circle_queue_b;
+	t_circle_queue	*a;
+	t_circle_queue	*b;
 
 	if (argc == 1)
 		exit(1);
-	circle_queue_a = create_circle_queue(argc - 1);
-	circle_queue_b = create_circle_queue(argc - 1);
+	a = create_circle_queue(argc - 1);
+	b = create_circle_queue(argc - 1);
 	
-	put_argv_to_queue(circle_queue_a, argv);
+	put_argv_to_queue(a, argv);
 
-	print_circle_queues(circle_queue_a, circle_queue_b);
-	push(circle_queue_a, circle_queue_b);
-	print_circle_queues(circle_queue_a, circle_queue_b);
-	push(circle_queue_a, circle_queue_b);
-	print_circle_queues(circle_queue_a, circle_queue_b);
-	push(circle_queue_a, circle_queue_b);
-	print_circle_queues(circle_queue_a, circle_queue_b);
-	rotate(circle_queue_a);
-	print_circle_queues(circle_queue_a, circle_queue_b);
-	r_rotate(circle_queue_b);
-	print_circle_queues(circle_queue_a, circle_queue_b);
+	printf("    Initial state\n\n");
+	print_circle_queues(a, b);
+
+	printf("    push B\n\n");
+	push(a, b);
+	print_circle_queues(a, b);
+
+	printf("    push B\n\n");
+	push(a, b);
+	print_circle_queues(a, b);
+
+	printf("    push B\n\n");
+	push(a, b);
+	print_circle_queues(a, b);
+
+	printf("    rotate A\n\n");
+	rotate(a);
+	print_circle_queues(a, b);
+
+	printf("    reverse rotate B\n\n");
+	r_rotate(b);
+	print_circle_queues(a, b);
+
+	printf("    push A\n\n");
+	push(b, a);
+	print_circle_queues(a, b);
+
+	printf("    push A\n\n");
+	push(b, a);
+	print_circle_queues(a, b);
+
+	printf("    push A\n\n");
+	push(b, a);
+	print_circle_queues(a, b);
 	return (0);
 }

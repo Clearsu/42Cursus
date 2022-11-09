@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 15:44:43 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:10:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	check_if_sorted(int *arr, int n)
 	exit(0);
 }
 
-void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv)
+void	put_argv_to_queue(t_circle_queue *a, char **argv)
 {
 	int			i;
 	long long	num;
@@ -69,14 +69,14 @@ void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv)
 			num = ft_atol(argv[i]);
 			if (num > INT_MAX || num < INT_MIN)
 				error();
-			circle_queue->arr[i] = (int)num;
-			check_duplicate(circle_queue->arr, i++);
+			a->arr[i] = (int)num;
+			check_duplicate(a->arr, i++);
 		}
 		else
 			error();
 	}
-	circle_queue->bot = --i;
-	if (is_circle_queue_empty(circle_queue))
+	a->bot = --i;
+	if (is_circle_queue_empty(a))
 		error();
-	check_if_sorted(circle_queue->arr, i);
+	check_if_sorted(a->arr, i);
 }
