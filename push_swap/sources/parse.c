@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 14:26:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 15:18:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@
 
 int	is_all_num(char *str)
 {
-	if (*str == '-')
+	if (*str == '\0')
+		return (0);
+	if (*str == '-' || *str == '+')
 		str++;
+	if (*str == '\0')
+		return (0);
 	while (*str)
 	{
 		if (!ft_isdigit(*str++)) 
@@ -46,9 +50,10 @@ void	check_if_sorted(int *arr, int n)
 	while (i < n)
 	{
 		if (arr[i] > arr[i + 1])
-			error();
+			return ;
 		i++;
 	}
+	exit(0);
 }
 
 void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv)
@@ -70,6 +75,8 @@ void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv)
 		else
 			error();
 	}
-	circle_queue->bottom = --i;
+	circle_queue->bot = --i;
+	if (is_circle_queue_empty(circle_queue))
+		error();
 	check_if_sorted(circle_queue->arr, i);
 }
