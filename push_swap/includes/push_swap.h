@@ -6,7 +6,7 @@
 /*   By: jincpark <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:07:40 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 01:09:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:32:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include "libft.h"
 # include "circle_queue.h"
 
-void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv);
+void	put_argv_to_queue(t_circle_queue *queue, char **argv);
+void	sort(t_circle_queue *a);
 void	error(void);
 
 #endif

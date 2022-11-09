@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:44:06 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/08 23:54:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:36:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	error(void)
 {
-	ft_putstr_fd("ERROR\n", 2);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

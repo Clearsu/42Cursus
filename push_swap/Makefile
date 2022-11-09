@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 19:10:29 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/09 04:02:36 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/09 21:29:13 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ LIBFT_DIR 		= ./libft
 LIBFT_LIB 		= libft.a
 
 SRCS_DIR		= ./sources
-SRCS 			= main.c circle_queue.c operations.c parse.c error.c
+SRCS 			= push_swap.c circle_queue.c operations.c parse.c error.c \
+				  sort.c
 
 OBJS 			= $(SRCS:%.c=$(SRCS_DIR)/%.o)
 
