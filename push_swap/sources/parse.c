@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 15:18:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 15:44:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	is_all_num(char *str)
 		return (0);
 	while (*str)
 	{
-		if (!ft_isdigit(*str++)) 
+		if (!ft_isdigit(*str++))
 			return (0);
 	}
 	return (1);
@@ -44,7 +44,7 @@ void	check_duplicate(int *arr, int i)
 
 void	check_if_sorted(int *arr, int n)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < n)
@@ -61,8 +61,8 @@ void	put_argv_to_queue(t_circle_queue *circle_queue, char **argv)
 	int			i;
 	long long	num;
 
-	i = 1; // bottom starts from index 1 in a arr
-	while (argv[i])	
+	i = 1;
+	while (argv[i])
 	{
 		if (is_all_num(argv[i]))
 		{

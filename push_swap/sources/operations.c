@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 23:13:02 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 14:31:18 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/09 15:34:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	swap(t_circle_queue *circle_queue)
 	int	temp;
 
 	temp = circle_queue->arr[circle_queue->top];
-	circle_queue->arr[circle_queue->top] = circle_queue->arr[circle_queue->top - 1];
+	circle_queue->arr[circle_queue->top]
+		= circle_queue->arr[circle_queue->top - 1];
 	circle_queue->arr[circle_queue->top - 1] = temp;
 	printf("\nswap\n\n");
 }
@@ -42,11 +43,11 @@ void	rotate(t_circle_queue *circle_queue)
 	int	temp;
 
 	temp = circle_queue->arr[circle_queue->top];
-	circle_queue->arr[circle_queue->top] = 0;;
+	circle_queue->arr[circle_queue->top] = 0;
 	increase_idx(circle_queue, 't');
-	circle_queue->arr[circle_queue->bot] = temp;	
+	circle_queue->arr[circle_queue->bot] = temp;
 	increase_idx(circle_queue, 'b');
-	circle_queue->arr[circle_queue->bot] = 0;	
+	circle_queue->arr[circle_queue->bot] = 0;
 	printf("\nrotate\n\n");
 }
 
