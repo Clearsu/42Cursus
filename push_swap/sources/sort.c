@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/10 20:14:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 20:16:38 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void	sort(t_stack *a, t_stack *b)
 	{
 		get_shortest_case(a, b, &from_to);	
 		move_stacks(a, b, from_to);
+		push(b, a);
 	}
 }
