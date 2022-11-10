@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/10 16:04:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 20:07:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	check_if_sorted(int *arr, int n)
 	exit(0);
 }
 
-void	put_argv_to_queue(t_circle_queue *a, char **argv)
+void	put_argv_to_stack(t_stack *a, char **argv)
 {
 	int			i;
 	long long	num;
@@ -75,9 +75,10 @@ void	put_argv_to_queue(t_circle_queue *a, char **argv)
 		else
 			error();
 	}
+	a->bnx = 0;
 	a->bot = --i;
-	if (is_circle_queue_empty(a))
+	if (is_stack_empty(a))
 		error();
-	check_if_sorted(a->arr, i);
+	check_if_sorted(a->arr, i + 1);
 	a->n = a->size - 1;
 }

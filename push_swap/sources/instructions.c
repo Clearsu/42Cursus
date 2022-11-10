@@ -6,62 +6,72 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 23:13:02 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/10 16:08:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 20:06:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circle_queue.h"
-#include "stdio.h"
+#include "stack.h"
+#include "push_swap.h"
 
-void	swap(t_circle_queue *queue)
+void	swap(t_stack *stack)
 {
 	int	temp1;
 	int	temp2;
 
-	increase_idx(queue, 't');
-	temp1 = queue->arr[queue->top];
-	increase_idx(queue, 't');
-	temp2 = queue->arr[queue->top];
-	queue->arr[queue->top] = temp1;
-	decrease_idx(queue, 't');
-	queue->arr[queue->top] = temp2;
-	decrease_idx(queue, 't');
+	increase_idx(stack, 't');
+	temp1 = stack->arr[stack->top];
+	increase_idx(stack, 't');
+	temp2 = stack->arr[stack->top];
+	stack->arr[stack->top] = temp1;
+	decrease_idx(stack, 't');
+	stack->arr[stack->top] = temp2;
+	decrease_idx(stack, 't');
+	ft_printf("s%c\n", stack->name);
 }
 
-void	push(t_circle_queue *queue1, t_circle_queue *queue2)
+void	push(t_stack *stack1, t_stack *stack2)
 {
 	int	temp;
 
-	if (is_queue_empty(queue1))
+	if (is_stack_empty(stack1))
 		return ;
-	increase_idx(queue1, 't');
-	temp = queue1->arr[queue1->top];
-	queue1->arr[queue1->top] = 0;
-	queue2->arr[queue2->top] = temp;
-	decrease_idx(queue2, 't');
-	queue2->arr[queue2->top] = 0;
-	queue1->n--;
-	queue2->n++;
+	increase_idx(stack1, 't');
+	temp = stack1->arr[stack1->top];
+	stack1->arr[stack1->top] = 0;
+	stack2->arr[stack2->top] = temp;
+	decrease_idx(stack2, 't');
+	stack2->arr[stack2->top] = 0;
+	stack1->tnx = get_new_idx(stack1->tnx, 'p', stack1->size);
+	stack2->tnx = get_new_idx(stack2->tnx, 'm', stack2->size);
+	stack1->n--;
+	stack2->n++;
+	ft_printf("p%c\n", stack2->name);
 }
 
-void	rotate(t_circle_queue *queue)
+void	rotate(t_stack *stack)
 {
 	int	temp;
 
-	increase_idx(queue, 't');
-	temp = queue->arr[queue->top];
-	queue->arr[queue->top] = 0;
-	increase_idx(queue, 'b');
-	queue->arr[queue->bot] = temp;
+	increase_idx(stack, 't');
+	temp = stack->arr[stack->top];
+	stack->arr[stack->top] = 0;
+	increase_idx(stack, 'b');
+	stack->arr[stack->bot] = temp;
+	stack->tnx = get_new_idx(stack->tnx, 'p', stack->size);
+	stack->bnx = get_new_idx(stack->bnx, 'p', stack->size);
+	ft_printf("r%c\n", stack->name);
 }
 
-void	r_rotate(t_circle_queue *queue)
+void	r_rotate(t_stack *stack)
 {
 	int	temp;
 
-	temp = queue->arr[queue->bot];
-	queue->arr[queue->bot] = 0;
-	decrease_idx(queue, 'b');
-	queue->arr[queue->top] = temp;
-	decrease_idx(queue, 't');
+	temp = stack->arr[stack->bot];
+	stack->arr[stack->bot] = 0;
+	decrease_idx(stack, 'b');
+	stack->arr[stack->top] = temp;
+	decrease_idx(stack, 't');
+	stack->tnx = get_new_idx(stack->tnx, 'm', stack->size);
+	stack->bnx = get_new_idx(stack->bnx, 'm', stack->size);
+	ft_printf("r%c\n", stack->name);
 }
