@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:25:50 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 20:55:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:11:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,22 @@ t_circle_queue	*create_circle_queue(int size)
 	t_circle_queue	*queue;
 
 	queue = (t_circle_queue *)malloc(sizeof(t_circle_queue));
-	queue->arr = (unsigned int *)malloc(sizeof(unsigned int) * (size + 1));
+	queue->arr = (int *)malloc(sizeof(int) * (size + 1));
 	queue->top = 0;
 	queue->bot = 0;
 	queue->size = size + 1;
+	queue->n = 0;
 	return (queue);
 }
 
-int	is_circle_queue_full(t_circle_queue *queue)
+int	is_queue_full(t_circle_queue *queue)
 {
-	if ((queue->bot + 1) % queue->size == queue->top)
+	if (queue->n == queue->size - 1)
 		return (1);
 	return (0);
 }
 
-int	is_circle_queue_empty(t_circle_queue *queue)
+int	is_queue_empty(t_circle_queue *queue)
 {
 	if (queue->top == queue->bot)
 		return (1);

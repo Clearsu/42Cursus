@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 23:13:02 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 19:22:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:08:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	push(t_circle_queue *queue1, t_circle_queue *queue2)
 {
 	int	temp;
 
-	if (is_circle_queue_empty(queue1))
+	if (is_queue_empty(queue1))
 		return ;
 	increase_idx(queue1, 't');
 	temp = queue1->arr[queue1->top];
@@ -40,6 +40,8 @@ void	push(t_circle_queue *queue1, t_circle_queue *queue2)
 	queue2->arr[queue2->top] = temp;
 	decrease_idx(queue2, 't');
 	queue2->arr[queue2->top] = 0;
+	queue1->n--;
+	queue2->n++;
 }
 
 void	rotate(t_circle_queue *queue)

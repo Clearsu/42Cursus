@@ -6,7 +6,7 @@
 /*   By: jincpark <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:07:40 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 22:23:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:55:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 
 void	put_argv_to_queue(t_circle_queue *queue, char **argv);
 void	sort(t_circle_queue *a, t_circle_queue *b);
+int		get_max(t_circle_queue *queue);
+int		get_min(t_circle_queue *queue);
 void	error(void);
 
 #endif

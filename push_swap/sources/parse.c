@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/09 20:56:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:04:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	is_all_num(char *str)
 	return (1);
 }
 
-void	check_duplicate(unsigned int *arr, int i)
+void	check_duplicate(int *arr, int i)
 {
-	unsigned int	curr;
+	int	curr;
 
 	curr = arr[i--];
 	while (i > 0)
@@ -42,7 +42,7 @@ void	check_duplicate(unsigned int *arr, int i)
 	}
 }
 
-void	check_if_sorted(unsigned int *arr, int n)
+void	check_if_sorted(int *arr, int n)
 {
 	int	i;
 
@@ -69,7 +69,7 @@ void	put_argv_to_queue(t_circle_queue *a, char **argv)
 			num = ft_atol(argv[i]);
 			if (num > INT_MAX || num < INT_MIN)
 				error();
-			a->arr[i] = (unsigned int)num;
+			a->arr[i] = (int)num;
 			check_duplicate(a->arr, i++);
 		}
 		else
@@ -79,4 +79,5 @@ void	put_argv_to_queue(t_circle_queue *a, char **argv)
 	if (is_circle_queue_empty(a))
 		error();
 	check_if_sorted(a->arr, i);
+	a->n = a->size - 1;
 }
