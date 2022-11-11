@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   instructions1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 23:13:02 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/11 18:43:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/11 19:09:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	rotate(t_stack *stack)
 	stack->arr[stack->bot] = temp;
 	stack->tnx = get_new_idx(stack->tnx, '+', stack->size);
 	stack->bnx = get_new_idx(stack->bnx, '+', stack->size);
-	ft_printf("r%c\n", stack->name);
 }
 
 void	r_rotate(t_stack *stack)
@@ -73,5 +72,4 @@ void	r_rotate(t_stack *stack)
 	decrease_idx(stack, 't');
 	stack->tnx = get_new_idx(stack->tnx, '-', stack->size);
 	stack->bnx = get_new_idx(stack->bnx, '-', stack->size);
-	ft_printf("r%c\n", stack->name);
 }

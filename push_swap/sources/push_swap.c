@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:46:31 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/11 18:45:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 00:42:18 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "stack.h"
 
 void	print_stacks(t_stack *a, 
-		t_stack *b)
+		t_stack *b, t_info *info)
 {
 	int	n;
 
@@ -31,8 +31,11 @@ void	print_stacks(t_stack *a,
 	printf(" bot : %d bot : %d\n", a->bot, b->bot);
 	printf(" bnx : %d bnx : %d\n", a->bnx, b->bnx);
 	printf("   n : %d   n : %d\n\n", a->n, b->n);
+	printf("    [info]\n");
+	printf(" to : %d from : %d\n", info->to, info->from);
+	printf(" val_to : %d val_from : %d\n", info->val_to, info->val_from);
 }
-
+/*
 void	print_states(t_stack *a, t_stack *b)
 {
 	printf("    push B\n\n");
@@ -75,7 +78,7 @@ void	print_states(t_stack *a, t_stack *b)
 	printf("    push A\n\n");
 	push(b, a);
 	print_stacks(a, b);
-}
+}*/
 
 int	main(int argc, char **argv)
 {
@@ -90,16 +93,12 @@ int	main(int argc, char **argv)
 	b->name = 'b';
 	
 	put_argv_to_stack(a, argv);
-
+/*
 	printf("    Initial state\n\n");
 	print_stacks(a, b);
-
+*/
 	//print_states(a, b);
 
 	sort(a, b);
-
-	printf("    Final state\n\n");
-	print_stacks(a, b);
-
 	return (0);
 }

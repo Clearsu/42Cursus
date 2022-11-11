@@ -6,20 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/11 18:52:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 01:14:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stack.h"
-
-/*
-필요한 함수
-1. 최대, 최솟값 구하는 함수
-2. 정렬된 위치에 가기까지 가장 적은 명령을 수행하는 값의 인덱스를 구하는 함수
-2-1. 탑과 바텀 중 어디가 더 가까운지 구하는 함수
-3. 그 위치까지 보내는 함수
-   */
 
 void	pb_by_size(t_stack *a, t_stack *b)
 {
@@ -34,27 +26,23 @@ void	pb_by_size(t_stack *a, t_stack *b)
 	pivot = (max - min) / 3 + min;
 	while (i-- > 0)
 	{
-		while (is_smaller_n_exist(a, pivot))
+		while (is_smaller_n_exist(a, pivot) && a->n > 3)
 		{
 			while (a->arr[a->tnx] > pivot)
 				rotate(a);
 			push(a, b);
 		}
+		while (i == 0 && a->n > 3)
+			push(a, b);
+		if (a->n == 3)
+		{
+			sort_132(a);
+			break ;
+		}
 		pivot = ((max - min) * 2) / 3 + min;
 	}
-	while (a->n > 3)
-		push(a, b);
 }
-/*
-typedef struct s_from_to
-{
-	int 	from;
-	int		to;
-	int		val_from;
-	char	dir_b;
-	char	dir_a;
-}	t_from_to;
-*/
+
 t_info *init_t_info(void)
 {
 	t_info	*info;
@@ -90,14 +78,14 @@ void	get_shortest_case(t_stack *a, t_stack *b, t_info *info)
 			min_dis = dis;
 			info->from = i;
 			info->to = temp->to;
+			info->val_to = temp->val_to;
+			info->val_from = temp->val_from;
 			info->dir_b = temp->dir_b;
 			info->dir_a = temp->dir_a;
 		}
-		get_new_idx(i, '+', b->size);
+		i = get_new_idx(i, '+', b->size);
 	}
 }
-
-
 
 void	sort(t_stack *a, t_stack *b)
 {
@@ -105,16 +93,21 @@ void	sort(t_stack *a, t_stack *b)
 	int		max;
 
 	info = init_t_info();
+	info->val_max = get_max(a);
 	pb_by_size(a, b);
-	sort_3(a);
 	while (b->n > 0)
 	{
 		get_shortest_case(a, b, info);	
 		move_stacks(a, b, info);
 		push(b, a);
-		ft_printf("pa\n");
+		print_stacks(a, b, info);
 	}
 	max = get_max(a);
 	while (a->arr[a->bot] < max)
+	{
 		r_rotate(a);
+		ft_printf("rra\n");
+	}
+	printf("    Final state\n\n");
+	print_stacks(a, b, info);
 }

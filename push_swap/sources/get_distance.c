@@ -6,12 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:48:35 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/11 18:54:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 01:09:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "push_swap.h"
+#include "limits.h"
 
 int	is_closer_from_top(t_stack *stack, int idx)
 {
@@ -82,27 +83,17 @@ int	get_dis_b(t_stack *b, int i, t_info *temp)
 
 int	get_dis_a(t_stack *a, t_info *temp)
 {
-	int	i;
 	int	dis;
 
-	i = a->tnx;
-	while (i != a->bnx)
+	get_min_bigger_than_val_from(a, temp);
+	if (is_closer_from_top(a, temp->to))
 	{
-		if (temp->val_from < a->arr[i])
-		{
-			temp->to = i;
-			break ;
-		}
-		i = get_new_idx(i, '+', a->size);
-	}
-	if (is_closer_from_top(a, i))
-	{
-		dis = get_distance_top(a, i);
+		dis = get_distance_top(a, temp->to);
 		temp->dir_a = 'u';
 	}
 	else
 	{
-		dis = get_distance_bot(a, i);
+		dis = get_distance_bot(a, temp->to);
 		temp->dir_a = 'd';
 	}
 	return (dis);
