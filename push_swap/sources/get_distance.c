@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:48:35 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 01:09:41 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 03:52:31 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ int	get_dis_a(t_stack *a, t_info *temp)
 {
 	int	dis;
 
-	get_min_bigger_than_val_from(a, temp);
 	if (is_closer_from_top(a, temp->to))
 	{
 		dis = get_distance_top(a, temp->to);

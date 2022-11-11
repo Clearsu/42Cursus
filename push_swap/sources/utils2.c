@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 23:12:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 02:02:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 03:47:18 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,20 @@ int	get_idx_of_val(t_stack *stack, int val)
 	return (0);
 }
 
-void	get_min_bigger_than_val_from(t_stack *a, t_info *temp)
+int	get_min_bigger_than_val_from(t_stack *a, t_info *temp)
 {
 	int	i;
+	int	min;
 
 	i = a->tnx;
-	temp->val_to = get_max(a);
-	if (temp->val_from == temp->val_max)
-	{
-		temp->val_to = get_min(a);
-		temp->to = get_idx_of_val(a, temp->val_to);
-		return ;
-	}
+	min = get_max(a);
+	if (temp->val_from > min)
+		return (get_min(a));
 	while (i != a->bnx)
 	{
-		if (a->arr[i] > temp->val_from && a->arr[i] < temp->val_to)
-		{
-			temp->val_to = a->arr[i];
-			temp->to = i;
-		}
+		if (a->arr[i] > temp->val_from && a->arr[i] < min)
+			min = a->arr[i];
 		i = get_new_idx(i, '+', a->size);
 	}
+	return (min);
 }
