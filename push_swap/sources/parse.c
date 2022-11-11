@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/10 20:07:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 02:31:38 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ void	check_if_sorted(int *arr, int n)
 {
 	int	i;
 
+	if (n == 2)
+		exit(0);
+	if (n == 3)
+		n--;
 	i = 1;
 	while (i < n)
 	{

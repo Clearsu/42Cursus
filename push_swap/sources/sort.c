@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 02:18:52 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 02:50:21 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,6 @@ void	sort(t_stack *a, t_stack *b)
 		r_rotate(a);
 		ft_printf("rra\n");
 	}
-	printf("    Final state\n\n");
-	print_stacks(a, b, info);
+//	printf("    Final state\n\n");
+//	print_stacks(a, b, info);
 }
