@@ -6,13 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:46:31 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/10 20:07:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/11 18:45:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stack.h"
-#include <stdio.h>
 
 void	print_stacks(t_stack *a, 
 		t_stack *b)
@@ -28,7 +27,7 @@ void	print_stacks(t_stack *a,
 	printf("     [ bot ]\n\n");
 	printf("   [A]    [B]\n");
 	printf(" top : %d top : %d\n", a->top, b->top);
-	printf(" tvi : %d tvi : %d\n", a->tvi, b->tvi);
+	printf(" tnx : %d tnx : %d\n", a->tnx, b->tnx);
 	printf(" bot : %d bot : %d\n", a->bot, b->bot);
 	printf(" bnx : %d bnx : %d\n", a->bnx, b->bnx);
 	printf("   n : %d   n : %d\n\n", a->n, b->n);

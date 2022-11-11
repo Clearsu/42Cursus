@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:49:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/10 20:08:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:26:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	get_max(t_stack *stack)
 	int	max;
 
 	max = stack->arr[stack->tnx];
-	i = get_new_idx(stack->tnx, 'p', stack->size);
+	i = get_new_idx(stack->tnx, '+', stack->size);
 	while (i != stack->bnx)
 	{
 		if (stack->arr[i] > max)
 			max = stack->arr[i];
-		i = get_new_idx(i, 'p', stack->size);
+		i = get_new_idx(i, '+', stack->size);
 	}
 	return (max);
 }
@@ -35,19 +35,19 @@ int	get_min(t_stack *stack)
 	int	min;
 
 	min = stack->arr[stack->tnx];
-	i = get_new_idx(stack->tnx, 'p', stack->size);
+	i = get_new_idx(stack->tnx, '+', stack->size);
 	while (i != stack->bnx)
 	{
 		if (stack->arr[i] < min)
 			min = stack->arr[i];
-		i = get_new_idx(i, 'p', stack->size);
+		i = get_new_idx(i, '+', stack->size);
 	}
 	return (min);
 }
 
 int	get_new_idx(int i, char c, int size)
 {
-	if (c == 'p')
+	if (c == '+')
 	{
 		if (i == size - 1)
 			return (0);
@@ -72,7 +72,7 @@ int	is_smaller_n_exist(t_stack *stack, int n)
 	{
 		if (stack->arr[i] <= n)
 			return (1);
-		i = get_new_idx(i, 'p', stack->size);
+		i = get_new_idx(i, '+', stack->size);
 	}
 	return (0);
 }
@@ -85,7 +85,7 @@ int	is_sorted(t_stack *stack)
 	i = stack->tnx;;
 	while (i != stack->bot)
 	{
-		temp = get_new_idx(i, 'p', stack->size);
+		temp = get_new_idx(i, '+', stack->size);
 		if (stack->arr[i] > stack->arr[temp])
 			return (0);
 		i = temp;

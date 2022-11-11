@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:25:50 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/10 20:09:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/11 18:45:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*create_stack(int size)
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	stack->arr = (int *)malloc(sizeof(int) * (size + 1));
 	stack->top = 0;
-	stack->tvi = 1;
+	stack->tnx = 1;
 	stack->bot = 0;
 	stack->bnx = 1;
 	stack->size = size + 1;

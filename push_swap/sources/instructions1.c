@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 23:13:02 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/10 20:06:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/11 18:43:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	push(t_stack *stack1, t_stack *stack2)
 	stack2->arr[stack2->top] = temp;
 	decrease_idx(stack2, 't');
 	stack2->arr[stack2->top] = 0;
-	stack1->tnx = get_new_idx(stack1->tnx, 'p', stack1->size);
-	stack2->tnx = get_new_idx(stack2->tnx, 'm', stack2->size);
+	stack1->tnx = get_new_idx(stack1->tnx, '+', stack1->size);
+	stack2->tnx = get_new_idx(stack2->tnx, '-', stack2->size);
 	stack1->n--;
 	stack2->n++;
 	ft_printf("p%c\n", stack2->name);
@@ -57,8 +57,8 @@ void	rotate(t_stack *stack)
 	stack->arr[stack->top] = 0;
 	increase_idx(stack, 'b');
 	stack->arr[stack->bot] = temp;
-	stack->tnx = get_new_idx(stack->tnx, 'p', stack->size);
-	stack->bnx = get_new_idx(stack->bnx, 'p', stack->size);
+	stack->tnx = get_new_idx(stack->tnx, '+', stack->size);
+	stack->bnx = get_new_idx(stack->bnx, '+', stack->size);
 	ft_printf("r%c\n", stack->name);
 }
 
@@ -71,7 +71,7 @@ void	r_rotate(t_stack *stack)
 	decrease_idx(stack, 'b');
 	stack->arr[stack->top] = temp;
 	decrease_idx(stack, 't');
-	stack->tnx = get_new_idx(stack->tnx, 'm', stack->size);
-	stack->bnx = get_new_idx(stack->bnx, 'm', stack->size);
+	stack->tnx = get_new_idx(stack->tnx, '-', stack->size);
+	stack->bnx = get_new_idx(stack->bnx, '-', stack->size);
 	ft_printf("r%c\n", stack->name);
 }

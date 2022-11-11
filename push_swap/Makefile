@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 19:10:29 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/10 20:08:56 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/11 18:55:32 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,10 @@ LIBFT_DIR 		= ./libft
 LIBFT_LIB 		= libft.a
 
 SRCS_DIR		= ./sources
-SRCS 			= push_swap.c stack.c instructions.c parse.c error.c \
-				  sort.c sort_small.c sort_utils1.c sort_utils2.c
+SRCS 			= push_swap.c stack.c parse.c error.c \
+				  instructions1.c instructions2.c \
+				  get_distance.c move_stack.c \
+				  sort.c sort_small.c utils.c get_distance.c
 
 OBJS 			= $(SRCS:%.c=$(SRCS_DIR)/%.o)
 
