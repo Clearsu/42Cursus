@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 01:14:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 02:18:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,15 @@ void	get_shortest_case(t_stack *a, t_stack *b, t_info *info)
 	i = b->tnx;
 	while (i != b->bnx)
 	{
-		dis_a = get_dis_b(b, i, temp);
+		dis_b = get_dis_b(b, i, temp);
 		temp->val_from = b->arr[i];
-		dis_b = get_dis_a(a, temp);
+		dis_a = get_dis_a(a, temp);
 		dis = dis_a + dis_b;
+		if (temp->val_from > get_max(a))
+		{
+			temp->val_to = get_min(a);
+			temp->to = get_idx_of_val(a, temp->val_to);
+		}
 		if (dis < min_dis)
 		{
 			min_dis = dis;
@@ -100,6 +105,11 @@ void	sort(t_stack *a, t_stack *b)
 		get_shortest_case(a, b, info);	
 		move_stacks(a, b, info);
 		push(b, a);
+		if (a->arr[a->tnx] == info->val_max)
+		{
+			rotate(a);
+			ft_printf("ra\n");
+		}
 		print_stacks(a, b, info);
 	}
 	max = get_max(a);

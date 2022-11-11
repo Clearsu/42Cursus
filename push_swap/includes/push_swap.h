@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:07:40 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 01:14:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 02:09:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	sort_3xx(t_stack *a);
 int		get_max(t_stack *stack);
 int		get_min(t_stack *stack);
 int		get_new_idx(int i, char c, int size);
+int		get_idx_of_val(t_stack *stack, int val);
 int		is_smaller_n_exist(t_stack *stack, int n);
 int		is_sorted(t_stack *stack);
 int		get_distance_top(t_stack *stack, int idx);
