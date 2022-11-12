@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:00:25 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 04:39:10 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 05:45:33 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,7 @@ void	rotate_together_untill_end(t_stack *a, t_stack *b, t_info *info)
 
 void	r_rotate_together_untill_end(t_stack *a, t_stack *b, t_info *info)
 {
-	if (a->n <= 1 || b->n <= 1)
-		return ;
-	while (info->to != a->tnx && info->from != b->tnx)
+	while (info->val_to != a->arr[a->tnx] && info->val_from != b->arr[b->tnx])
 	{
 		r_rotate(a);
 		r_rotate(b);

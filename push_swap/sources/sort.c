@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 04:58:09 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 05:28:54 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	get_shortest_case(t_stack *a, t_stack *b, t_info *info)
 	temp = init_t_info();
 	i = b->tnx;
 	set_temp_info(a, b, temp, i);
-	min_dis = get_dis_a(a, temp) + get_dis_b(b, temp);
+	min_dis = 2147483647;
 	set_info(temp, info);
 	while (i != b->bnx)
 	{
@@ -126,8 +126,6 @@ void	sort(t_stack *a, t_stack *b)
 			rotate(a);
 			ft_printf("ra\n");
 		}
-		//print_stacks(a, b, info);
 	}
 	last_rotate(a, get_max(a));
-//	print_stacks(a, b, info);
 }

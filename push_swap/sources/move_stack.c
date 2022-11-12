@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 17:29:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 04:41:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 05:39:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	move_opposite_dir(t_stack *a, t_stack *b, t_info *info)
 
 void	move_stacks(t_stack *a, t_stack *b, t_info *info)
 {
-	if (info->dir_a == info->dir_b && b->n)
+	if (info->dir_a == info->dir_b)
 		move_same_dir(a, b, info);
 	else
 		move_opposite_dir(a, b, info);
