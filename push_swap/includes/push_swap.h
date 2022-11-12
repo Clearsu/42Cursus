@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:07:40 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 05:14:52 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 20:06:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_info
 	char	dir_a;
 }	t_info;
 
+char	**split_argv(int *argc, char *argv);
 void	put_argv_to_stack(t_stack *stack, char **argv);
 void	sort(t_stack *a, t_stack *b);
 void	sort_132(t_stack *a);
@@ -46,6 +47,7 @@ int		get_distance_bot(t_stack *stack, int idx);
 int		get_dis_a(t_stack *stack, t_info *temp);
 int		get_dis_b(t_stack *stack, int i, t_info *temp);
 int		get_min_bigger_than_val_from(t_stack *stack, t_info *info);
+int		get_pivot(t_stack *a, int n);
 void	move_stacks(t_stack *a, t_stack *b, t_info *info);
 void	rotate_together_untill_end(t_stack *a, t_stack *b, t_info *info);
 void	r_rotate_together_untill_end(t_stack *a, t_stack *b, t_info *info);

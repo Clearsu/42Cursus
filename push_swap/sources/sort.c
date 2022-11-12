@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 05:20:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 21:02:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@
 void	pb_by_size(t_stack *a, t_stack *b)
 {
 	int	i;
-	int	max;
-	int	min;
 	int	pivot;
+	int	pivot2;
 
 	i = 2;
-	max = get_max(a);
-	min = get_min(a);
-	pivot = (max - min) / 3 + min;
+	pivot = get_pivot(a, 2);
+	pivot2 = get_pivot(a, 1);
 	while (i-- > 0)
 	{
 		while (is_smaller_n_exist(a, pivot) && a->n > 3)
@@ -32,15 +30,11 @@ void	pb_by_size(t_stack *a, t_stack *b)
 				rotate(a);
 			push(a, b);
 		}
-		while (i == 0 && a->n > 3)
-			push(a, b);
-		if (a->n == 3)
-		{
-			sort_132(a);
-			break ;
-		}
-		pivot = ((max - min) * 2) / 3 + min;
+		pivot = pivot2;
 	}
+	while (a->n > 3)
+		push(a, b);
+	sort_132(a);
 }
 
 t_info	*init_t_info(void)

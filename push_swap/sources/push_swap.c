@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:46:31 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 04:47:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 20:08:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,15 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	char	*temp;
 
 	if (argc == 1)
 		exit(1);
+	if (argc == 2)
+	{
+		temp = ft_strjoin("name ", argv[1]);
+		argv = split_argv(&argc, temp);
+	}
 	a = create_stack(argc - 1);
 	b = create_stack(argc - 1);
 	a->name = 'a';

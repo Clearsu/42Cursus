@@ -6,13 +6,26 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 02:31:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 19:16:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 #include <limits.h>
+
+char	**split_argv(int *argc, char *argv)
+{
+	char	**ptr;
+	int		i;
+
+	ptr = ft_split(argv, ' ');
+	i = 0;
+	while (ptr[i])
+		i++;
+	*argc = i;
+	return (ptr);
+}
 
 int	is_all_num(char *str)
 {
