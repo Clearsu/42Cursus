@@ -6,12 +6,53 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 05:28:54 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 06:10:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stack.h"
+
+int	get_first_idx_smaller_from_top(t_stack *stack, int pivot)
+{
+	int	i;
+
+	i = stack->tnx;
+	while (i != stack->bnx)
+	{
+		if (stack->arr[i] <= pivot)
+			return (i);
+		i = get_new_idx(i, '+', stack->size);
+	}
+	return (0);
+}
+
+int	get_first_idx_smaller_from_bot(t_stack *stack, int pivot)
+{
+	int	i;
+
+	i = stack->bot;
+	while (i != stack->top)
+	{
+		if (stack->arr[i] <= pivot)
+			return (i);
+		i = get_new_idx(i, '-', stack->size);
+	}
+	return (0);
+}
+
+void	a_rotate_opt(t_stack *a, int pivot)
+{
+	int	i_top;
+	int	i_bot;
+
+	i_top = get_first_idx_smaller_from_top(a, pivot);
+	i_bot = get_first_idx_smaller_from_bot(a, pivot);
+	if (get_distance_top(a, i_top) <= get_distance_bot(a, i_bot))
+		rotate_untill_val_on_tnx(a, a->arr[i_top]);
+	else
+		r_rotate_untill_val_on_tnx(a, a->arr[i_bot]);
+}
 
 void	pb_by_size(t_stack *a, t_stack *b)
 {
@@ -31,8 +72,7 @@ void	pb_by_size(t_stack *a, t_stack *b)
 				ft_printf("rb\n");
 			}
 		}
-		rotate(a);
-		ft_printf("ra\n");
+		a_rotate_opt(a, pivot2);
 	}
 	while (a->n > 3)
 		push(a, b);
@@ -80,7 +120,8 @@ void	get_shortest_case(t_stack *a, t_stack *b, t_info *info)
 	temp = init_t_info();
 	i = b->tnx;
 	set_temp_info(a, b, temp, i);
-	min_dis = 2147483647;
+	min_dis = get_dis_a(a, temp) + get_dis_b(b, temp);
+//	min_dis = 2147483647;
 	set_info(temp, info);
 	while (i != b->bnx)
 	{
