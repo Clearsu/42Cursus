@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:48:35 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 03:52:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 04:59:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,18 @@ int	get_distance_bot(t_stack *stack, int idx)
 	return (dis_bot);
 }
 
-int	get_dis_b(t_stack *b, int i, t_info *temp)
+int	get_dis_b(t_stack *b, t_info *temp)
 {
 	int	dis;
 
-	if (is_closer_from_top(b, i))
+	if (is_closer_from_top(b, temp->from))
 	{
-		dis = get_distance_top(b, i);
+		dis = get_distance_top(b, temp->from);
 		temp->dir_b = 'u';
 	}
 	else
 	{
-		dis = get_distance_bot(b, i);
+		dis = get_distance_bot(b, temp->from);
 		temp->dir_b = 'd';
 	}
 	return (dis);

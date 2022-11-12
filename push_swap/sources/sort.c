@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 04:07:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 04:58:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,6 @@ void	pb_by_size(t_stack *a, t_stack *b)
 	while (a->n > 3)
 		push(a, b);
 	sort_132(a);
-	/*
-	i = 2;
-	while (i-- > 0)
-	{
-		while (is_smaller_n_exist(a, pivot) && a->n > 3)
-		{
-			while (a->arr[a->tnx] <= pivot && a->n > 3)
-				push(a, b);
-			if (a->n == 3)
-				break ;
-			rotate(a);
-			ft_printf("ra\n");
-		}
-		pivot = pivot2;
-	}
-	while (a->n > 3)
-		push(a, b);
-	sort_132(a);
-	*/
 }
 
 t_info	*init_t_info(void)
@@ -99,11 +80,11 @@ void	get_shortest_case(t_stack *a, t_stack *b, t_info *info)
 	temp = init_t_info();
 	i = b->tnx;
 	set_temp_info(a, b, temp, i);
-	min_dis = get_dis_a(a, temp) + get_dis_b(b, i, temp);
+	min_dis = get_dis_a(a, temp) + get_dis_b(b, temp);
 	set_info(temp, info);
 	while (i != b->bnx)
 	{
-		dis = get_dis_a(a, temp) + get_dis_b(b, i, temp);
+		dis = get_dis_a(a, temp) + get_dis_b(b, temp);
 		if (dis < min_dis)
 		{
 			min_dis = dis;

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:00:25 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 05:17:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 04:39:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	rotate_untill_val_on_tnx(t_stack *stack, int val)
 {
 	while (stack->arr[stack->tnx] != val)
 	{
-		if (stack->n <= 1)
-			return ;
 		rotate(stack);
 		ft_printf("r%c\n", stack->name);
 	}
@@ -27,8 +25,6 @@ void	rotate_untill_val_on_tnx(t_stack *stack, int val)
 
 void	r_rotate_untill_val_on_tnx(t_stack *stack, int val)
 {
-	if (stack->n <= 1)
-		return ;
 	while (stack->arr[stack->tnx] != val)
 	{
 		r_rotate(stack);
@@ -38,8 +34,6 @@ void	r_rotate_untill_val_on_tnx(t_stack *stack, int val)
 
 void	r_rotate_untill_val_on_bot(t_stack *stack, int val)
 {
-	if (stack->n <= 1)
-		return ;
 	while (stack->arr[stack->bot] != val)
 	{
 		r_rotate(stack);

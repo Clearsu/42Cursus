@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:07:40 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 20:06:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 04:59:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		is_closer_from_top(t_stack *stack, int idx);
 int		get_distance_top(t_stack *stack, int idx);
 int		get_distance_bot(t_stack *stack, int idx);
 int		get_dis_a(t_stack *stack, t_info *temp);
-int		get_dis_b(t_stack *stack, int i, t_info *temp);
+int		get_dis_b(t_stack *stack, t_info *temp);
 int		get_min_bigger_than_val_from(t_stack *stack, t_info *info);
 int		get_pivot(t_stack *a, int n);
 void	move_stacks(t_stack *a, t_stack *b, t_info *info);
