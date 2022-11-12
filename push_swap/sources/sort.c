@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 06:10:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 07:01:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,11 @@ void	sort(t_stack *a, t_stack *b)
 {
 	t_info	*info;
 
+	if (a->size == 3)
+	{
+		swap(a);
+		return ;
+	}
 	info = init_t_info();
 	pb_by_size(a, b);
 	while (b->n > 0)
