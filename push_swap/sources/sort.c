@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 21:33:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 04:07:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,30 @@
 
 void	pb_by_size(t_stack *a, t_stack *b)
 {
-	int	i;
-	int	pivot;
+	int	pivot1;
 	int	pivot2;
 
-	i = 2;
-	pivot = get_pivot(a, 1);
+	pivot1 = get_pivot(a, 1);
 	pivot2 = get_pivot(a, 2);
+	while (is_smaller_n_exist(a, pivot2) && a->n > 3)
+	{
+		if (a->arr[a->tnx] <= pivot2)
+		{
+			push(a, b);
+			if (b->arr[b->tnx] <= pivot1)
+			{
+				rotate(b);
+				ft_printf("rb\n");
+			}
+		}
+		rotate(a);
+		ft_printf("ra\n");
+	}
+	while (a->n > 3)
+		push(a, b);
+	sort_132(a);
+	/*
+	i = 2;
 	while (i-- > 0)
 	{
 		while (is_smaller_n_exist(a, pivot) && a->n > 3)
@@ -38,6 +55,7 @@ void	pb_by_size(t_stack *a, t_stack *b)
 	while (a->n > 3)
 		push(a, b);
 	sort_132(a);
+	*/
 }
 
 t_info	*init_t_info(void)
