@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 23:12:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 20:42:48 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 19:32:07 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,32 @@ int	get_pivot(t_stack *a, int n)
 	}
 	return (min);
 }
+
+int	get_first_idx_smaller_from_top(t_stack *stack, int pivot)
+{
+	int	i;
+
+	i = stack->tnx;
+	while (i != stack->bnx)
+	{
+		if (stack->arr[i] <= pivot)
+			return (i);
+		i = get_new_idx(i, '+', stack->size);
+	}
+	return (0);
+}
+
+int	get_first_idx_smaller_from_bot(t_stack *stack, int pivot)
+{
+	int	i;
+
+	i = stack->bot;
+	while (i != stack->top)
+	{
+		if (stack->arr[i] <= pivot)
+			return (i);
+		i = get_new_idx(i, '-', stack->size);
+	}
+	return (0);
+}
+

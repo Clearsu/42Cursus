@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:07:40 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 04:59:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 19:41:48 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,21 @@ int		get_dis_a(t_stack *stack, t_info *temp);
 int		get_dis_b(t_stack *stack, t_info *temp);
 int		get_min_bigger_than_val_from(t_stack *stack, t_info *info);
 int		get_pivot(t_stack *a, int n);
+int		get_first_idx_smaller_from_top(t_stack *a, int pivot);
+int		get_first_idx_smaller_from_bot(t_stack *a, int pivot);
 void	move_stacks(t_stack *a, t_stack *b, t_info *info);
 void	rotate_together_untill_end(t_stack *a, t_stack *b, t_info *info);
 void	r_rotate_together_untill_end(t_stack *a, t_stack *b, t_info *info);
 void	rotate_untill_val_on_tnx(t_stack *stack, int val);
 void	r_rotate_untill_val_on_tnx(t_stack *stack, int val);
 void	r_rotate_untill_val_on_bot(t_stack *stack, int val);
+void	a_rotate_opt(t_stack *a, int pivot);
+void	last_rotate(t_stack *a, int max);
 void	compare_with_bot_val(t_stack *a, t_info *info);
-void	print_stacks(t_stack *a, t_stack *b, t_info *info);
 void	error(void);
+t_info	*init_t_info(void);
+void	set_temp_info(t_stack *a, t_stack *b, t_info *temp, int idx);
+void	set_info(t_info *temp, t_info *info);
+t_info	*init_t_info(void);
 
 #endif

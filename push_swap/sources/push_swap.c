@@ -6,33 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:46:31 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 20:08:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 19:34:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stack.h"
-void	print_stacks(t_stack *a, t_stack *b, t_info *info)
-{
-	int	n;
-
-	n = a->size;
-	printf("    [ top ]\n");
-	printf("[index] [A] [B]\n");
-	for (int i = 0; i < n; i++)
-		printf("   %d     %d   %d\n",i, 
-				a->arr[i], b->arr[i]);
-	printf("     [ bot ]\n\n");
-	printf("   [A]    [B]\n");
-	printf(" top : %d top : %d\n", a->top, b->top);
-	printf(" tnx : %d tnx : %d\n", a->tnx, b->tnx);
-	printf(" bot : %d bot : %d\n", a->bot, b->bot);
-	printf(" bnx : %d bnx : %d\n", a->bnx, b->bnx);
-	printf("   n : %d   n : %d\n\n", a->n, b->n);
-	printf("    [info]\n");
-	printf(" to : %d from : %d\n", info->to, info->from);
-	printf(" val_to : %d val_from : %d\n", info->val_to, info->val_from);
-}
 
 int	main(int argc, char **argv)
 {
