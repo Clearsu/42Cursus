@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:48:35 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 05:23:41 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:02:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int	is_closer_from_top(t_stack *stack, int idx)
 	dis_top = 0;
 	dis_bot = 0;
 	idx_cp = idx;
-	while (idx != stack->top)
+	while (idx != stack->tnx)
 	{
 		idx = get_new_idx(idx, '-', stack->size);
 		dis_top++;
 	}
-	while (idx_cp != stack->bnx)
+	while (idx_cp != stack->bot)
 	{
 		idx_cp = get_new_idx(idx_cp, '+', stack->size);
 		dis_bot++;
@@ -64,7 +64,7 @@ int	get_distance_bot(t_stack *stack, int idx)
 	return (dis_bot);
 }
 
-int	get_dis_b(t_stack *b, t_info *temp)
+int	get_dis_set_dir_b(t_stack *b, t_info *temp)
 {
 	int	dis;
 
@@ -81,7 +81,7 @@ int	get_dis_b(t_stack *b, t_info *temp)
 	return (dis);
 }
 
-int	get_dis_a(t_stack *a, t_info *temp)
+int	get_dis_set_dir_a(t_stack *a, t_info *temp)
 {
 	int	dis;
 

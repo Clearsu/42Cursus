@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 23:13:02 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/12 03:27:48 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:01:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	swap(t_stack *stack)
 	int	temp1;
 	int	temp2;
 
+	if (stack->n <= 1)
+		return ;
 	increase_idx(stack, 't');
 	temp1 = stack->arr[stack->top];
 	increase_idx(stack, 't');
@@ -52,6 +54,8 @@ void	rotate(t_stack *stack)
 {
 	int	temp;
 
+	if (stack->n <= 1)
+		return ;
 	increase_idx(stack, 't');
 	temp = stack->arr[stack->top];
 	stack->arr[stack->top] = 0;
@@ -65,6 +69,8 @@ void	r_rotate(t_stack *stack)
 {
 	int	temp;
 
+	if (stack->n <= 1)
+		return ;
 	temp = stack->arr[stack->bot];
 	stack->arr[stack->bot] = 0;
 	decrease_idx(stack, 'b');

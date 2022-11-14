@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 20:58:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:03:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ void	get_shortest_case(t_stack *a, t_stack *b, t_info *info)
 	temp = init_t_info();
 	i = b->tnx;
 	set_temp_info(a, b, temp, i);
-	min_dis = get_dis_a(a, temp) + get_dis_b(b, temp);
+	min_dis = get_dis_set_dir_a(a, temp) + get_dis_set_dir_b(b, temp);
 	set_info(temp, info);
 	while (i != b->bnx)
 	{
-		dis = get_dis_a(a, temp) + get_dis_b(b, temp);
+		dis = get_dis_set_dir_a(a, temp) + get_dis_set_dir_b(b, temp);
 		if (dis < min_dis)
 		{
 			min_dis = dis;

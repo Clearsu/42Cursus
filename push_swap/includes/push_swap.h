@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:07:40 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 21:41:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:03:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int		is_sorted(t_stack *stack);
 int		is_closer_from_top(t_stack *stack, int idx);
 int		get_distance_top(t_stack *stack, int idx);
 int		get_distance_bot(t_stack *stack, int idx);
-int		get_dis_a(t_stack *stack, t_info *temp);
-int		get_dis_b(t_stack *stack, t_info *temp);
+int		get_dis_set_dir_a(t_stack *stack, t_info *temp);
+int		get_dis_set_dir_b(t_stack *stack, t_info *temp);
 int		get_min_bigger_than_val(t_stack *stack, int val);
 int		get_pivot(t_stack *a, int n);
 int		get_first_idx_smaller_from_top(t_stack *a, int pivot);
