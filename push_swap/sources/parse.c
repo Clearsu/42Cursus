@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:03:08 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 06:51:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:32:11 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ int	is_all_num(char *str)
 		return (0);
 	if (*str == '-' || *str == '+')
 		str++;
-	if (*str == '\0')
-		return (0);
 	while (*str)
 	{
 		if (!ft_isdigit(*str++))
@@ -53,24 +51,6 @@ void	check_duplicate(int *arr, int i)
 		if (arr[i--] == curr)
 			error();
 	}
-}
-
-void	check_if_sorted(int *arr, int n)
-{
-	int	i;
-
-	if (n == 2)
-		exit(0);
-	if (n == 3)
-		n--;
-	i = 1;
-	while (i < n)
-	{
-		if (arr[i] > arr[i + 1])
-			return ;
-		i++;
-	}
-	exit(0);
 }
 
 void	put_argv_to_stack(t_stack *a, char **argv)
@@ -94,8 +74,7 @@ void	put_argv_to_stack(t_stack *a, char **argv)
 	}
 	a->bnx = 0;
 	a->bot = --i;
+	a->n = a->size - 1;
 	if (is_stack_empty(a))
 		error();
-	check_if_sorted(a->arr, i + 1);
-	a->n = a->size - 1;
 }

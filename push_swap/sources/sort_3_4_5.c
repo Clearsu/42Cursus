@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 20:22:01 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/14 17:29:10 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:17:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ void	sort_3xx(t_stack *stack)
 		return ;
 	i = stack->tnx;
 	i = get_new_idx(i, '+', stack->size);
-	if (stack->arr[stack->tnx] > stack->arr[i] &&
-			stack->arr[i] > stack->arr[stack->bot])
+	if (stack->arr[stack->tnx] > stack->arr[i]
+		&& stack->arr[i] > stack->arr[stack->bot])
 	{
-		swap(stack); // 3 2 1
+		swap(stack);
 		ft_printf("s%c\n", stack->name);
 		r_rotate(stack);
 		ft_printf("rr%c\n", stack->name);
 	}
-	else // 3 1 2
+	else
 	{
 		rotate(stack);
 		ft_printf("r%c\n", stack->name);
@@ -41,20 +41,20 @@ void	sort_2xx(t_stack *stack)
 	int	i;
 
 	if (is_sorted(stack))
-		return ;	
+		return ;
 	i = stack->tnx;
 	i = get_new_idx(i, '+', stack->size);
 	if (stack->arr[stack->tnx] > stack->arr[i])
 	{
 		if (stack->arr[stack->tnx] < stack->arr[stack->bot])
 		{
-			swap(stack); //2 1 3
+			swap(stack);
 			ft_printf("s%c\n", stack->name);
 		}
 	}
 	else if (stack->arr[stack->tnx] > stack->arr[stack->bot])
 	{
-		r_rotate(stack); // 2 3 1
+		r_rotate(stack);
 		ft_printf("rr%c\n", stack->name);
 	}
 	sort_3xx(stack);
@@ -65,11 +65,11 @@ void	sort_3(t_stack *stack)
 	int	i;
 
 	if (is_sorted(stack))
-		return ;	
+		return ;
 	i = stack->tnx;
 	i = get_new_idx(i, '+', stack->size);
-	if (stack->arr[stack->tnx] < stack->arr[i] &&
-			stack->arr[stack->tnx] < stack->arr[stack->bot])
+	if (stack->arr[stack->tnx] < stack->arr[i]
+		&& stack->arr[stack->tnx] < stack->arr[stack->bot])
 	{
 		r_rotate(stack);
 		ft_printf("rr%c\n", stack->name);

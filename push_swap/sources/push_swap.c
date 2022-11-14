@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:46:31 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 19:34:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:32:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	char	*temp;
 
 	if (argc == 1)
-		exit(1);
+		exit(0);
 	if (argc == 2)
 	{
 		temp = ft_strjoin("name ", argv[1]);
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	a->name = 'a';
 	b->name = 'b';
 	put_argv_to_stack(a, argv);
-	sort(a, b);
+	if (!is_sorted(a))
+		sort(a, b);
 	return (0);
 }

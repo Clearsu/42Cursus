@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 23:12:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 21:38:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:20:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,14 @@ int	get_min_bigger_than_val(t_stack *a, int val)
 	return (min);
 }
 
-int	get_pivot(t_stack *a, int n)
+int	get_pivot(t_stack *a, int reps)
 {
 	int	i;
 	int	j;
 	int	min;
 	int	prev_min;
-	int	reps;
 
 	prev_min = get_min(a);
-	if (n == 1)
-		reps = a->size / 3;
-	else
-		reps = a->size * 2 / 3;
 	i = 1;
 	while (i < reps)
 	{
@@ -102,4 +97,3 @@ int	get_first_idx_smaller_from_bot(t_stack *stack, int pivot)
 	}
 	return (0);
 }
-

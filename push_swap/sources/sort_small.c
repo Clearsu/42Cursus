@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:12:51 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/14 16:14:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:26:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 void	sort_small(t_stack *a, t_stack *b)
 {
 	if (a->size == 3)
+	{
 		swap(a);
+		ft_printf("sa\n");
+	}
 	if (a->size == 4)
 		sort_3(a);
 	if (a->size == 5)

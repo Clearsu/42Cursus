@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:49:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/11 23:12:04 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 21:25:53 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	is_sorted(t_stack *stack)
 	int	i;
 	int	temp;
 
-	i = stack->tnx;;
+	i = stack->tnx;
 	while (i != stack->bot)
 	{
 		temp = get_new_idx(i, '+', stack->size);

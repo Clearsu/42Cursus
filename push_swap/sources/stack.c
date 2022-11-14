@@ -6,11 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:25:50 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/11 18:45:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 21:20:21 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
+#include "push_swap.h"
 
 t_stack	*create_stack(int size)
 {
@@ -45,17 +46,13 @@ void	increase_idx(t_stack *stack, char c)
 {
 	if (c == 't')
 	{
-		if (stack->top == stack->size - 1)
-			stack->top = 0;
-		else
-			stack->top++;
+		stack->top = get_new_idx(stack->top, '+', stack->size);
+		stack->tnx = get_new_idx(stack->tnx, '+', stack->size);
 	}
 	else if (c == 'b')
 	{
-		if (stack->bot == stack->size - 1)
-			stack->bot = 0;
-		else
-			stack->bot++;
+		stack->bot = get_new_idx(stack->bot, '+', stack->size);
+		stack->bnx = get_new_idx(stack->bnx, '+', stack->size);
 	}
 }
 
@@ -63,16 +60,12 @@ void	decrease_idx(t_stack *stack, char c)
 {
 	if (c == 't')
 	{
-		if (stack->top == 0)
-			stack->top = stack->size - 1;
-		else
-			stack->top--;
+		stack->top = get_new_idx(stack->top, '-', stack->size);
+		stack->tnx = get_new_idx(stack->tnx, '-', stack->size);
 	}
 	else if (c == 'b')
 	{
-		if (stack->bot == 0)
-			stack->bot = stack->size - 1;
-		else
-			stack->bot--;
+		stack->bot = get_new_idx(stack->bot, '-', stack->size);
+		stack->bnx = get_new_idx(stack->bnx, '-', stack->size);
 	}
 }
