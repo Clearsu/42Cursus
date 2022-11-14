@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 19:34:17 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 20:58:07 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,18 @@ void	pb_by_size(t_stack *a, t_stack *b)
 		if (a->arr[a->tnx] <= pivot2)
 		{
 			push(a, b);
-			if (b->arr[b->tnx] <= pivot1)
+			if (b->arr[b->tnx] <= pivot1 && a->n > 3)
 			{
 				rotate(b);
 				ft_printf("rb\n");
 			}
 		}
-		a_rotate_opt(a, pivot2);
+		if (a->n > 3 && is_smaller_n_exist(a, pivot2))
+			a_rotate_opt(a, pivot2);
 	}
 	while (a->n > 3)
 		push(a, b);
-	sort_132(a);
+	sort_3(a);
 }
 
 void	get_shortest_case(t_stack *a, t_stack *b, t_info *info)
@@ -67,11 +68,8 @@ void	sort(t_stack *a, t_stack *b)
 {
 	t_info	*info;
 
-	if (a->size == 3)
-	{
-		swap(a);
-		return ;
-	}
+	if (a->size <= 6)
+		sort_small(a, b);
 	info = init_t_info();
 	pb_by_size(a, b);
 	while (b->n > 0)

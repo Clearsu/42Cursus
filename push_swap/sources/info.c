@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 19:32:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/13 19:33:42 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/13 21:41:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	set_temp_info(t_stack *a, t_stack *b, t_info *temp, int idx)
 {
 	temp->from = idx;
 	temp->val_from = b->arr[idx];
-	temp->val_to = get_min_bigger_than_val_from(a, temp);
+	temp->val_to = get_min_bigger_than_val(a, temp->val_from);
 	temp->to = get_idx_of_val(a, temp->val_to);
 }
 
