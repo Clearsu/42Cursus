@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:07:40 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/14 17:03:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 23:08:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_info
 {
-	int 	from;
+	int		from;
 	int		to;
 	int		val_from;
 	int		val_to;

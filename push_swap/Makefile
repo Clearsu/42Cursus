@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 19:10:29 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/14 18:04:24 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/14 23:05:12 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,16 +35,18 @@ MAN_SRC			= push_swap.c
 BNS_SRC			= push_swap_bonus.c
 
 OBJS 			= $(SRCS:%.c=$(SRCS_DIR)/%.o)
+MAN_OBJS		= $(MAN_SRC:%.c=$(SRCS_DIR)/%.o)
+BNS_OBJS		= $(BNS_SRC:%.c=$(SRCS_DIR)/%.o)
 
-ifeq ($(DEBUG_FLAG), 1)
+ifdef IF_DEBUG
 	FLAGS += $(DEBUG)
 endif
 
-ifeq ($(BONUS_FLAG), 1)
-	SRCS += $(BNS_SRC)
+ifdef IF_BONUS
+	OBJS += $(BNS_OBJS)
 	NAME = $(BNS_NAME)
 else
-	SRCS += $(MAN_SRC)
+	OBJS += $(MAN_OBJS)
 endif
 
 %.o :	%.c
@@ -58,22 +60,21 @@ all	:	$(NAME)
 
 clean	:
 	@make clean -C $(LIBFT_DIR)
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(MAN_OBJS) $(BNS_OBJS)
 
 fclean	:	clean
 	@rm -f $(LIBFT_DIR)/$(LIBFT_LIB)
-	rm -f $(NAME)
-	rm -f $(BNS_NAME)
+	rm -f $(NAME) $(BNS_NAME)
 
 re	:	fclean all
 
 bonus	:
-	$(MAKE) BONUS_FLAG=1 all
+	$(MAKE) IF_BONUS=1 all
 
 debug	:
-	$(MAKE) DEBUG_FLAG=1 all
+	$(MAKE) IF_DEBUG=1 all
 
 debugbonus	:
-	$(MAKE) DEBUG_FLAG=1 BONUS_FLAG=1 all
+	$(MAKE) IF_DEBUG=1 IF_BONUS=1 all
 
-.PHONY	:	all clean fclean re bonus debug
+.PHONY	:	all clean fclean re bonus debug debugbonus

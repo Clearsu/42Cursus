@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/14 22:14:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 23:15:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	get_shortest_case(t_stack *a, t_stack *b, t_info *info)
 		i = get_new_idx(i, '+', b->size);
 		set_temp_info(a, b, temp, i);
 	}
+	free(temp);
 }
 
 void	sort(t_stack *a, t_stack *b)
@@ -88,4 +89,5 @@ void	sort(t_stack *a, t_stack *b)
 		}
 	}
 	last_rotate(a, get_max(a));
+	free(info);
 }
