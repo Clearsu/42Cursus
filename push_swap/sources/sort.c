@@ -6,25 +6,22 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 04:51:44 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/14 17:03:02 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:46:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stack.h"
 
-void	pb_by_size(t_stack *a, t_stack *b)
+void	pb_by_size(t_stack *a, t_stack *b, int pivot1, int pivot2)
 {
-	int	pivot1;
-	int	pivot2;
-
-	pivot1 = get_pivot(a, 1);
 	pivot2 = get_pivot(a, 2);
 	while (is_smaller_n_exist(a, pivot2) && a->n > 3)
 	{
 		if (a->arr[a->tnx] <= pivot2)
 		{
 			push(a, b);
+			ft_printf("pb\n");
 			if (b->arr[b->tnx] <= pivot1 && a->n > 3)
 			{
 				rotate(b);
@@ -35,7 +32,10 @@ void	pb_by_size(t_stack *a, t_stack *b)
 			a_rotate_opt(a, pivot2);
 	}
 	while (a->n > 3)
+	{
 		push(a, b);
+		ft_printf("pb\n");
+	}
 	sort_3(a);
 }
 
@@ -67,16 +67,21 @@ void	get_shortest_case(t_stack *a, t_stack *b, t_info *info)
 void	sort(t_stack *a, t_stack *b)
 {
 	t_info	*info;
+	int		pivot1;
+	int		pivot2;
 
 	if (a->size <= 6)
 		sort_small(a, b);
 	info = init_t_info();
-	pb_by_size(a, b);
+	pivot1 = get_pivot(a, 1);
+	pivot2 = get_pivot(a, 2);
+	pb_by_size(a, b, pivot1, pivot2);
 	while (b->n > 0)
 	{
 		get_shortest_case(a, b, info);	
 		move_stacks(a, b, info);
 		push(b, a);
+		ft_printf("pa\n");
 		if (a->arr[a->tnx] == get_max(a))
 		{
 			rotate(a);

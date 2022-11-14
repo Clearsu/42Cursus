@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 11:08:32 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/09 01:53:30 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/14 17:22:28 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS					= ft_atoi.c ft_atol.c ft_bzero.c ft_calloc.c \
 					  ft_split.c ft_strchr.c ft_strdup.c \
 					  ft_striteri.c ft_strjoin.c ft_strlcat.c \
 					  ft_strlcpy.c ft_strlen.c ft_strmapi.c \
-					  ft_strncmp.c ft_strnstr.c ft_strrchr.c \
+					  ft_strcmp.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 					  ft_strtrim.c ft_substr.c ft_tolower.c \
 					  ft_toupper.c get_next_line.c \
 					  ft_lstsize.c ft_lstadd_back.c ft_lstadd_front.c \
