@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 11:08:32 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/14 21:55:24 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/17 04:02:31 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ clean	:
 		@rm -f $(OBJS)
 
 fclean	:	clean
-		@rm -f $(FT_PRINTF_DIR)/$(FT_PRINTF_AR)
+		@make fclean -C $(FT_PRINTF_DIR)
 		@rm -f $(NAME)
 
 re	:	fclean all

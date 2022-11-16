@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 19:10:29 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/14 23:05:12 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/17 04:03:41 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ clean	:
 	rm -f $(OBJS) $(MAN_OBJS) $(BNS_OBJS)
 
 fclean	:	clean
-	@rm -f $(LIBFT_DIR)/$(LIBFT_LIB)
+	@make fclean -C $(LIBFT_DIR)
 	rm -f $(NAME) $(BNS_NAME)
 
 re	:	fclean all
