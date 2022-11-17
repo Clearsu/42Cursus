@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:17:25 by jincpark          #+#    #+#             */
-/*   Updated: 2022/08/02 09:50:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/17 19:50:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(ap);
 	return (res);
-}
-#include <stdio.h>
-
-int main()
-{
-	int d = 10;
-	char *str = "abcdef";
-	unsigned int ud = 100;
-	char c = 'c';
-
-	ft_printf("aa%d %s %u %c %p\n", d, str, ud, c, str);
-	printf("aa%d %s %u %c %p\n", d, str, ud, c, str);
 }
