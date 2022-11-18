@@ -6,28 +6,25 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/17 04:45:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/18 19:29:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-#include <pthread.h>
-#include <sys/time.h>
-
 typedef struct s_info
 {
-	pthread_mutex_t	mutex;
+	pthread_mutex_t	*pork;
 	t_philo			*philo;
-	int				*forks;
+	int				n;
 	t_time			time;
 }	t_info;
 
 typedef struct s_philo
 {
 	pthread_t	thread;
-	int			right_hand; // right_hand = rignt_hand | forks[i]
+	int			right_hand;
 	int			left_hand;
 	time_t		time_left;
 }	t_philo;
@@ -41,4 +38,6 @@ typedef struct s_time
 	time_t	time_to_die;
 }	t_time;
 
+int		ft_atoi(char *str);
+void	arg_check(int argc, char **argv);
 #endif

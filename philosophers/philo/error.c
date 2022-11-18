@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/18 19:14:53 by jincpark         ###   ########.fr       */
+/*   Created: 2022/11/18 19:17:10 by jincpark          #+#    #+#             */
+/*   Updated: 2022/11/18 19:29:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <pthread.h>
+#include <stdio.h>
+#include <errno.h>
 
-int	main(int argc, char **argv)
+void	error(int n, char *str)
 {
-	t_info	*info;
-
-	arg_check(argc, argv);
-	info = init_info(argc, argv);
+	if (n == 0)
+		printf("philo : Invalid argument number\n");
+	if (n == 1)
+		printf("philo : Invalid argument : %s\n", str);
+	exit(errno);
 }
