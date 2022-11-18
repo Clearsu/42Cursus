@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:17:25 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/17 19:50:45 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/17 21:32:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static int	print_format(char *str, va_list ap)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	ap;
-	int		res;
-	char	*formats;
+	va_list		ap;
+	int			res;
+	static char	*formats;
 
 	res = 0;
 	formats = "cspdiuxX%";
