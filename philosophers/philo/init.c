@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/19 18:38:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:47:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int	init_philo(t_info *info)
 
 void	set_time(char **argv, t_info *info)
 {
-	info->time.time_to_die = ft_atoi(argv[2]);
-	info->time.time_to_eat = ft_atoi(argv[3]);
-	info->time.time_to_sleep = ft_atoi(argv[4]);
+	info->time.to_die = ft_atoi(argv[2]);
+	info->time.to_eat = ft_atoi(argv[3]);
+	info->time.to_sleep = ft_atoi(argv[4]);
 }
 
 t_info	*init_info(char **argv)
