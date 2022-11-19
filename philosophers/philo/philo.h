@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/18 19:29:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/19 17:51:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ typedef struct s_time
 	time_t	time_to_die;
 }	t_time;
 
-int		ft_atoi(char *str);
-void	arg_check(int argc, char **argv);
+int	ft_atoi(char *str);
+int	arg_check(int argc, char **argv);
 #endif
