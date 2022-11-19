@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/19 17:51:43 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:02:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int	main(int argc, char **argv)
 	if (arg_check(argc, argv))
 	{
 		info = init_info(argc, argv);
+		if (!info)
+			return (1);
+
 		return (0);
 	}
 	return (1);
