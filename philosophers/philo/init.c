@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/19 18:27:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:38:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	init_mutex(t_info *info)
 	i = 0;
 	while (i < info->n)
 	{
-		if (pthread_mutex_init(info->pork[i++], NULL))
+		if (pthread_mutex_init(&(info->pork[i++]), NULL))
 		{
 			free(info);
 			error_msg(3, NULL);
@@ -40,8 +40,6 @@ int	init_mutex(t_info *info)
 
 int	init_philo(t_info *info)
 {
-	int	i;
-
 	info->philo = (t_philo *)malloc(sizeof(t_philo) * info->n);
 	if (!info->philo)
 	{
@@ -60,7 +58,7 @@ void	set_time(char **argv, t_info *info)
 	info->time.time_to_sleep = ft_atoi(argv[4]);
 }
 
-t_info	*init_info(int argc, char **argv)
+t_info	*init_info(char **argv)
 {
 	t_info	*info;
 

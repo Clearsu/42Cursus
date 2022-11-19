@@ -6,21 +6,15 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/19 18:27:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:39:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-typedef struct s_info
-{
-	pthread_mutex_t	*pork;
-	t_philo			*philo;
-	int				n;
-	int				num_of_times_must_eat;
-	t_time			time;
-}	t_info;
+# include <sys/time.h>
+# include <pthread.h>
 
 typedef struct s_philo
 {
@@ -38,8 +32,21 @@ typedef struct s_time
 	time_t	time_to_sleep;
 }	t_time;
 
+typedef struct s_info
+{
+	pthread_mutex_t	*pork;
+	t_philo			*philo;
+	int				n;
+	int				num_of_times_must_eat;
+	t_time			time;
+}	t_info;
+
+
+int		arg_check(int argc, char **argv);
+void	error_msg(int n, char *str);
+t_info	*init_info(char **argv);
+
 int	ft_atoi(char *str);
-int	arg_check(int argc, char **argv);
-t_info	*init_info(int argc, char **argv);
+int	is_all_num(char *str);
 
 #endif
