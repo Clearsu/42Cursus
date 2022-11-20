@@ -6,16 +6,30 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:15:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/19 18:33:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 16:37:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include "philo.h"
+
+int	range_check(char *str)
+{
+	long long	num;
+
+	num = ft_atol(str);
+	if (num > INT_MAX || num < INT_MIN)
+	{
+		error_msg(4, NULL);
+		return (0);
+	}
+	return (1);
+}
 
 int	check_argv(char **argv)
 {
-	int	i;
-	int	n;
+	int			i;
+	int			n;
 
 	i = 1;
 	n = 4;
@@ -30,6 +44,8 @@ int	check_argv(char **argv)
 		}
 		i++;
 	}
+	if (!range_check(argv[1]) || (argv[5] && !range_check(argv[5])))
+		return (0);
 	return (1);
 }
 

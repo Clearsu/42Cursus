@@ -6,12 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/19 18:38:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 16:19:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <pthread.h>
 
 int	main(int argc, char **argv)
 {
@@ -22,7 +21,7 @@ int	main(int argc, char **argv)
 		info = init_info(argv);
 		if (!info)
 			return (1);
-
+		
 		return (0);
 	}
 	return (1);

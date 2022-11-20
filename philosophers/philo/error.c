@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:17:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/19 18:17:11 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 16:30:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void	error_msg(int n, char *str)
 	if (n == 1)
 		printf("philo : Invalid argument : %s\n", str);
 	if (n == 2)
-		printf("philo : memory allocation failed\n");
+		printf("philo : Memory allocation failed\n");
 	if (n == 3)
-		printf("philo : mutex initiation failed\n");
+		printf("philo : Mutex initiation failed\n");
+	if (n == 4)
+		printf("philo : Number out of range\n");
 	return ;
 }

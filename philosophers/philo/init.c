@@ -6,13 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/19 18:47:46 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 16:13:23 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
-#include <pthread.h>
 #include <stdlib.h>
+#include "philo.h"
 
 int	init_mutex(t_info *info)
 {
@@ -53,9 +52,9 @@ int	init_philo(t_info *info)
 
 void	set_time(char **argv, t_info *info)
 {
-	info->time.to_die = ft_atoi(argv[2]);
-	info->time.to_eat = ft_atoi(argv[3]);
-	info->time.to_sleep = ft_atoi(argv[4]);
+	info->time.to_die = ft_atol(argv[2]);
+	info->time.to_eat = ft_atol(argv[3]);
+	info->time.to_sleep = ft_atol(argv[4]);
 }
 
 t_info	*init_info(char **argv)
@@ -75,6 +74,6 @@ t_info	*init_info(char **argv)
 		return (NULL);
 	set_time(argv, info);	
 	if (argv[5])
-		info->num_of_times_must_eat = ft_atoi(argv[5]);
+		info->times_must_eat = ft_atoi(argv[5]);
 	return (info);
 }

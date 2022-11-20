@@ -6,17 +6,37 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:04:14 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/19 18:57:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 16:14:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
 #include <stdio.h>
+#include <sys/time.h>
 
 int	ft_atoi(char *str)
 {
 	int	result;
 	int	sign;
+
+	result = 0;
+	sign = 1;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+		result = result * 10 + (*str++ - '0');
+	return (sign * result);
+}
+
+long long	ft_atol(char *str)
+{
+	long long	result;
+	long long	sign;
 
 	result = 0;
 	sign = 1;
