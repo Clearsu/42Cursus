@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 18:36:17 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 20:19:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	*start_routine(void *arg)
 	t_info	*info;
 
 	info = (t_info *)arg;
-	
+	(void)info;
+	return (NULL);
 }
 
 int	start_philo(t_info *info)
@@ -28,7 +29,7 @@ int	start_philo(t_info *info)
 	while (i < info->n)
 	{
 		if (pthread_create(&(info->philo[i++].thread), NULL,
-				start_routine, info) != 0)
+				start_routine, &(info->philo[i])) != 0)
 		{
 			error_msg(5, NULL);
 			return (0);

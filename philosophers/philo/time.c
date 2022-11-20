@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 18:02:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 18:03:21 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 19:16:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 time_t	get_time_in_mili(void)
 {
-	struct timeval	time;
+	static struct timeval	time;
 
 	gettimeofday(&time, NULL);
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
