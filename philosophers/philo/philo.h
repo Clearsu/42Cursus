@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 20:19:54 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/21 00:37:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 typedef struct s_time
 {
 	time_t	start;
-	time_t	the_end;
 	time_t	to_die;
 	time_t	to_eat;
 	time_t	to_sleep;
@@ -33,11 +32,13 @@ typedef struct s_time
 
 typedef struct s_philo
 {
-	int				name;
+	int				id;
+	int				alive;
 	pthread_t		thread;
 	pthread_mutex_t	*right_hand;
 	pthread_mutex_t	*left_hand;
 	t_time			*time;
+	time_t			limit;
 	char			*table;
 	int				eat_reps;
 }	t_philo;
@@ -53,6 +54,7 @@ int			arg_check(int argc, char **argv);
 t_info		*init_info(char **argv);
 
 time_t		get_time_diff(time_t then, time_t now);
+time_t		get_time_in_mili(void);
 void		print_status(time_t timestamp, int philo, int flag);
 void		error_msg(int n, char *str);
 

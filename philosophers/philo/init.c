@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 20:21:54 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/21 00:39:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int	init_philo(t_info *info)
 	i = 0;
 	while (i < info->n)
 	{
-		info->philo[i].name = i + 1;
+		info->philo[i].id = i;
+		into->philo[i].alive = 1;
 		info->philo[i].right_hand = &(info->pork[i]);
 		if (i == 0)
 			info->philo[i].left_hand = &(info->pork[info->n - 1]);
@@ -64,17 +65,25 @@ int	init_philo(t_info *info)
 	return (1);
 }
 
-void	set_time_in_microsec(char **argv, t_info *info)
+int	set_time_in_microsec(char **argv, t_info *info)
 {
 	t_time	time;
 	int		i;
 
+	time = (t_time *)malloc(sizeof(t_time));
+	if (!time)
+	{
+		error_msg(2, NULL);
+		return (0);
+	}
+	time.start = 0;
 	time.to_die = ft_atol(argv[2]) * 1000;
 	time.to_eat = ft_atol(argv[3]) * 1000;
 	time.to_sleep = ft_atol(argv[4]) * 1000;
 	i = 0;
 	while (i < info->n)
 		info->philo[i++].time = &(time);
+	return (1);
 }
 
 int	set_table(t_info *info)
@@ -111,7 +120,8 @@ t_info	*init_info(char **argv)
 		return (NULL);
 	if (!init_philo(info))
 		return (NULL);
-	set_time_in_microsec(argv, info);
+	if (!set_time_in_microsec(argv, info))
+		return (NULL);
 	if (!set_table(info))
 		return (NULL);
 	if (argv[5])

@@ -6,18 +6,17 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 20:19:02 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/21 00:42:48 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*start_routine(void *arg)
+void	*routine(void *arg)
 {
-	t_info	*info;
+	t_philo	*philo;
 
-	info = (t_info *)arg;
-	(void)info;
+	philo = (t_philo *)arg;
 	return (NULL);
 }
 
@@ -29,10 +28,10 @@ int	start_philo(t_info *info)
 	while (i < info->n)
 	{
 		if (pthread_create(&(info->philo[i++].thread), NULL,
-				start_routine, &(info->philo[i])) != 0)
+				routine, &(info->philo[i])) != 0)
 		{
 			error_msg(5, NULL);
-			return (0);
+			return (1);
 		}
 	}
 	i = 0;
@@ -41,7 +40,7 @@ int	start_philo(t_info *info)
 		if (pthread_join(info->philo[i++].thread, NULL) != 0)
 		{
 			error_msg(6, NULL);
-			return (0);
+			return (1);
 		}
 	}
 	return (1);
