@@ -6,11 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:41:13 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/14 11:15:23 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 15:52:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

@@ -6,11 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 12:43:04 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/14 12:19:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 15:57:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 size_t	ft_strlen(const char *s)
 {

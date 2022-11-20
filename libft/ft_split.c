@@ -6,11 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 15:14:16 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/16 14:10:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 15:55:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 size_t	word_len(char const *s, char c)
 {

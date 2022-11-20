@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 20:56:23 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/14 13:16:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 16:01:23 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)s + i);
 		i--;
 	}
-	return (NULL);
+	return (0);
 }

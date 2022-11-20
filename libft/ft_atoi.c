@@ -6,11 +6,9 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:27:00 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/13 16:08:29 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 15:47:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
