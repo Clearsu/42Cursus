@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:15:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 16:37:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 18:28:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	range_check(char *str)
 	num = ft_atol(str);
 	if (num > INT_MAX || num < INT_MIN)
 	{
-		error_msg(4, NULL);
+		error_msg(4, str);
 		return (0);
 	}
 	return (1);

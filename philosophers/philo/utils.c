@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:04:14 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 16:14:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 18:21:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,7 @@ int	is_all_num(char *str)
 	return (1);
 }
 
-time_t	get_time_diff(time_t then, time_t now)
-{
-	return (now - then);
-}
-
-void	print_status(time_t timestamp, int	philo, int flag)
+void	print_status(time_t timestamp, int philo, int flag)
 {
 	if (flag == 0)
 		printf("%ld %d has taken a fork\n", timestamp, philo);

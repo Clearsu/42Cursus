@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:17:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 16:30:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 18:29:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void	error_msg(int n, char *str)
 	if (n == 3)
 		printf("philo : Mutex initiation failed\n");
 	if (n == 4)
-		printf("philo : Number out of range\n");
+		printf("philo : Number out of range : %s\n", str);
+	if (n == 5)
+		printf("philo : Failed to create a thread\n");
+	if (n == 6)
+		printf("philo : Failed to join a thread\n");
 	return ;
 }

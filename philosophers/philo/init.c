@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 16:13:23 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 18:02:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_info	*init_info(char **argv)
 		return (NULL);
 	if (!init_philo(info))
 		return (NULL);
-	set_time(argv, info);	
+	set_time(argv, info);
 	if (argv[5])
 		info->times_must_eat = ft_atoi(argv[5]);
 	return (info);
