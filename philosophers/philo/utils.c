@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:04:14 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 20:15:48 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:58:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,4 @@ int	is_all_num(char *str)
 		str++;
 	}
 	return (1);
-}
-
-void	print_status(time_t timestamp, int philo, int flag)
-{
-	if (flag == 0)
-		printf("%ld %d has taken a fork\n", timestamp, philo);
-	else if (flag == 1)
-		printf("%ld %d is eating\n", timestamp, philo);
-	else if (flag == 2)
-		printf("%ld %d is sleeping\n", timestamp, philo);
-	else if (flag == 4)
-		printf("%ld %d died\n", timestamp, philo);
 }

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/21 00:37:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/21 22:24:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ typedef struct s_philo
 	pthread_mutex_t	*right_hand;
 	pthread_mutex_t	*left_hand;
 	t_time			*time;
+	time_t			curr;
 	time_t			limit;
 	char			*table;
+	int				n;
 	int				eat_reps;
 }	t_philo;
 
@@ -53,9 +55,13 @@ typedef struct s_info
 int			arg_check(int argc, char **argv);
 t_info		*init_info(char **argv);
 
+int			philo_think_and_eat(t_philo *philo);
+int			philo_sleep(t_philo *philo);
+void		detect_dead_and_quit(t_info *info);
+
+time_t		get_timestamp(t_philo *philo);
 time_t		get_time_diff(time_t then, time_t now);
 time_t		get_time_in_mili(void);
-void		print_status(time_t timestamp, int philo, int flag);
 void		error_msg(int n, char *str);
 
 int			ft_atoi(char *str);
