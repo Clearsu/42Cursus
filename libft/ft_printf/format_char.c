@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 17:56:57 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/29 17:17:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:15:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "ft_printf.h"
 
 int	print_char(int c)

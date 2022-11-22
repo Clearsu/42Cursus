@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:21:51 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/14 11:32:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:10:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)

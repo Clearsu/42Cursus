@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:18:48 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/14 13:06:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:10:59 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)

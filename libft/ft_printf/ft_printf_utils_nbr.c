@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 19:53:32 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/29 19:00:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:16:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "ft_printf.h"
 
 void	print_rev(char *str, int i)

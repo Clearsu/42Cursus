@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 21:04:13 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 16:00:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:13:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		}
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

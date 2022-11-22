@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 14:57:19 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/19 13:34:18 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:13:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 size_t	is_in_set(char c, char const *set)

@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 14:01:29 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/16 13:50:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:09:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 t_list	*ft_lstnew(void *content)

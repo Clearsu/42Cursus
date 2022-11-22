@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 15:51:51 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/13 17:00:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:08:21 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 size_t	get_num_len(int n)

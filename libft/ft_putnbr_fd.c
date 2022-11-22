@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:27:00 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/14 13:06:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:10:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 void	print_rev(char *str, int i, int fd)

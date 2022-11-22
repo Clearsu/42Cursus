@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 20:09:37 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/30 14:34:27 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:15:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "ft_printf.h"
 
 int	print_hexa(unsigned int n, char c)

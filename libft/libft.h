@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 20:24:04 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/14 17:21:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:18:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <unistd.h>
 
 # define BUFFER_SIZE 256
 

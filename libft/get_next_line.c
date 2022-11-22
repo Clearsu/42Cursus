@@ -6,10 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:33:57 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/04 16:55:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:18:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "libft.h"
 
 static char	*read_and_save(int fd, char *buffer, char *save)

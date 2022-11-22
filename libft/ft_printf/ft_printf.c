@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:17:25 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/04 18:26:09 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:16:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdarg.h>
 #include "ft_printf.h"
 
 static int	print_format(char *str, va_list ap)

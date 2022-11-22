@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:42:54 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/16 14:55:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:08:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)

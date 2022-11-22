@@ -6,16 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:17:37 by jincpark          #+#    #+#             */
-/*   Updated: 2022/08/02 09:50:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:17:54 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
-# include <stdlib.h>
-# include <stdarg.h>
-# include <unistd.h>
 
 int		ft_printf(const char *str, ...);
 int		print_char(int c);

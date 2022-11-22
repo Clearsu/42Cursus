@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 20:05:00 by jincpark          #+#    #+#             */
-/*   Updated: 2022/07/29 20:07:41 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:17:11 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "ft_printf.h"
 
 int	ft_strlen(const char *s)

@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 14:33:37 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 15:56:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:11:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)
