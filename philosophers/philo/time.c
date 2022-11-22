@@ -6,11 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 18:02:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/21 17:25:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 20:56:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/time.h>
+#include "philo.h"
 
 time_t	get_timestamp(t_philo *philo)
 {

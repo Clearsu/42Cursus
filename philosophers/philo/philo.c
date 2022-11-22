@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/21 20:18:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/22 21:25:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ void	*routine(void *arg)
 	philo->curr = get_time_in_mili();
 	if (philo->id == 0)
 		philo->time->start = philo->curr;
+	philo->limit = philo->curr + philo->time->to_die;
 	while (1)
 	{
+		if (!philo_think(philo))
+			break ;
 		if (!philo_eat(philo))
 			break ;
 		if (!philo_sleep(philo))
-			break ;
-		if (!philo_think(philo))
 			break ;
 	}
 	return (NULL);
