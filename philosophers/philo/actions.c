@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/23 14:59:59 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:37:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int	dead_check(t_philo *philo)
 	time_t	now;
 
 	now = get_time_in_mili();
-	if (now > philo->limit)
+	if (now >= philo->limit)
 	{
+		printf("%ld %d died\n", get_timestamp(philo), philo->id);
 		philo->alive = 0;
 		return (1);
 	}
@@ -75,20 +76,15 @@ int	philo_eat(t_philo *philo)
 		get_porks(philo);
 		printf("%ld %d has taken a fork\n", get_timestamp(philo), philo->id);
 		eat_limit = get_time_in_mili() + philo->time->to_eat;
+		lengthen_life(philo);
 		printf("%ld %d is eating\n", get_timestamp(philo), philo->id);
 		while (get_time_in_mili() < eat_limit)
 		{
-			if (!philo->alive)
+			if (!philo->alive || dead_check(philo))
 				return (0);
-			if (dead_check(philo))
-			{
-				printf("%ld %d died\n", get_timestamp(philo), philo->id);
-				return (0);
-			}
 			usleep(50);
 		}
 		put_porks_down(philo);
-		lengthen_life(philo);
 	}
 	return (1);
 }
@@ -103,13 +99,8 @@ int	philo_sleep(t_philo *philo)
 	sleep_limit = get_time_in_mili() + philo->time->to_sleep;
 	while (get_time_in_mili() < sleep_limit)
 	{
-		if (!philo->alive)
+		if (!philo->alive || dead_check(philo))
 			return (0);
-		if (dead_check(philo))
-		{
-			printf("%ld %d died\n", get_timestamp(philo), philo->id);
-			return (0);
-		}
 		usleep(50);
 	}
 	return (1);
@@ -124,13 +115,8 @@ int	philo_think(t_philo *philo)
 	printf("%ld %d is thinking\n", get_timestamp(philo), philo->id);
 	while (!is_porks_available(philo))
 	{
-		if (!philo->alive)
+		if (!philo->alive || dead_check(philo))
 			return (0);
-		if (dead_check(philo))
-		{
-			printf("%ld %d died\n", get_timestamp(philo), philo->id);
-			return (0);
-		}
 		usleep(50);
 	}
 	return (1);

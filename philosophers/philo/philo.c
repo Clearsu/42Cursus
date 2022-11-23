@@ -6,10 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/22 22:06:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:39:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "philo.h"
 
 void	*routine(void *arg)
@@ -21,6 +22,8 @@ void	*routine(void *arg)
 	if (philo->id == 0)
 		philo->time->start = philo->curr;
 	philo->limit = philo->curr + philo->time->to_die;
+	if (!(philo->id % 2))
+		usleep(100);
 	while (1)
 	{
 		if (!philo_think(philo))
