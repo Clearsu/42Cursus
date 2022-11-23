@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:17:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/20 18:29:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 23:03:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	error_msg(int n, char *str)
 	if (n == 5)
 		printf("philo : Failed to create a thread\n");
 	if (n == 6)
-		printf("philo : Failed to join a thread\n");
+		printf("philo : Failed to detach a thread\n");
 	return ;
 }

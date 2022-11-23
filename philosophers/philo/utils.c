@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:04:14 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/21 14:58:02 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 23:03:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ int	is_all_num(char *str)
 		return (-1);
 	if ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
-	if (*str == '+' || *str == '-')
+	if (*str == '+')
 		str++;
+	if (*str == '-')
+		return (0);
 	while (*str)
 	{
 		if (*str < '0' || *str > '9')

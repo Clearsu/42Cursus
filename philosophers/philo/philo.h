@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/22 22:10:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 23:47:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,25 @@ typedef struct s_philo
 {
 	int				id;
 	int				alive;
+	int				n;
+	int				num_of_alive;
+	int				left_idx;
 	pthread_t		thread;
 	pthread_mutex_t	*right_hand;
 	pthread_mutex_t	*left_hand;
+	pthread_mutex_t	*print;
 	t_time			*time;
 	time_t			curr;
 	time_t			limit;
 	char			*table;
-	int				n;
 	int				eat_reps;
+	int				opt_flag;
 }	t_philo;
 
 typedef struct s_info
 {
 	pthread_mutex_t	*pork;
+	pthread_mutex_t	print;
 	t_philo			*philo;
 	int				n;
 }	t_info;

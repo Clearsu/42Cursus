@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/21 15:24:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 23:48:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ int	init_mutex(t_info *info)
 		error_msg(2, NULL);
 		return (0);
 	}
+	if (pthread_mutex_init(&(info->print), NULL) != 0)
+	{
+		free(info);
+		error_msg(3, NULL);
+		return (0);
+	}
 	i = 0;
 	while (i < info->n)
 	{
@@ -38,24 +44,60 @@ int	init_mutex(t_info *info)
 	return (1);
 }
 
-int	init_philo(t_info *info)
+t_philo	*malloc_philo(t_info *info)
 {
-	int	i;
+	t_philo	*philo;
 
-	info->philo = (t_philo *)malloc(sizeof(t_philo) * info->n);
-	if (!info->philo)
+	philo = (t_philo *)malloc(sizeof(t_philo) * info->n);
+	if (!philo)
 	{
 		free(info->pork);
 		free(info);
 		error_msg(2, NULL);
 		return (0);
 	}
+	return (philo);
+}
+
+void	set_eat_reps(t_info *info, char **argv)
+{
+	int	i;
+
+	i = 0;
+	if (argv[5])
+	{
+		while (i < info->n)
+		{
+			info->philo[i].opt_flag = 1;
+			info->philo[i].eat_reps = ft_atoi(argv[5]);
+			i++;
+		}
+	}
+	else
+	{
+		while (i < info->n)
+		{
+			info->philo[i].opt_flag = 0;
+			info->philo[i].eat_reps = 1;
+			i++;
+		}
+	}
+}
+
+int	init_philo(t_info *info, char **argv)
+{
+	int	i;
+
+	info->philo = malloc_philo(info);
+	if (!info->philo)
+		return (0);
 	i = 0;
 	while (i < info->n)
 	{
 		info->philo[i].id = i;
 		info->philo[i].alive = 1;
 		info->philo[i].n = info->n;
+		info->philo[i].print = &(info->print);
 		info->philo[i].right_hand = &(info->pork[i]);
 		if (i == 0)
 			info->philo[i].left_hand = &(info->pork[info->n - 1]);
@@ -63,6 +105,7 @@ int	init_philo(t_info *info)
 			info->philo[i].left_hand = &(info->pork[i - 1]);
 		i++;
 	}
+	set_eat_reps(info, argv);
 	return (1);
 }
 
@@ -108,7 +151,6 @@ int	set_table(t_info *info)
 t_info	*init_info(char **argv)
 {
 	t_info	*info;
-	int		i;
 
 	info = (t_info *)malloc(sizeof(t_info));
 	if (!info)
@@ -119,17 +161,11 @@ t_info	*init_info(char **argv)
 	info->n = ft_atoi(argv[1]);
 	if (!init_mutex(info))
 		return (NULL);
-	if (!init_philo(info))
+	if (!init_philo(info, argv))
 		return (NULL);
 	if (!set_time_in_microsec(argv, info))
 		return (NULL);
 	if (!set_table(info))
 		return (NULL);
-	if (argv[5])
-	{
-		i = 0;
-		while (i < info->n)
-			info->philo[i++].eat_reps = ft_atoi(argv[5]);
-	}
 	return (info);
 }

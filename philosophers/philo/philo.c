@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/23 16:39:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 22:42:53 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*routine(void *arg)
 	if (philo->id == 0)
 		philo->time->start = philo->curr;
 	philo->limit = philo->curr + philo->time->to_die;
-	if (!(philo->id % 2))
+	if (philo->id % 2 == 0)
 		usleep(100);
 	while (1)
 	{
@@ -60,7 +60,7 @@ int	end_philo(t_info *info)
 	i = 0;
 	while (i < info->n)
 	{
-		if (pthread_join(info->philo[i++].thread, NULL) != 0)
+		if (pthread_detach(info->philo[i++].thread) != 0)
 		{
 			error_msg(6, NULL);
 			return (0);
