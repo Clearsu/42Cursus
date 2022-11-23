@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/23 16:37:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:53:50 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int	philo_eat(t_philo *philo)
 		get_porks(philo);
 		printf("%ld %d has taken a fork\n", get_timestamp(philo), philo->id);
 		eat_limit = get_time_in_mili() + philo->time->to_eat;
-		lengthen_life(philo);
 		printf("%ld %d is eating\n", get_timestamp(philo), philo->id);
+		lengthen_life(philo);
 		while (get_time_in_mili() < eat_limit)
 		{
 			if (!philo->alive || dead_check(philo))
