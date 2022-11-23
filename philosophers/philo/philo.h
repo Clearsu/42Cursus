@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/23 23:47:09 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 02:21:31 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ time_t		get_timestamp(t_philo *philo);
 time_t		get_time_diff(time_t then, time_t now);
 time_t		get_time_in_mili(void);
 void		error_msg(int n, char *str);
+void		print_in_mutex(t_philo *philo, char *str);
 
 int			ft_atoi(char *str);
 long long	ft_atol(char *str);

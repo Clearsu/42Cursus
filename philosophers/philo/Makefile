@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 04:04:53 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/21 15:19:34 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/24 01:58:20 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FLAGS 			= -Wall -Wextra -Werror
 DEBUG			= -fsanitize=address -g3
 
 SRCS 			= philo.c arg_check.c init.c actions.c time.c utils.c error.c \
-				  detect_dead.c
+				  monitoring.c
 
 OBJS 			= $(SRCS:%.c=%.o)
 

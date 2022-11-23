@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/23 22:42:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 02:03:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*routine(void *arg)
 		philo->time->start = philo->curr;
 	philo->limit = philo->curr + philo->time->to_die;
 	if (philo->id % 2 == 0)
-		usleep(100);
+		usleep(200);
 	while (1)
 	{
 		if (!philo_think(philo))
