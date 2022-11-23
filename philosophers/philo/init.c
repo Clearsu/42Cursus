@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/23 23:48:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 02:59:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,12 @@ int	init_philo(t_info *info, char **argv)
 		info->philo[i].n = info->n;
 		info->philo[i].print = &(info->print);
 		info->philo[i].right_hand = &(info->pork[i]);
-		if (i == 0)
+		if (i == 0 && info->n > 1)
 			info->philo[i].left_hand = &(info->pork[info->n - 1]);
-		else
+		else if (info->n > 1)
 			info->philo[i].left_hand = &(info->pork[i - 1]);
+		else
+			info->philo[i].left_hand = NULL;
 		i++;
 	}
 	set_eat_reps(info, argv);
