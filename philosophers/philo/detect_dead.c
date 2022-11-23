@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:17:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/22 21:37:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:03:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	detect_dead_and_quit(t_info *info)
 	int	n;
 
 	i = 0;
-	n = info->n - 1;
+	n = info->n;
 	while (1)
 	{
-		if (info->philo[i++].alive == 0)
-			break ;
 		if (i == n)
 			i = 0;
+		if (info->philo[i++].alive == 0)
+			break ;
 	}
 	give_dead_signal(info, n);
 }
