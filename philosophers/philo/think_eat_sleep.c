@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 19:07:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 19:49:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ int	philo_think(t_philo *philo)
 int	philo_eat(t_philo *philo)
 {
 	time_t	eat_limit;
+	time_t	now;
 
 	if (!philo->alive || !philo->eat_reps)
 		return (0);
 	print_in_mutex(philo, "is eating");
-	eat_limit = get_time_in_mili() + philo->time->to_eat;
-	lengthen_life(philo);
+	now = get_time_in_mili();
+	eat_limit = now + philo->time->to_eat;
+	lengthen_life(philo, now);
 	while (get_time_in_mili() < eat_limit)
 	{
 		if (!philo->alive || dead_check(philo))

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 17:21:48 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:09:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	init_mutex(t_info *info)
 		error_msg(2, NULL);
 		return (0);
 	}
-	if (pthread_mutex_init(&(info->print), NULL) != 0)
+	if (pthread_mutex_init(&(info->print), NULL) != 0
+			|| pthread_mutex_init(&info->before_start, NULL))
 	{
 		free_info_and_print_error(info);
 		return (0);
@@ -77,6 +78,7 @@ int	init_philo(t_info *info, char **argv)
 		info->philo[i].n = info->n;
 		info->philo[i].left_idx = get_left_idx(&(info->philo[i]));
 		info->philo[i].print = &(info->print);
+		info->philo[i].before_start = &(info->before_start);
 		info->philo[i].right_hand = &(info->pork[i]);
 		if (i == 0 && info->n > 1)
 			info->philo[i].left_hand = &(info->pork[info->n - 1]);

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 19:04:46 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:14:11 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	philo->curr = get_time_in_mili();
-	if (philo->id == 0)
-		philo->time->start = philo->curr;
-	philo->limit = philo->curr + philo->time->to_die;
+	pthread_mutex_lock(philo->before_start);
+	pthread_mutex_unlock(philo->before_start);
+	philo->limit = philo->time->start + philo->time->to_die;
 	if (philo->n == 1)
 	{
 		philo_think(philo);
@@ -31,11 +30,7 @@ void	*routine(void *arg)
 		usleep(200);
 	while (1)
 	{
-		if (!philo_think(philo))
-			return (NULL);
-		if (!philo_eat(philo))
-			return (NULL);
-		if (!philo_sleep(philo))
+		if (!philo_think(philo) || !philo_eat(philo) || !philo_sleep(philo))
 			return (NULL);
 	}
 	return (NULL);
@@ -43,9 +38,10 @@ void	*routine(void *arg)
 
 int	start_philo(t_info *info)
 {
-	int	i;
+	int		i;
 
 	i = 0;
+	pthread_mutex_lock(&info->before_start);
 	while (i < info->n)
 	{
 		if (pthread_create(&(info->philo[i].thread), NULL,
@@ -56,6 +52,8 @@ int	start_philo(t_info *info)
 		}
 		i++;
 	}
+	info->time.start = get_time_in_mili();
+	pthread_mutex_unlock(&info->before_start);
 	return (1);
 }
 
@@ -105,7 +103,7 @@ int	main(int argc, char **argv)
 	detect_dead_and_quit(info);
 	if (!end_philo(info))
 		return (1);
-	if (!destroy_porks(info))
-		return (1);
+	//if (!destroy_porks(info))
+	//	return (1);
 	return (0);
 }

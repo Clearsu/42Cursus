@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 17:07:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:08:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 
 # include <sys/time.h>
 # include <pthread.h>
-
-# define TAKE_FORK 0
-# define EAT 1
-# define SLEEP 2
-# define THINK 3
-# define DIE 4
 
 typedef struct s_time
 {
@@ -40,6 +34,7 @@ typedef struct s_philo
 	pthread_mutex_t	*right_hand;
 	pthread_mutex_t	*left_hand;
 	pthread_mutex_t	*print;
+	pthread_mutex_t	*before_start;
 	t_time			*time;
 	time_t			curr;
 	time_t			limit;
@@ -52,8 +47,10 @@ typedef struct s_info
 {
 	pthread_mutex_t	*pork;
 	pthread_mutex_t	print;
+	pthread_mutex_t	before_start;
 	t_philo			*philo;
 	int				n;
+	t_time			time;
 }	t_info;
 
 int			arg_check(int argc, char **argv);
@@ -78,7 +75,7 @@ time_t		get_timestamp(t_philo *philo);
 time_t		get_time_in_mili(void);
 void		error_msg(int n, char *str);
 void		print_in_mutex(t_philo *philo, char *str);
-void		lengthen_life(t_philo *philo);
+void		lengthen_life(t_philo *philo, time_t now);
 
 int			get_left_idx(t_philo *philo);
 int			ft_atoi(char *str);

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 18:02:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 17:32:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 19:50:27 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ time_t	get_time_in_mili(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-void	lengthen_life(t_philo *philo)
+void	lengthen_life(t_philo *philo, time_t now)
 {
-	philo->limit = get_time_in_mili() + philo->time->to_die;
+	philo->limit = now + philo->time->to_die;
 }
