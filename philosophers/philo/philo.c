@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 20:14:11 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/25 01:08:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*routine(void *arg)
 	pthread_mutex_lock(philo->before_start);
 	pthread_mutex_unlock(philo->before_start);
 	philo->limit = philo->time->start + philo->time->to_die;
-	if (philo->n == 1)
+	if (philo->n == 1 || philo->eat_reps == 0)
 	{
 		philo_think(philo);
 		return (NULL);
@@ -64,7 +64,7 @@ int	end_philo(t_info *info)
 	i = 0;
 	while (i < info->n)
 	{
-		if (pthread_detach(info->philo[i++].thread) != 0)
+		if (pthread_join(info->philo[i++].thread, NULL) != 0)
 		{
 			error_msg(6, NULL);
 			return (0);
@@ -80,11 +80,22 @@ int	destroy_porks(t_info *info)
 	i = 0;
 	while (i < info->n)
 	{
-		if (pthread_mutex_destroy(&info->pork[i++]) != 0)
+		if (info->table[i] && pthread_mutex_destroy(&info->pork[i]) != 0)
 		{
 			error_msg(7, NULL);
 			return (0);
 		}
+		i++;
+	}
+	if (pthread_mutex_destroy(&info->print) != 0)
+	{
+		error_msg(7, NULL);
+		return (0);
+	}
+	if (pthread_mutex_destroy(&info->before_start) != 0)
+	{
+		error_msg(7, NULL);
+		return (0);
 	}
 	return (1);
 }
@@ -103,7 +114,7 @@ int	main(int argc, char **argv)
 	detect_dead_and_quit(info);
 	if (!end_philo(info))
 		return (1);
-	//if (!destroy_porks(info))
-	//	return (1);
+	if (!destroy_porks(info))
+		return (1);
 	return (0);
 }

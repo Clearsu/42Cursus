@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 19:49:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/25 01:07:23 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	philo_think(t_philo *philo)
 {
 	if (!philo->alive || !philo->eat_reps)
 		return (0);
-	if (is_porks_available(philo) && philo->n > 1)
+	if (is_porks_available(philo))
 	{
 		get_right_pork(philo);
 		get_left_pork(philo);
@@ -42,13 +42,13 @@ int	philo_think(t_philo *philo)
 	{
 		if (!philo->alive || dead_check(philo))
 			return (0);
-		usleep(50);
+		usleep(200);
 	}
 	while (!get_left_pork(philo))
 	{
 		if (!philo->alive || dead_check(philo))
 			return (0);
-		usleep(50);
+		usleep(200);
 	}
 	return (1);
 }
@@ -68,7 +68,7 @@ int	philo_eat(t_philo *philo)
 	{
 		if (!philo->alive || dead_check(philo))
 			return (0);
-		usleep(100);
+		usleep(200);
 	}
 	put_porks_down(philo);
 	if (philo->opt_flag)
@@ -88,7 +88,7 @@ int	philo_sleep(t_philo *philo)
 	{
 		if (!philo->alive || dead_check(philo))
 			return (0);
-		usleep(50);
+		usleep(200);
 	}
 	return (1);
 }

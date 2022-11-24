@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:32:37 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 20:09:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:46:00 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	set_table(t_info *info)
 		return (0);
 	}
 	table = memset(table, 1, info->n);
+	info->table = table;
 	i = 0;
 	while (i < info->n)
 		info->philo[i++].table = table;

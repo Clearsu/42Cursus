@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 20:08:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:45:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_info
 	pthread_mutex_t	before_start;
 	t_philo			*philo;
 	int				n;
+	char			*table;
 	t_time			time;
 }	t_info;
 

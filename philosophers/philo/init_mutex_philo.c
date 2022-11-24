@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 20:09:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:45:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	init_mutex(t_info *info)
 		return (0);
 	}
 	if (pthread_mutex_init(&(info->print), NULL) != 0
-			|| pthread_mutex_init(&info->before_start, NULL))
+		|| pthread_mutex_init(&info->before_start, NULL))
 	{
 		free_info_and_print_error(info);
 		return (0);
