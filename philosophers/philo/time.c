@@ -6,11 +6,10 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 18:02:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/22 20:56:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:01:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/time.h>
 #include "philo.h"
 
 time_t	get_timestamp(t_philo *philo)
@@ -33,7 +32,8 @@ time_t	get_time_in_mili(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-time_t	get_time_diff(time_t then, time_t now)
+void	lengthen_life(t_philo *philo)
 {
-	return (now - then);
+	philo->limit += philo->time->to_die;
 }
+

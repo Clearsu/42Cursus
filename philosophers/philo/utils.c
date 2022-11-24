@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:04:14 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/23 23:03:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:01:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <sys/time.h>
+#include "philo.h"
 
 int	ft_atoi(char *str)
 {
@@ -70,4 +70,25 @@ int	is_all_num(char *str)
 		str++;
 	}
 	return (1);
+}
+
+int	get_left_idx(t_philo *philo)
+{
+	int	left;
+
+	if (philo->id == 0)
+		left = philo->n - 1;
+	else
+		left = philo->id - 1;
+	return (left);
+}
+
+void	print_in_mutex(t_philo *philo, char *str)
+{
+	if (philo->alive)
+	{
+		pthread_mutex_lock(philo->print);
+		printf("%ld %d %s\n", get_timestamp(philo), philo->id, str);
+		pthread_mutex_unlock(philo->print);
+	}
 }

@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_mutex_philo.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 02:59:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:01:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <strings.h>
 #include "philo.h"
+
+void	free_info_and_print_error(t_info *info)
+{
+	free(info);
+	error_msg(3, NULL);
+}
 
 int	init_mutex(t_info *info)
 {
@@ -27,8 +32,7 @@ int	init_mutex(t_info *info)
 	}
 	if (pthread_mutex_init(&(info->print), NULL) != 0)
 	{
-		free(info);
-		error_msg(3, NULL);
+		free_info_and_print_error(info);
 		return (0);
 	}
 	i = 0;
@@ -36,8 +40,7 @@ int	init_mutex(t_info *info)
 	{
 		if (pthread_mutex_init(&(info->pork[i++]), NULL) != 0)
 		{
-			free(info);
-			error_msg(3, NULL);
+			free_info_and_print_error(info);
 			return (0);
 		}
 	}
@@ -57,31 +60,6 @@ t_philo	*malloc_philo(t_info *info)
 		return (0);
 	}
 	return (philo);
-}
-
-void	set_eat_reps(t_info *info, char **argv)
-{
-	int	i;
-
-	i = 0;
-	if (argv[5])
-	{
-		while (i < info->n)
-		{
-			info->philo[i].opt_flag = 1;
-			info->philo[i].eat_reps = ft_atoi(argv[5]);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < info->n)
-		{
-			info->philo[i].opt_flag = 0;
-			info->philo[i].eat_reps = 1;
-			i++;
-		}
-	}
 }
 
 int	init_philo(t_info *info, char **argv)
@@ -108,45 +86,6 @@ int	init_philo(t_info *info, char **argv)
 		i++;
 	}
 	set_eat_reps(info, argv);
-	return (1);
-}
-
-int	set_time_in_microsec(char **argv, t_info *info)
-{
-	t_time	*time;
-	int		i;
-
-	time = (t_time *)malloc(sizeof(t_time));
-	if (!time)
-	{
-		error_msg(2, NULL);
-		return (0);
-	}
-	time->start = 0;
-	time->to_die = ft_atol(argv[2]);
-	time->to_eat = ft_atol(argv[3]);
-	time->to_sleep = ft_atol(argv[4]);
-	i = 0;
-	while (i < info->n)
-		info->philo[i++].time = time;
-	return (1);
-}
-
-int	set_table(t_info *info)
-{
-	char	*table;
-	int		i;
-
-	table = (char *)malloc(sizeof(char) * info->n);
-	if (!table)
-	{
-		error_msg(2, NULL);
-		return (0);
-	}
-	table = memset(table, 1, info->n);
-	i = 0;
-	while (i < info->n)
-		info->philo[i++].table = table;
 	return (1);
 }
 

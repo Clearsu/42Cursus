@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 02:21:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:53:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,28 @@ typedef struct s_info
 int			arg_check(int argc, char **argv);
 t_info		*init_info(char **argv);
 
+void		set_eat_reps(t_info *info, char **argv);
+int			set_time_in_microsec(char **argv, t_info *info);
+int			set_table(t_info *info);
+
 int			philo_eat(t_philo *philo);
 int			philo_sleep(t_philo *philo);
 int			philo_think(t_philo *philo);
+
+int			is_porks_available(t_philo *philo);
+int			get_right_pork(t_philo *philo);
+int			get_left_pork(t_philo *philo);
+void		put_porks_down(t_philo *philo);
+
 void		detect_dead_and_quit(t_info *info);
 
 time_t		get_timestamp(t_philo *philo);
-time_t		get_time_diff(time_t then, time_t now);
 time_t		get_time_in_mili(void);
 void		error_msg(int n, char *str);
 void		print_in_mutex(t_philo *philo, char *str);
+void		lengthen_life(t_philo *philo);
 
+int			get_left_idx(t_philo *philo);
 int			ft_atoi(char *str);
 long long	ft_atol(char *str);
 int			is_all_num(char *str);
