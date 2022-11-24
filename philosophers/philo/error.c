@@ -6,28 +6,27 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:17:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/23 23:03:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:04:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
 #include <stdio.h>
 
 void	error_msg(int n, char *str)
 {
 	if (n == 0)
-		printf("philo : Invalid argument number\n");
+		printf("philo : invalid argument number\n");
 	if (n == 1)
-		printf("philo : Invalid argument : %s\n", str);
+		printf("philo : invalid argument : %s\n", str);
 	if (n == 2)
-		printf("philo : Memory allocation failed\n");
+		printf("philo : memory allocation failed\n");
 	if (n == 3)
-		printf("philo : Mutex initiation failed\n");
+		printf("philo : mutex initiation failed\n");
 	if (n == 4)
-		printf("philo : Number out of range : %s\n", str);
+		printf("philo : number out of range : %s\n", str);
 	if (n == 5)
-		printf("philo : Failed to create a thread\n");
+		printf("philo : failed to create a thread\n");
 	if (n == 6)
-		printf("philo : Failed to detach a thread\n");
+		printf("philo : failed to detach a thread\n");
 	return ;
 }
