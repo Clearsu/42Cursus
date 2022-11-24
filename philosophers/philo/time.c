@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 18:02:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 15:01:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:32:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ time_t	get_time_in_mili(void)
 
 void	lengthen_life(t_philo *philo)
 {
-	philo->limit += philo->time->to_die;
+	philo->limit = get_time_in_mili() + philo->time->to_die;
 }
-

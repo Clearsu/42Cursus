@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 14:53:17 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:07:50 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_philo
 	int				id;
 	int				alive;
 	int				n;
-	int				num_of_alive;
 	int				left_idx;
 	pthread_t		thread;
 	pthread_mutex_t	*right_hand;

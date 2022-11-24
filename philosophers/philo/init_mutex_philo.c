@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 15:01:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:21:48 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int	init_philo(t_info *info, char **argv)
 		info->philo[i].id = i;
 		info->philo[i].alive = 1;
 		info->philo[i].n = info->n;
+		info->philo[i].left_idx = get_left_idx(&(info->philo[i]));
 		info->philo[i].print = &(info->print);
 		info->philo[i].right_hand = &(info->pork[i]);
 		if (i == 0 && info->n > 1)

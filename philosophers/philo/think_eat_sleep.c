@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 15:02:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:20:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ int	philo_think(t_philo *philo)
 	{
 		if (!philo->alive || dead_check(philo))
 			return (0);
-		usleep(100);
+		usleep(50);
 	}
 	while (!get_left_pork(philo))
 	{
 		if (!philo->alive || dead_check(philo))
 			return (0);
-		usleep(100);
+		usleep(50);
 	}
 	return (1);
 }
@@ -86,7 +86,7 @@ int	philo_sleep(t_philo *philo)
 	{
 		if (!philo->alive || dead_check(philo))
 			return (0);
-		usleep(100);
+		usleep(50);
 	}
 	return (1);
 }
