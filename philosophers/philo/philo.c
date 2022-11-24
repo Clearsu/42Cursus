@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 17:26:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 18:22:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	*routine(void *arg)
 		if (!philo_sleep(philo))
 			return (NULL);
 	}
+	return (NULL);
 }
 
 int	start_philo(t_info *info)

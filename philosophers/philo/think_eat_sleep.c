@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 17:20:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/24 18:47:23 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	dead_check(t_philo *philo)
 
 int	philo_think(t_philo *philo)
 {
-	if (!philo->alive)
+	if (!philo->alive || !philo->eat_reps)
 		return (0);
 	if (is_porks_available(philo) && philo->n > 1)
 	{
@@ -57,7 +57,7 @@ int	philo_eat(t_philo *philo)
 {
 	time_t	eat_limit;
 
-	if (!philo->alive)
+	if (!philo->alive || !philo->eat_reps)
 		return (0);
 	print_in_mutex(philo, "is eating");
 	eat_limit = get_time_in_mili() + philo->time->to_eat;
@@ -78,7 +78,7 @@ int	philo_sleep(t_philo *philo)
 {
 	time_t	sleep_limit;
 
-	if (!philo->alive)
+	if (!philo->alive || !philo->eat_reps)
 		return (0);
 	sleep_limit = get_time_in_mili() + philo->time->to_sleep;
 	print_in_mutex(philo, "is sleeping");
