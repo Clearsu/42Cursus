@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/25 01:08:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:59:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ void	*routine(void *arg)
 	pthread_mutex_lock(philo->before_start);
 	pthread_mutex_unlock(philo->before_start);
 	philo->limit = philo->time->start + philo->time->to_die;
-	if (philo->n == 1 || philo->eat_reps == 0)
-	{
-		philo_think(philo);
-		return (NULL);
-	}
 	if (philo->id % 2 == 0)
 		usleep(200);
+	if (philo->n == 1 || !philo->eat_reps)
+	{
+		philo->eat_reps = 1;
+		philo_think_exception(philo);
+		return (NULL);
+	}
 	while (1)
 	{
 		if (!philo_think(philo) || !philo_eat(philo) || !philo_sleep(philo))
