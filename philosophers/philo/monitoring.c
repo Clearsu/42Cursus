@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:17:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/25 13:01:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:27:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ void	give_death_signal(t_info *info, int n)
 		info->philo[i++].alive = 0;
 }
 
-int	is_all_dead(t_info *info)
+int	someone_dead_before_eat_rep(t_info *info)
 {
 	static int	i;
 
 	i = 0;
 	while (i < info->n)
 	{
-		if (info->philo[i++].alive)
-			return (0);
+		if (!info->philo[i++].alive && info->philo[i].eat_reps > 0)
+			return (1);
 	}
-	return (1);
+	return (0);
 }
 
 int	have_all_eaten(t_info *info)
@@ -69,7 +69,7 @@ void	detect_dead_and_quit(t_info *info)
 	{
 		while (1)
 		{
-			if (is_all_dead(info) || have_all_eaten(info))
+			if (someone_dead_before_eat_rep(info) || have_all_eaten(info))
 				break ;
 		}
 	}

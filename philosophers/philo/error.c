@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:17:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/24 19:05:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:07:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,5 @@ void	error_msg(int n, char *str)
 		printf("philo : failed to create a thread\n");
 	if (n == 6)
 		printf("philo : failed to detach a thread\n");
-	if (n == 7)
-		printf("philo : failed to destroy mutex\n");
 	return ;
 }
