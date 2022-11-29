@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:32:37 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/25 12:52:52 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:26:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	set_eat_reps(t_info *info, char **argv)
 		while (i < info->n)
 		{
 			info->philo[i].opt_flag = 0;
-			info->philo[i].eat_reps = 1;
+			info->philo[i].eat_reps = -1;
 			i++;
 		}
 	}

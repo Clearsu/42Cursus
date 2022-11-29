@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/29 18:31:04 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:45:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	dead_check(t_philo *philo)
 {
 	if (get_time_in_mili() >= philo->limit)
 	{
-		philo->alive = 0;
+		*philo->alive = 0;
 		pthread_mutex_lock(philo->print);
 		printf("%ld %d died\n", get_timestamp(philo), philo->id);
 		return (1);
@@ -28,7 +28,7 @@ int	dead_check(t_philo *philo)
 
 int	philo_think(t_philo *philo)
 {
-	if (!philo->alive || !philo->eat_reps)
+	if (!*philo->alive)
 		return (0);
 	if (is_porks_available(philo))
 	{
@@ -39,13 +39,13 @@ int	philo_think(t_philo *philo)
 	print_in_mutex(philo, "is thinking");
 	while (!get_right_pork(philo))
 	{
-		if (!philo->alive || dead_check(philo))
+		if (!*philo->alive || dead_check(philo))
 			return (0);
 		usleep(200);
 	}
 	while (!get_left_pork(philo))
 	{
-		if (!philo->alive || dead_check(philo))
+		if (!*philo->alive || dead_check(philo))
 			return (0);
 		usleep(200);
 	}
@@ -57,7 +57,7 @@ int	philo_eat(t_philo *philo)
 	time_t	eat_limit;
 	time_t	now;
 
-	if (!philo->alive || !philo->eat_reps)
+	if (!*philo->alive)
 		return (0);
 	print_in_mutex(philo, "is eating");
 	now = get_time_in_mili();
@@ -65,13 +65,14 @@ int	philo_eat(t_philo *philo)
 	lengthen_life(philo, now);
 	while (get_time_in_mili() < eat_limit)
 	{
-		if (!philo->alive || dead_check(philo))
+		if (!*philo->alive || dead_check(philo))
 			return (0);
 		usleep(200);
 	}
 	put_porks_down(philo);
-	if (philo->opt_flag)
-		philo->eat_reps--;
+	philo->eat_reps--;
+	if (!philo->eat_reps)
+		*philo->eat_left = *philo->eat_left - 1;;
 	return (1);
 }
 
@@ -79,13 +80,13 @@ int	philo_sleep(t_philo *philo)
 {
 	time_t	sleep_limit;
 
-	if (!philo->alive || !philo->eat_reps)
+	if (!*philo->alive)
 		return (0);
 	sleep_limit = get_time_in_mili() + philo->time->to_sleep;
 	print_in_mutex(philo, "is sleeping");
 	while (get_time_in_mili() < sleep_limit)
 	{
-		if (!philo->alive || dead_check(philo))
+		if (!*philo->alive || dead_check(philo))
 			return (0);
 		usleep(200);
 	}
@@ -99,7 +100,7 @@ void	philo_think_exception(t_philo *philo)
 	get_left_pork(philo);
 	while (1)
 	{
-		if (!philo->alive || dead_check(philo))
+		if (!*philo->alive || dead_check(philo))
 			return ;
 		usleep(200);
 	}

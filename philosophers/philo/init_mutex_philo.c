@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/25 13:22:41 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:30:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ int	init_philo(t_info *info, char **argv)
 	while (i < info->n)
 	{
 		info->philo[i].id = i;
-		info->philo[i].alive = 1;
+		info->philo[i].alive = &info->alive;
+		info->philo[i].eat_left = &info->eat_left;
 		info->philo[i].n = info->n;
 		info->philo[i].left_idx = get_left_idx(&(info->philo[i]));
 		info->philo[i].print = &(info->print);
@@ -103,6 +104,8 @@ t_info	*init_info(char **argv)
 		return (NULL);
 	}
 	info->n = ft_atoi(argv[1]);
+	info->alive = 1;
+	info->eat_left = info->n;
 	if (!init_mutex(info))
 		return (NULL);
 	if (!init_philo(info, argv))

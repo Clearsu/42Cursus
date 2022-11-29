@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/25 13:07:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:07:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	*routine(void *arg)
 
 int	start_philo(t_info *info)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	pthread_mutex_lock(&info->before_start);
