@@ -6,16 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:28:18 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/25 12:49:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/29 22:43:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-int	is_porks_available(t_philo *philo)
-{
-	return (philo->table[philo->id] && philo->table[philo->left_idx]);
-}
 
 int	get_right_pork(t_philo *philo)
 {

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/29 19:45:02 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:41:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,6 @@ int	philo_think(t_philo *philo)
 {
 	if (!*philo->alive)
 		return (0);
-	if (is_porks_available(philo))
-	{
-		get_right_pork(philo);
-		get_left_pork(philo);
-		return (1);
-	}
 	print_in_mutex(philo, "is thinking");
 	while (!get_right_pork(philo))
 	{
@@ -59,7 +53,13 @@ int	philo_eat(t_philo *philo)
 
 	if (!*philo->alive)
 		return (0);
-	print_in_mutex(philo, "is eating");
+	pthread_mutex_lock(philo->print);
+	printf("%ld %d %s\n", get_timestamp(philo), philo->id, "is eating");
+	philo->eat_reps--;
+	if (!philo->eat_reps)
+		*philo->eat_left = *philo->eat_left - 1;
+	if (*philo->eat_left)
+		pthread_mutex_unlock(philo->print);
 	now = get_time_in_mili();
 	eat_limit = now + philo->time->to_eat;
 	lengthen_life(philo, now);
@@ -70,9 +70,6 @@ int	philo_eat(t_philo *philo)
 		usleep(200);
 	}
 	put_porks_down(philo);
-	philo->eat_reps--;
-	if (!philo->eat_reps)
-		*philo->eat_left = *philo->eat_left - 1;;
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/29 19:30:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:36:11 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	init_mutex(t_info *info)
 		return (0);
 	}
 	if (pthread_mutex_init(&(info->print), NULL) != 0
-		|| pthread_mutex_init(&info->before_start, NULL))
+		|| pthread_mutex_init(&info->before_start, NULL) != 0)
 	{
 		free_info_and_print_error(info);
 		return (0);
@@ -63,7 +63,7 @@ t_philo	*malloc_philo(t_info *info)
 	return (philo);
 }
 
-int	init_philo(t_info *info, char **argv)
+int	init_philo(t_info *info)
 {
 	int	i;
 
@@ -89,7 +89,6 @@ int	init_philo(t_info *info, char **argv)
 			info->philo[i].left_hand = NULL;
 		i++;
 	}
-	set_eat_reps(info, argv);
 	return (1);
 }
 
@@ -104,15 +103,17 @@ t_info	*init_info(char **argv)
 		return (NULL);
 	}
 	info->n = ft_atoi(argv[1]);
+	if (info->n == 0)
+	{
+		free(info);
+		error_msg(1, argv[1]);
+		return (NULL);
+	}
 	info->alive = 1;
 	info->eat_left = info->n;
-	if (!init_mutex(info))
+	if (!init_mutex(info) || !init_philo(info)
+		|| !set_time_in_microsec(argv, info) || !set_table(info))
 		return (NULL);
-	if (!init_philo(info, argv))
-		return (NULL);
-	if (!set_time_in_microsec(argv, info))
-		return (NULL);
-	if (!set_table(info))
-		return (NULL);
+	set_eat_reps(info, argv);
 	return (info);
 }

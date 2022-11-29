@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/29 19:29:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:46:48 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int			get_right_pork(t_philo *philo);
 int			get_left_pork(t_philo *philo);
 void		put_porks_down(t_philo *philo);
 
-void		detect_dead_and_quit(t_info *info);
+void		monitor_state(t_info *info);
 
 time_t		get_timestamp(t_philo *philo);
 time_t		get_time_in_mili(void);

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/29 19:07:41 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:44:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	*routine(void *arg)
 		usleep(200);
 	if (philo->n == 1 || !philo->eat_reps)
 	{
-		philo->eat_reps = 1;
 		philo_think_exception(philo);
 		return (NULL);
 	}
@@ -73,6 +72,7 @@ int	end_philo(t_info *info)
 	}
 	return (1);
 }
+
 int	main(int argc, char **argv)
 {
 	t_info	*info;
@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (!start_philo(info))
 		return (1);
-	detect_dead_and_quit(info);
+	monitor_state(info);
 	if (!end_philo(info))
 		return (1);
 	return (0);
