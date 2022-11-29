@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 00:09:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 00:56:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ int	philo_eat(t_philo *philo)
 		return (0);
 	pthread_mutex_lock(philo->print);
 	printf("%ld %d %s\n", get_timestamp(philo), philo->id, "is eating");
+	now = get_time_in_mili();
 	philo->eat_reps--;
 	if (!philo->eat_reps)
 		*philo->eat_left = *philo->eat_left - 1;
 	if (*philo->eat_left)
 		pthread_mutex_unlock(philo->print);
-	now = get_time_in_mili();
 	eat_limit = now + philo->time->to_eat;
 	lengthen_life(philo, now);
 	while (get_time_in_mili() < eat_limit)
