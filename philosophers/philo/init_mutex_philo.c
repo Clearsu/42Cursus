@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 00:07:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 00:21:50 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,10 @@ int	init_philo(t_info *info)
 		info->philo[i].print = &(info->print);
 		info->philo[i].before_start = &(info->before_start);
 		info->philo[i].right_hand = &(info->forks[i]);
-		if (i == 0 && info->n > 1)
+		if (i == 0)
 			info->philo[i].left_hand = &(info->forks[info->n - 1]);
-		else if (info->n > 1)
-			info->philo[i].left_hand = &(info->forks[i - 1]);
 		else
-			info->philo[i].left_hand = NULL;
+			info->philo[i].left_hand = &(info->forks[i - 1]);
 		i++;
 	}
 	return (1);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pork.c                                             :+:      :+:    :+:   */
+/*   fork.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:28:18 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 00:07:02 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 00:20:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	get_right_fork(t_philo *philo)
 
 int	get_left_fork(t_philo *philo)
 {
-	if (philo->left_hand && philo->table[philo->left_idx] == 1)
+	if (philo->table[philo->left_idx] == 1)
 	{
 		philo->table[philo->left_idx] = 0;
 		pthread_mutex_lock(philo->left_hand);

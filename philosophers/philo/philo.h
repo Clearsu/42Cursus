@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 00:09:33 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 00:38:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct s_philo
 	pthread_mutex_t	*print;
 	pthread_mutex_t	*before_start;
 	t_time			*time;
-	time_t			curr;
 	time_t			limit;
 	char			*table;
 	int				eat_reps;
@@ -69,7 +68,6 @@ int			philo_sleep(t_philo *philo);
 int			philo_think(t_philo *philo);
 void		philo_think_exception(t_philo *philo);
 
-int			is_porks_available(t_philo *philo);
 int			get_right_fork(t_philo *philo);
 int			get_left_fork(t_philo *philo);
 void		put_forks_down(t_philo *philo);
