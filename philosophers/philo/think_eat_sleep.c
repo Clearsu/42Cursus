@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/25 13:31:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/29 18:31:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	dead_check(t_philo *philo)
 		philo->alive = 0;
 		pthread_mutex_lock(philo->print);
 		printf("%ld %d died\n", get_timestamp(philo), philo->id);
-		pthread_mutex_unlock(philo->print);
 		return (1);
 	}
 	return (0);
