@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/29 23:46:48 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 00:09:33 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_philo
 
 typedef struct s_info
 {
-	pthread_mutex_t	*pork;
+	pthread_mutex_t	*forks;
 	pthread_mutex_t	print;
 	pthread_mutex_t	before_start;
 	t_philo			*philo;
@@ -70,9 +70,9 @@ int			philo_think(t_philo *philo);
 void		philo_think_exception(t_philo *philo);
 
 int			is_porks_available(t_philo *philo);
-int			get_right_pork(t_philo *philo);
-int			get_left_pork(t_philo *philo);
-void		put_porks_down(t_philo *philo);
+int			get_right_fork(t_philo *philo);
+int			get_left_fork(t_philo *philo);
+void		put_forks_down(t_philo *philo);
 
 void		monitor_state(t_info *info);
 

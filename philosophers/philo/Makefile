@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 04:04:53 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/24 14:46:56 by jincpark         ###   ########.fr        #
+#    Updated: 2022/11/30 00:08:03 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS 			= philo.c \
 				  init_mutex_philo.c \
 				  init_etc.c \
 				  think_eat_sleep.c \
-				  pork.c \
+				  fork.c \
 				  time.c \
 				  utils.c \
 				  error.c \

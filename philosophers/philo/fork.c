@@ -6,13 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:28:18 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/29 22:43:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 00:07:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	get_right_pork(t_philo *philo)
+int	get_right_fork(t_philo *philo)
 {
 	if (philo->table[philo->id] == 1)
 	{
@@ -24,7 +24,7 @@ int	get_right_pork(t_philo *philo)
 	return (0);
 }
 
-int	get_left_pork(t_philo *philo)
+int	get_left_fork(t_philo *philo)
 {
 	if (philo->left_hand && philo->table[philo->left_idx] == 1)
 	{
@@ -36,7 +36,7 @@ int	get_left_pork(t_philo *philo)
 	return (0);
 }
 
-void	put_porks_down(t_philo *philo)
+void	put_forks_down(t_philo *philo)
 {
 	pthread_mutex_unlock(philo->right_hand);
 	pthread_mutex_unlock(philo->left_hand);

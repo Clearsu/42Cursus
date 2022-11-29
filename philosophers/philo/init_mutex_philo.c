@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/29 23:36:11 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 00:07:53 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	init_mutex(t_info *info)
 {
 	int	i;
 
-	info->pork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * info->n);
-	if (!info->pork)
+	info->forks = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * info->n);
+	if (!info->forks)
 	{
 		free(info);
 		error_msg(2, NULL);
@@ -39,7 +39,7 @@ int	init_mutex(t_info *info)
 	i = 0;
 	while (i < info->n)
 	{
-		if (pthread_mutex_init(&(info->pork[i++]), NULL) != 0)
+		if (pthread_mutex_init(&(info->forks[i++]), NULL) != 0)
 		{
 			free_info_and_print_error(info);
 			return (0);
@@ -55,7 +55,7 @@ t_philo	*malloc_philo(t_info *info)
 	philo = (t_philo *)malloc(sizeof(t_philo) * info->n);
 	if (!philo)
 	{
-		free(info->pork);
+		free(info->forks);
 		free(info);
 		error_msg(2, NULL);
 		return (0);
@@ -80,11 +80,11 @@ int	init_philo(t_info *info)
 		info->philo[i].left_idx = get_left_idx(&(info->philo[i]));
 		info->philo[i].print = &(info->print);
 		info->philo[i].before_start = &(info->before_start);
-		info->philo[i].right_hand = &(info->pork[i]);
+		info->philo[i].right_hand = &(info->forks[i]);
 		if (i == 0 && info->n > 1)
-			info->philo[i].left_hand = &(info->pork[info->n - 1]);
+			info->philo[i].left_hand = &(info->forks[info->n - 1]);
 		else if (info->n > 1)
-			info->philo[i].left_hand = &(info->pork[i - 1]);
+			info->philo[i].left_hand = &(info->forks[i - 1]);
 		else
 			info->philo[i].left_hand = NULL;
 		i++;

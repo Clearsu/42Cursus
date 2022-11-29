@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/29 23:41:45 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 00:09:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int	philo_think(t_philo *philo)
 	if (!*philo->alive)
 		return (0);
 	print_in_mutex(philo, "is thinking");
-	while (!get_right_pork(philo))
+	while (!get_right_fork(philo))
 	{
 		if (!*philo->alive || dead_check(philo))
 			return (0);
 		usleep(200);
 	}
-	while (!get_left_pork(philo))
+	while (!get_left_fork(philo))
 	{
 		if (!*philo->alive || dead_check(philo))
 			return (0);
@@ -69,7 +69,7 @@ int	philo_eat(t_philo *philo)
 			return (0);
 		usleep(200);
 	}
-	put_porks_down(philo);
+	put_forks_down(philo);
 	return (1);
 }
 
@@ -93,8 +93,8 @@ int	philo_sleep(t_philo *philo)
 void	philo_think_exception(t_philo *philo)
 {
 	printf("%ld %d is thinking\n", get_timestamp(philo), philo->id);
-	get_right_pork(philo);
-	get_left_pork(philo);
+	get_right_fork(philo);
+	get_left_fork(philo);
 	while (1)
 	{
 		if (!*philo->alive || dead_check(philo))
