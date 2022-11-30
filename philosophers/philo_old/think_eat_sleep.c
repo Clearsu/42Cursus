@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 19:20:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 19:27:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	philo_sleep(t_philo *philo)
 
 void	philo_think_exception(t_philo *philo)
 {
-	print_in_mutex(phiilo, "is thinking");
+	print_in_mutex(philo, "is thinking");
 	get_right_fork(philo);
 	get_left_fork(philo);
 	while (1)
