@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 00:38:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 19:13:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ typedef struct s_philo
 	pthread_t		thread;
 	pthread_mutex_t	*right_hand;
 	pthread_mutex_t	*left_hand;
-	pthread_mutex_t	*print;
-	pthread_mutex_t	*before_start;
+	pthread_mutex_t	*mutex_print;
+	pthread_mutex_t	*mutex_start;
+	pthread_mutex_t	*mutex_table;
+	pthread_mutex_t	*mutex_alive;
+	pthread_mutex_t	*mutex_eat;
 	t_time			*time;
 	time_t			limit;
 	char			*table;
@@ -46,8 +49,11 @@ typedef struct s_philo
 typedef struct s_info
 {
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	print;
-	pthread_mutex_t	before_start;
+	pthread_mutex_t	mutex_print;
+	pthread_mutex_t	mutex_start;
+	pthread_mutex_t	mutex_table;
+	pthread_mutex_t	mutex_alive;
+	pthread_mutex_t	mutex_eat;
 	t_philo			*philo;
 	int				n;
 	int				alive;
@@ -59,6 +65,7 @@ typedef struct s_info
 int			arg_check(int argc, char **argv);
 t_info		*init_info(char **argv);
 
+void		set_left_hand_by_idx(t_info *info, int i);
 void		set_eat_reps(t_info *info, char **argv);
 int			set_time_in_microsec(char **argv, t_info *info);
 int			set_table(t_info *info);
@@ -73,6 +80,10 @@ int			get_left_fork(t_philo *philo);
 void		put_forks_down(t_philo *philo);
 
 void		monitor_state(t_info *info);
+
+int			check_alive(t_philo *philo);
+void		check_eat_left(t_philo *philo);
+int			check_dead(t_philo *philo);
 
 time_t		get_timestamp(t_philo *philo);
 time_t		get_time_in_mili(void);

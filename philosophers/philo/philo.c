@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 00:17:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:28:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	pthread_mutex_lock(philo->before_start);
-	pthread_mutex_unlock(philo->before_start);
+	pthread_mutex_lock(philo->mutex_start);
+	pthread_mutex_unlock(philo->mutex_start);
 	philo->limit = philo->time->start + philo->time->to_die;
 	if (philo->id % 2 == 0)
 		usleep(200);
@@ -41,7 +41,7 @@ int	start_philo(t_info *info)
 	int	i;
 
 	i = 0;
-	pthread_mutex_lock(&info->before_start);
+	pthread_mutex_lock(&info->mutex_start);
 	while (i < info->n)
 	{
 		if (pthread_create(&(info->philo[i].thread), NULL,
@@ -53,7 +53,7 @@ int	start_philo(t_info *info)
 		i++;
 	}
 	info->time.start = get_time_in_mili();
-	pthread_mutex_unlock(&info->before_start);
+	pthread_mutex_unlock(&info->mutex_start);
 	return (1);
 }
 

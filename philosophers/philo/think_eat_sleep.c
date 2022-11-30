@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 00:56:09 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/11/30 19:20:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,20 @@
 #include <unistd.h>
 #include "philo.h"
 
-int	dead_check(t_philo *philo)
-{
-	if (get_time_in_mili() >= philo->limit)
-	{
-		*philo->alive = 0;
-		pthread_mutex_lock(philo->print);
-		printf("%ld %d died\n", get_timestamp(philo), philo->id);
-		return (1);
-	}
-	return (0);
-}
-
 int	philo_think(t_philo *philo)
 {
-	if (!*philo->alive)
+	if (!check_alive(philo))
 		return (0);
 	print_in_mutex(philo, "is thinking");
 	while (!get_right_fork(philo))
 	{
-		if (!*philo->alive || dead_check(philo))
+		if (!check_alive(philo) || check_dead(philo))
 			return (0);
 		usleep(200);
 	}
 	while (!get_left_fork(philo))
 	{
-		if (!*philo->alive || dead_check(philo))
+		if (!check_alive(philo) || check_dead(philo))
 			return (0);
 		usleep(200);
 	}
@@ -51,21 +39,18 @@ int	philo_eat(t_philo *philo)
 	time_t	eat_limit;
 	time_t	now;
 
-	if (!*philo->alive)
+	if (!check_alive(philo))
 		return (0);
-	pthread_mutex_lock(philo->print);
+	pthread_mutex_lock(philo->mutex_print);
 	printf("%ld %d %s\n", get_timestamp(philo), philo->id, "is eating");
 	now = get_time_in_mili();
 	philo->eat_reps--;
-	if (!philo->eat_reps)
-		*philo->eat_left = *philo->eat_left - 1;
-	if (*philo->eat_left)
-		pthread_mutex_unlock(philo->print);
+	check_eat_left(philo);
 	eat_limit = now + philo->time->to_eat;
 	lengthen_life(philo, now);
 	while (get_time_in_mili() < eat_limit)
 	{
-		if (!*philo->alive || dead_check(philo))
+		if (!check_alive(philo) || check_dead(philo))
 			return (0);
 		usleep(200);
 	}
@@ -83,7 +68,7 @@ int	philo_sleep(t_philo *philo)
 	print_in_mutex(philo, "is sleeping");
 	while (get_time_in_mili() < sleep_limit)
 	{
-		if (!*philo->alive || dead_check(philo))
+		if (!check_alive(philo) || check_dead(philo))
 			return (0);
 		usleep(200);
 	}
@@ -92,12 +77,12 @@ int	philo_sleep(t_philo *philo)
 
 void	philo_think_exception(t_philo *philo)
 {
-	printf("%ld %d is thinking\n", get_timestamp(philo), philo->id);
+	print_in_mutex(phiilo, "is thinking");
 	get_right_fork(philo);
 	get_left_fork(philo);
 	while (1)
 	{
-		if (!*philo->alive || dead_check(philo))
+		if (!check_alive(philo) || check_dead(philo))
 			return ;
 		usleep(200);
 	}
