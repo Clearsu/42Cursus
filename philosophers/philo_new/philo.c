@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/07 19:10:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 23:52:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,14 @@ int	main(int argc, char **argv)
 	info = init_info(argv);
 	if (!info)
 		return (1);
+	if (info->philo[0].opt_flag && !info->philo[0].eat_reps)
+		return (0);
 	if (!start_philo(info))
 		return (1);
-	monitor_state(info);
+	if (!info->philo[0].opt_flag)
+		monitor_without_option(info);
+	else
+		monitor_with_option(info);
 	if (!end_philo(info))
 		return (1);
 	return (0);

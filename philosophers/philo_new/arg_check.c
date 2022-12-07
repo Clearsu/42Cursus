@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:15:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/23 23:01:52 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 23:56:50 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	range_check(char *str)
 	long long	num;
 
 	num = ft_atol(str);
-	if (num > INT_MAX || num < INT_MIN)
+	if (num > INT_MAX)
 	{
 		error_msg(4, str);
 		return (0);
@@ -28,8 +28,8 @@ int	range_check(char *str)
 
 int	check_argv(char **argv)
 {
-	int			i;
-	int			n;
+	int	i;
+	int	n;
 
 	i = 1;
 	n = 4;
@@ -37,8 +37,10 @@ int	check_argv(char **argv)
 		n = 5;
 	while (i <= n)
 	{
-		if (!is_all_num(argv[i]))
+		if (!is_num(argv[i]) || !ft_atol(argv[i]))
 		{
+			if (i == 5 && !ft_atol(argv[i]))
+				break ;
 			error_msg(1, argv[i]);
 			return (0);
 		}

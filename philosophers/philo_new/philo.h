@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/07 18:50:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 22:27:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,10 @@ typedef struct s_time
 typedef struct s_philo
 {
 	int				id;
-	int				n;
-	int				left_idx;
 	pthread_t		thread;
 	pthread_mutex_t	*right_hand;
 	pthread_mutex_t	*left_hand;
 	pthread_mutex_t	*mutex_print;
-	pthread_mutex_t	*mutex_start;
 	pthread_mutex_t	*mutex_eat;
 	pthread_mutex_t	*mutex_philo;
 	t_time			time;
@@ -49,7 +46,6 @@ typedef struct s_info
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	*mutex_philo;
 	pthread_mutex_t	mutex_print;
-	pthread_mutex_t	mutex_start;
 	pthread_mutex_t	mutex_eat;
 	time_t			start;
 	time_t			to_die;
@@ -62,31 +58,22 @@ t_info		*init_info(char **argv);
 
 void		set_left_hand_by_idx(t_info *info, int i);
 void		set_eat_reps(t_info *info, char **argv);
-int			set_time_in_microsec(char **argv, t_info *info);
+void		set_time_in_microsec(char **argv, t_info *info);
 
 void		philo_think_and_get_forks(t_philo *philo);
 void		philo_eat(t_philo *philo);
 void		philo_sleep(t_philo *philo);
 
-int			get_right_fork(t_philo *philo);
-int			get_left_fork(t_philo *philo);
-void		put_forks_down(t_philo *philo);
-
-void		monitor_state(t_info *info);
-
-int			check_alive(t_philo *philo);
-void		check_eat_left(t_philo *philo);
-int			check_dead(t_philo *philo);
+void		monitor_without_option(t_info *info);
+void		monitor_with_option(t_info *info);
 
 time_t		get_timestamp(t_philo *philo);
 time_t		get_time_in_mili(void);
 void		error_msg(int n, char *str);
 void		print_in_mutex(t_philo *philo, char *str);
-void		lengthen_life(t_philo *philo, time_t now);
 
-int			get_left_idx(t_philo *philo);
 int			ft_atoi(char *str);
 long long	ft_atol(char *str);
-int			is_all_num(char *str);
+int			is_num(char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:04:14 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/07 16:26:04 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 22:34:07 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ long long	ft_atol(char *str)
 			sign = -1;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (*str && *str >= '0' && *str <= '9')
 		result = result * 10 + (*str++ - '0');
 	return (sign * result);
 }
 
-int	is_all_num(char *str)
+int	is_num(char *str)
 {
-	if (!str)
-		return (-1);
+	if (!*str)
+		return (0);
 	if ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
 	if (*str == '+')
@@ -70,17 +70,6 @@ int	is_all_num(char *str)
 		str++;
 	}
 	return (1);
-}
-
-int	get_left_idx(t_philo *philo)
-{
-	int	left;
-
-	if (philo->id == 0)
-		left = philo->n - 1;
-	else
-		left = philo->id - 1;
-	return (left);
 }
 
 void	print_in_mutex(t_philo *philo, char *str)

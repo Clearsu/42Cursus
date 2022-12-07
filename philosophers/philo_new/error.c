@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:17:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/07 18:26:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:16:33 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	error_msg(int n, char *str)
 	if (n == 4)
 		printf("philo: number out of range : %s\n", str);
 	if (n == 5)
-		printf("philo: failed to create a thread\n");
+		printf("philo: failed to create threads\n");
 	if (n == 6)
-		printf("philo: failed to detach a thread\n");
+		printf("philo: failed to detach threads\n");
 	return ;
 }
