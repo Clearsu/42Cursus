@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:32:37 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 21:49:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:57:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,22 @@
 
 int	set_time_in_microsec(char **argv, t_info *info)
 {
-	int	i;
+	int		i;
+	t_time	time;
 
-	info->time.start = 0;
-	info->time.to_die = ft_atol(argv[2]);
-	info->time.to_eat = ft_atol(argv[3]);
-	info->time.to_sleep = ft_atol(argv[4]);
+	time.to_die = ft_atol(argv[2]);
+	time.to_eat = ft_atol(argv[3]);
+	time.to_sleep = ft_atol(argv[4]);
+	info->to_die = time.to_die;
 	i = 0;
 	while (i < info->n)
-		info->philo[i++].time = &info->time;
+	{
+		info->philo[i].time.start = 0;
+		info->philo[i].time.to_die = time.to_die;
+		info->philo[i].time.to_eat = time.to_eat;
+		info->philo[i].time.to_sleep = time.to_sleep;
+		i++;
+	}
 	return (1);
 }
 

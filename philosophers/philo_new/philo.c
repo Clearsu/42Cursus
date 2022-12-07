@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/07 16:35:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:10:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	pthread_mutex_lock(philo->mutex_start);
-	pthread_mutex_unlock(philo->mutex_start);
+	pthread_mutex_lock(philo->mutex_philo);
+	pthread_mutex_unlock(philo->mutex_philo);
 	if (philo->id % 2 == 0)
-		usleep(200);
+		usleep(500);
 	while (1)
 	{
 		philo_think_and_get_forks(philo);
@@ -36,11 +36,11 @@ int	start_philo(t_info *info)
 	int	i;
 
 	i = 0;
-	pthread_mutex_lock(&info->mutex_start);
 	while (i < info->n)
 	{
-		if (pthread_create(&(info->philo[i].thread), NULL,
-				routine, &(info->philo[i])) != 0)
+		pthread_mutex_lock(&info->mutex_philo[i]);
+		if (pthread_create(&info->philo[i].thread, NULL,
+				routine, &info->philo[i]) != 0)
 		{
 			error_msg(5, NULL);
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/07 17:08:56 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:23:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ void	philo_eat(t_philo *philo)
 	time_t	eat_limit;
 	time_t	now;
 
+	now = get_time_in_mili();
+	pthread_mutex_lock(philo->mutex_philo);
+	philo->limit = now + philo->time.to_die;
+	pthread_mutex_unlock(philo->mutex_philo);
 	pthread_mutex_lock(philo->mutex_print);
 	printf("%ld %d %s\n", get_timestamp(philo), philo->id, "is eating");
 	if (philo->opt_flag)
 		check_eat_left(philo);
 	else
 		pthread_mutex_unlock(philo->mutex_print);
-	now = get_time_in_mili();
-	eat_limit = now + philo->time->to_eat;
-	pthread_mutex_lock(philo->mutex_time);
-	philo->limit = now + philo->time->to_die;
-	pthread_mutex_unlock(philo->mutex_time);
+	eat_limit = now + philo->time.to_eat;
 	while (get_time_in_mili() < eat_limit)
 		usleep(200);
 	pthread_mutex_unlock(philo->right_hand);
@@ -60,7 +60,7 @@ void	philo_sleep(t_philo *philo)
 {
 	time_t	sleep_limit;
 
-	sleep_limit = get_time_in_mili() + philo->time->to_sleep;
+	sleep_limit = get_time_in_mili() + philo->time.to_sleep;
 	print_in_mutex(philo, "is sleeping");
 	while (get_time_in_mili() < sleep_limit)
 		usleep(200);

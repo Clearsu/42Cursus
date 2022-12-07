@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 18:02:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 21:50:59 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:56:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 time_t	get_timestamp(t_philo *philo)
 {
-	return (get_time_in_mili() - philo->time->start);
+	return (get_time_in_mili() - philo->time.start);
 }
 
 time_t	get_time_in_mili(void)
