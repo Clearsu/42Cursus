@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:04:14 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 18:59:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:26:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,5 @@ void	print_in_mutex(t_philo *philo, char *str)
 {
 	pthread_mutex_lock(philo->mutex_print);
 	printf("%ld %d %s\n", get_timestamp(philo), philo->id, str);
-	if (*philo->eat_left)
-		pthread_mutex_unlock(philo->mutex_print);
+	pthread_mutex_unlock(philo->mutex_print);
 }

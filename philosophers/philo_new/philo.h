@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/30 21:50:02 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:03:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef struct s_philo
 	pthread_mutex_t	*mutex_print;
 	pthread_mutex_t	*mutex_start;
 	pthread_mutex_t	*mutex_time;
-	pthread_mutex_t	*mutex_alive;
 	pthread_mutex_t	*mutex_eat;
+	pthread_mutex_t	mutex_philo;
 	t_time			*time;
 	time_t			limit;
 	int				eat_reps;
@@ -51,7 +51,6 @@ typedef struct s_info
 	pthread_mutex_t	mutex_print;
 	pthread_mutex_t	mutex_start;
 	pthread_mutex_t	mutex_time;
-	pthread_mutex_t	mutex_alive;
 	pthread_mutex_t	mutex_eat;
 	t_philo			*philo;
 	int				n;

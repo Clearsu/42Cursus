@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/04 21:12:45 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:35:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@ void	*routine(void *arg)
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(philo->mutex_start);
 	pthread_mutex_unlock(philo->mutex_start);
-	pthread_mutex_lock(philo->mutex_time);
-	philo->limit = philo->time->start + philo->time->to_die;
-	pthread_mutex_unlock(philo->mutex_time);
 	if (philo->id % 2 == 0)
 		usleep(200);
 	while (1)

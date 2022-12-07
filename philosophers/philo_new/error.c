@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:17:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/11/29 23:29:17 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:01:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	error_msg(int n, char *str)
 {
 	if (n == 0)
-		printf("philo : invalid argument number\n");
+		printf("philo : invalid number of arguments\n");
 	if (n == 1)
 		printf("philo : invalid argument : %s\n", str);
 	if (n == 2)
