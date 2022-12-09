@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:17:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/07 22:05:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:48:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,17 @@ void	set_limit_and_start(t_info *info, int n)
 {
 	int		i;
 	t_philo	*philo;
+	time_t	limit;
+	time_t	now;
 
 	i = 0;
 	philo = info->philo;
+	now = get_time_in_mili();
+	limit = now + info->to_die;
 	while (i < n)
 	{
-		philo[i].time.start = info->start;
-		philo[i].limit = info->start + info->to_die;
+		philo[i].time.start = now;
+		philo[i].limit = limit;
 		i++;
 	}
 }
@@ -61,20 +65,18 @@ void	monitor_without_option(t_info *info)
 	time_t	now;
 
 	n = info->n;
-	now = get_time_in_mili();
-	info->start = now;
-	set_limit_and_start(info, info->n);
+	set_limit_and_start(info, n);
 	unlock_all_philos(info);
 	usleep(1000);
 	while (1)
 	{
 		i = 0;
+		now = get_time_in_mili();
 		while (i < n)
 		{
 			if (!check_if_died(info, now, i++))
 				return ;
 		}
-		now = get_time_in_mili();
 	}
 }
 
@@ -85,14 +87,13 @@ void	monitor_with_option(t_info *info)
 	time_t	now;
 
 	n = info->n;
-	now = get_time_in_mili();
-	info->start = now;
 	set_limit_and_start(info, info->n);
 	unlock_all_philos(info);
 	usleep(1000);
 	while (1)
 	{
 		i = 0;
+		now = get_time_in_mili();
 		while (i < n)
 		{
 			if (!check_if_died(info, now, i))
@@ -103,6 +104,5 @@ void	monitor_with_option(t_info *info)
 			pthread_mutex_unlock(&info->mutex_eat);
 			i++;
 		}
-		now = get_time_in_mili();
 	}
 }

@@ -6,14 +6,14 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 04:04:53 by jincpark          #+#    #+#              #
-#    Updated: 2022/11/30 21:52:18 by jincpark         ###   ########.fr        #
+#    Updated: 2022/12/09 21:23:06 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 			= philo
 
 CC 				= cc
-FLAGS 			= -Wall -Wextra -Werror
+CFLAG 			= -Wall -Wextra -Werror
 DEBUG			= -fsanitize=address -g3
 DEBUG_TH		= -fsanitize=thread -g
 
@@ -30,18 +30,18 @@ SRCS 			= philo.c \
 OBJS 			= $(SRCS:%.c=%.o)
 
 ifdef IF_DEBUG
-	FLAGS += $(DEBUG)
+	CFLAG += $(DEBUG)
 endif
 
 ifdef IF_DEBUG_TH
-	FLAGS += $(DEBUG_TH)
+	CFLAG += $(DEBUG_TH)
 endif
 
 %.o :	%.c
-	$(CC) $(FLAGS) -c $^ -I. -o $@
+	$(CC) $(CFLAG) -c $^ -I. -o $@
 
 $(NAME)	:	$(OBJS)
-	$(CC) $(FLAGS) -I. -lpthread $^ -o $@
+	$(CC) $(CFLAG) -I. -lpthread $^ -o $@
 
 all	:	$(NAME)
 
