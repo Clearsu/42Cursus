@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/13 13:54:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/15 03:59:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	check_eat_left(t_philo *philo)
 {
 	philo->eat_reps--;
 	pthread_mutex_lock(philo->mutex_eat);
-	if (!philo->eat_reps)
+	if (philo->eat_reps == 0)
 		*philo->eat_left = *philo->eat_left - 1;
-	if (*philo->eat_left)
+	if (*philo->eat_left > 0)
 		pthread_mutex_unlock(philo->mutex_print);
 	pthread_mutex_unlock(philo->mutex_eat);
 }
@@ -44,10 +44,25 @@ void	philo_eat(t_philo *philo)
 	pthread_mutex_unlock(philo->mutex_philo);
 	pthread_mutex_lock(philo->mutex_print);
 	printf("%ld %d %s\n", get_timestamp(philo), philo->id, philo->msg.eat);
-	if (philo->opt_flag)
-		check_eat_left(philo);
-	else
-		pthread_mutex_unlock(philo->mutex_print);
+	pthread_mutex_unlock(philo->mutex_print);
+	philo->eat_limit = now + philo->time.to_eat;
+	while (get_time_in_mili() < philo->eat_limit)
+		usleep(200);
+	pthread_mutex_unlock(philo->right_hand);
+	pthread_mutex_unlock(philo->left_hand);
+}
+
+void	philo_eat_opt(t_philo *philo)
+{
+	time_t	now;
+
+	now = get_time_in_mili();
+	pthread_mutex_lock(philo->mutex_philo);
+	philo->limit = now + philo->time.to_die;
+	pthread_mutex_unlock(philo->mutex_philo);
+	pthread_mutex_lock(philo->mutex_print);
+	printf("%ld %d %s\n", get_timestamp(philo), philo->id, philo->msg.eat);
+	check_eat_left(philo);
 	philo->eat_limit = now + philo->time.to_eat;
 	while (get_time_in_mili() < philo->eat_limit)
 		usleep(200);

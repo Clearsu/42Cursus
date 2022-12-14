@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/13 13:54:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/15 04:07:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,15 @@ void		set_left_hand_by_idx(t_info *info, int i);
 void		set_eat_reps(t_info *info, char **argv);
 void		set_time_in_microsec(char **argv, t_info *info);
 
+void		set_start_and_limit(t_info *info, int n);
+void		unlock_all_philos(t_info *info, int n);
+
 void		philo_think_and_get_forks(t_philo *philo);
 void		philo_eat(t_philo *philo);
+void		philo_eat_opt(t_philo *philo);
 void		philo_sleep(t_philo *philo);
 
-void		monitor_without_option(t_info *info);
-void		monitor_with_option(t_info *info);
+void		monitor(t_info *info);
 
 time_t		get_timestamp(t_philo *philo);
 time_t		get_time_in_mili(void);

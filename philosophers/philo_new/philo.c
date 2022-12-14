@@ -6,14 +6,32 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/15 02:14:18 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/15 04:11:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "philo.h"
 
-void	*routine(void *arg)
+void	*routine_wo_opt(void *arg)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)arg;
+	pthread_mutex_lock(philo->mutex_philo);
+	pthread_mutex_unlock(philo->mutex_philo);
+	if (philo->id % 2 == 0)
+		usleep(5000);
+	while (1)
+	{
+		philo_think_and_get_forks(philo);
+		philo_eat(philo);
+		philo_sleep(philo);
+	}
+	return (NULL);
+}
+
+void	*routine_w_opt(void *arg)
 {
 	t_philo	*philo;
 
@@ -25,7 +43,7 @@ void	*routine(void *arg)
 	while (1)
 	{
 		philo_think_and_get_forks(philo);
-		philo_eat(philo);
+		philo_eat_opt(philo);
 		philo_sleep(philo);
 	}
 	return (NULL);
@@ -33,8 +51,13 @@ void	*routine(void *arg)
 
 int	start_philo(t_info *info)
 {
-	int	i;
+	void	*(*routine)(void *);
+	int		i;
 
+	if (!info->philo[0].opt_flag)
+		routine = routine_wo_opt;
+	else
+		routine = routine_w_opt;
 	i = 0;
 	while (i < info->n)
 	{
@@ -79,10 +102,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!start_philo(info))
 		return (1);
-	if (!info->philo[0].opt_flag)
-		monitor_without_option(info);
-	else
-		monitor_with_option(info);
+	monitor(info);
 	if (!end_philo(info))
 		return (1);
 	return (0);
