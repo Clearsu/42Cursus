@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/09 21:47:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:54:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,19 @@ typedef struct s_time
 	time_t	to_sleep;
 }	t_time;
 
+typedef struct s_msg
+{
+	char	*think;
+	char	*take;
+	char	*eat;
+	char	*sleep;
+}	t_msg;
+
 typedef struct s_philo
 {
 	int				id;
 	t_time			time;
+	t_msg			msg;
 	pthread_t		thread;
 	pthread_mutex_t	*right_hand;
 	pthread_mutex_t	*left_hand;
@@ -35,6 +44,7 @@ typedef struct s_philo
 	pthread_mutex_t	*mutex_eat;
 	pthread_mutex_t	*mutex_philo;
 	time_t			limit;
+	time_t			eat_limit;
 	int				eat_reps;
 	int				*eat_left;
 	int				opt_flag;

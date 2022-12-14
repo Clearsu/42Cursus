@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 04:04:53 by jincpark          #+#    #+#              #
-#    Updated: 2022/12/09 21:23:06 by jincpark         ###   ########.fr        #
+#    Updated: 2022/12/13 13:42:48 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,11 @@ SRCS 			= philo.c \
 				  arg_check.c \
 				  init_mutex_philo.c \
 				  init_etc.c \
+				  start_and_monitor.c \
 				  think_eat_sleep.c \
 				  time.c \
 				  utils.c \
-				  error.c \
-				  monitoring.c
+				  error.c
 
 OBJS 			= $(SRCS:%.c=%.o)
 
