@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 04:04:53 by jincpark          #+#    #+#              #
-#    Updated: 2022/12/15 04:10:12 by jincpark         ###   ########.fr        #
+#    Updated: 2022/12/15 14:35:39 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME 			= philo
 
 CC 				= cc
 CFLAG 			= -Wall -Wextra -Werror
-DEBUG			= -fsanitize=address -g3
+DEBUG			= -fsanitize=address -g
 DEBUG_TH		= -fsanitize=thread -g
 
 SRCS 			= philo.c \
