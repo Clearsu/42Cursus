@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/15 03:59:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/15 14:18:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	philo_think_and_get_forks(t_philo *philo)
 void	philo_eat(t_philo *philo)
 {
 	time_t	now;
+	time_t	eat_limit;
 
 	now = get_time_in_mili();
 	pthread_mutex_lock(philo->mutex_philo);
@@ -46,8 +47,9 @@ void	philo_eat(t_philo *philo)
 	printf("%ld %d %s\n", get_timestamp(philo), philo->id, philo->msg.eat);
 	pthread_mutex_unlock(philo->mutex_print);
 	philo->eat_limit = now + philo->time.to_eat;
-	while (get_time_in_mili() < philo->eat_limit)
-		usleep(200);
+	eat_limit = philo->eat_limit;
+	while (get_time_in_mili() < eat_limit)
+		usleep(300);
 	pthread_mutex_unlock(philo->right_hand);
 	pthread_mutex_unlock(philo->left_hand);
 }
@@ -55,6 +57,7 @@ void	philo_eat(t_philo *philo)
 void	philo_eat_opt(t_philo *philo)
 {
 	time_t	now;
+	time_t	eat_limit;
 
 	now = get_time_in_mili();
 	pthread_mutex_lock(philo->mutex_philo);
@@ -64,8 +67,9 @@ void	philo_eat_opt(t_philo *philo)
 	printf("%ld %d %s\n", get_timestamp(philo), philo->id, philo->msg.eat);
 	check_eat_left(philo);
 	philo->eat_limit = now + philo->time.to_eat;
-	while (get_time_in_mili() < philo->eat_limit)
-		usleep(200);
+	eat_limit = philo->eat_limit;
+	while (get_time_in_mili() < eat_limit)
+		usleep(300);
 	pthread_mutex_unlock(philo->right_hand);
 	pthread_mutex_unlock(philo->left_hand);
 }
@@ -77,5 +81,5 @@ void	philo_sleep(t_philo *philo)
 	print_in_mutex(philo, philo->msg.sleep);
 	sleep_limit = philo->eat_limit + philo->time.to_sleep;
 	while (get_time_in_mili() < sleep_limit)
-		usleep(200);
+		usleep(300);
 }

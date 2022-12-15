@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:15:11 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/07 23:56:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/15 13:57:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ int	check_argv(char **argv)
 		}
 		i++;
 	}
-	if (!range_check(argv[1]) || (argv[5] && !range_check(argv[5])))
+	if (!range_check(argv[1]) || !range_check(argv[2])
+		|| !range_check(argv[3]) || !range_check(argv[4])
+		|| (argv[5] && !range_check(argv[5])))
 		return (0);
 	return (1);
 }

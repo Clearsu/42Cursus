@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:17:10 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/07 21:16:33 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/15 13:58:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ void	error_msg(int n, char *str)
 {
 	if (n == 0)
 		printf("philo: invalid number of arguments\n");
-	if (n == 1)
+	else if (n == 1)
 		printf("philo: invalid argument : %s\n", str);
-	if (n == 2)
+	else if (n == 2)
 		printf("philo: memory allocation failed\n");
-	if (n == 3)
+	else if (n == 3)
 		printf("philo: mutex initiation failed\n");
-	if (n == 4)
+	else if (n == 4)
 		printf("philo: number out of range : %s\n", str);
-	if (n == 5)
+	else if (n == 5)
 		printf("philo: failed to create threads\n");
-	if (n == 6)
+	else if (n == 6)
 		printf("philo: failed to detach threads\n");
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/15 04:11:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/15 14:06:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	*routine_w_opt(void *arg)
 	pthread_mutex_lock(philo->mutex_philo);
 	pthread_mutex_unlock(philo->mutex_philo);
 	if (philo->id % 2 == 0)
-		usleep(3000);
+		usleep(5000);
 	while (1)
 	{
 		philo_think_and_get_forks(philo);

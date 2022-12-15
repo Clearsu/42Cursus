@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:10:49 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/13 13:55:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/15 14:05:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ int	init_philo(t_info *info)
 		info->philo[i].mutex_print = &info->mutex_print;
 		info->philo[i].mutex_eat = &info->mutex_eat;
 		info->philo[i].right_hand = &info->forks[i];
+		set_left_hand_by_idx(info, i);
 		info->philo[i].msg.think = "is thinking";
 		info->philo[i].msg.eat = "is eating";
 		info->philo[i].msg.sleep = "is sleeping";
 		info->philo[i].msg.take = "has taken a fork";
-		set_left_hand_by_idx(info, i);
 		i++;
 	}
 	return (1);
@@ -106,7 +106,7 @@ t_info	*init_info(char **argv)
 		return (NULL);
 	}
 	info->n = ft_atoi(argv[1]);
-	if (info->n == 0)
+	if (!info->n)
 	{
 		free(info);
 		error_msg(1, argv[1]);
