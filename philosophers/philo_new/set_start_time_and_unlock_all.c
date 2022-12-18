@@ -6,39 +6,46 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 04:03:00 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/15 04:05:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/18 23:47:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdio.h>
 
-void	set_start_and_limit(t_info *info, int n)
+void	init_start_limit(t_philo *philo, int n, time_t now, time_t limit)
 {
-	int		i;
-	t_philo	*philo;
-	time_t	limit;
-	time_t	now;
+	int	i;
 
 	i = 0;
-	philo = info->philo;
-	now = get_time_in_mili();
-	limit = now + info->to_die;
-	if (n > 1)
+	if (n > 3)
 	{
 		while (i < n)
 		{
 			philo[i].time.start = now;
-			philo[i + 1].time.start = now;
 			philo[i].limit = limit;
+			philo[i + 1].time.start = now;
 			philo[i + 1].limit = limit;
-			i = i + 2;
+			philo[i + 2].time.start = now;
+			philo[i + 2].limit = limit;
+			philo[i + 3].time.start = now;
+			philo[i + 3].limit = limit;
+			i = i + 4;
 		}
 	}
-	if (i < n)
+	while (i < n)
 	{
 		philo[i].time.start = now;
-		philo[i].limit = limit;
+		philo[i++].limit = limit;
 	}
+}
+
+void	set_start_and_limit(t_info *info, int n)
+{
+	time_t	now;
+
+	now = get_time_in_mili();
+	init_start_limit(info->philo, n, now, now + info->to_die);
 }
 
 void	unlock_all_philos(t_info *info, int n)
@@ -46,15 +53,17 @@ void	unlock_all_philos(t_info *info, int n)
 	int	i;
 
 	i = 0;
-	if (n > 1)
+	if (n > 3)
 	{
 		while (i < n)
 		{
 			pthread_mutex_unlock(&info->mutex_philo[i]);
 			pthread_mutex_unlock(&info->mutex_philo[i + 1]);
-			i = i + 2;
+			pthread_mutex_unlock(&info->mutex_philo[i + 2]);
+			pthread_mutex_unlock(&info->mutex_philo[i + 3]);
+			i = i + 4;
 		}
 	}
-	if (i < n)
-		pthread_mutex_unlock(&info->mutex_philo[i]);
+	while (i < n)
+		pthread_mutex_unlock(&info->mutex_philo[i++]);
 }

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/15 15:15:30 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/19 00:01:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*routine_wo_opt(void *arg)
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(philo->mutex_philo);
 	pthread_mutex_unlock(philo->mutex_philo);
-	if (philo->id % 2 == 0)
+	if (!(philo->id & 1))
 		usleep(5000);
 	while (1)
 	{
@@ -38,7 +38,7 @@ void	*routine_w_opt(void *arg)
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(philo->mutex_philo);
 	pthread_mutex_unlock(philo->mutex_philo);
-	if (philo->id % 2 == 0)
+	if (!(philo->id & 1))
 		usleep(5000);
 	while (1)
 	{

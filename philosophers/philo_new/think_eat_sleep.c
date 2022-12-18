@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:39:12 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/15 14:40:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/18 22:37:53 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	philo_eat(t_philo *philo)
 	pthread_mutex_lock(philo->mutex_print);
 	printf("%ld %d %s\n", get_timestamp(philo), philo->id, philo->msg.eat);
 	pthread_mutex_unlock(philo->mutex_print);
-	philo->eat_limit = now + philo->time.to_eat;
-	eat_limit = philo->eat_limit;
+	eat_limit = now + philo->time.to_eat;
+	philo->eat_limit = eat_limit;
 	while (get_time_in_mili() < eat_limit)
 		usleep(300);
 	pthread_mutex_unlock(philo->right_hand);
@@ -66,8 +66,8 @@ void	philo_eat_opt(t_philo *philo)
 	pthread_mutex_lock(philo->mutex_print);
 	printf("%ld %d %s\n", get_timestamp(philo), philo->id, philo->msg.eat);
 	check_eat_left(philo);
-	philo->eat_limit = now + philo->time.to_eat;
-	eat_limit = philo->eat_limit;
+	eat_limit = now + philo->time.to_eat;
+	philo->eat_limit = eat_limit;
 	while (get_time_in_mili() < eat_limit)
 		usleep(300);
 	pthread_mutex_unlock(philo->right_hand);
