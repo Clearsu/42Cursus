@@ -6,12 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 04:03:00 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/18 23:47:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/19 00:23:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
 #include <stdio.h>
+#include <unistd.h>
+#include "philo.h"
 
 void	init_start_limit(t_philo *philo, int n, time_t now, time_t limit)
 {
