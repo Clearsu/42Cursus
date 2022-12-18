@@ -6,71 +6,82 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:17:36 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/15 14:38:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/19 00:47:59 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdio.h>
 #include "philo.h"
 
-void	check_if_died(t_info *info, int n)
+void	check_if_died(t_info *info, int n,
+		pthread_mutex_t *mutex_philo, t_philo *philo)
 {
-	int		i;
-	time_t	now;
+	int				i;
+	time_t			now;
 
+	mutex_philo = info->mutex_philo;
+	philo = info->philo;
 	while (1)
 	{
 		i = 0;
 		now = get_time_in_mili();
 		while (i < n)
 		{
-			pthread_mutex_lock(&info->mutex_philo[i]);
-			if (now >= info->philo[i].limit)
+			pthread_mutex_lock(&mutex_philo[i]);
+			if (now >= philo[i].limit)
 			{
 				pthread_mutex_lock(&info->mutex_print);
-				printf("%ld %d died\n", get_timestamp(&info->philo[i]),
-					info->philo[i].id);
+				printf("%ld %d died\n", get_timestamp(&philo[i]), philo[i].id);
 				return ;
 			}
-			pthread_mutex_unlock(&info->mutex_philo[i++]);
+			pthread_mutex_unlock(&mutex_philo[i++]);
 		}
 	}
 }
 
-void	check_if_died_or_all_eaten(t_info *info, int n)
+void	check_if_died_or_all_eaten(t_info *info, int n,
+		pthread_mutex_t *mutex_philo, t_philo *philo)
 {
-	int		i;
-	time_t	now;
+	int				i;
+	time_t			now;
+	pthread_mutex_t	*mutex_eat;
 
+	mutex_eat = &info->mutex_eat;
 	while (1)
 	{
 		i = 0;
 		now = get_time_in_mili();
 		while (i < n)
 		{
-			pthread_mutex_lock(&info->mutex_philo[i]);
+			pthread_mutex_lock(&mutex_philo[i]);
 			if (now >= info->philo[i].limit)
 			{
 				pthread_mutex_lock(&info->mutex_print);
-				printf("%ld %d died\n", get_timestamp(&info->philo[i]),
-					info->philo[i].id);
+				printf("%ld %d died\n", get_timestamp(&philo[i]), philo[i].id);
 				return ;
 			}
-			pthread_mutex_unlock(&info->mutex_philo[i++]);
-			pthread_mutex_lock(&info->mutex_eat);
-			if (info->eat_left == 0)
+			pthread_mutex_unlock(&mutex_philo[i++]);
+			pthread_mutex_lock(mutex_eat);
+			if (!info->eat_left)
 				return ;
-			pthread_mutex_unlock(&info->mutex_eat);
+			pthread_mutex_unlock(mutex_eat);
 		}
 	}
 }
 
 void	monitor(t_info *info)
 {
-	set_start_and_limit(info, info->n);
-	unlock_all_philos(info, info->n);
+	time_t	now;
+
+	now = get_time_in_mili();
+	set_start_and_limit(info->philo, info->n, now, now + info->to_die);
+	unlock_all_philos(info->mutex_philo, info->n);
+	usleep(5000);
 	if (!info->philo[0].opt_flag)
-		check_if_died(info, info->n);
+		check_if_died(info, info->n,
+			info->mutex_philo, info->philo);
 	else
-		check_if_died_or_all_eaten(info, info->n);
+		check_if_died_or_all_eaten(info, info->n,
+			info->mutex_philo, info->philo);
 }
