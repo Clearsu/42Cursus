@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 04:10:39 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/19 00:50:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:18:33 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ typedef struct s_info
 	pthread_mutex_t	*mutex_philo;
 	pthread_mutex_t	mutex_print;
 	pthread_mutex_t	mutex_eat;
-	time_t			to_die;
 	int				n;
 	int				eat_left;
 }	t_info;
