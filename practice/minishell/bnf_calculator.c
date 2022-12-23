@@ -6,14 +6,16 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:13:13 by jincpark          #+#    #+#             */
-/*   Updated: 2022/12/23 14:22:17 by jincpark         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:22:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* RULE */
 /*
 
-EXPRESSION 	::= EXPRESSION OPERATOR NUMBER
+EXPRESSION 	::= EXPRESSION OPERATOR EXPRESSION
+			| PARENTHESIS EXPRESSION PARENTHESIS
+			| EXPRESSION OPERATOR NUMBER
 			| NUMBER
 
 NUMBER 		::= DIGIT NUMBER
