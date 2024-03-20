@@ -14,7 +14,7 @@
 - `stdio.h`의 printf를 모방한 함수 구현
 - 가변인자 함수의 이해와 사용에 대해 학습하는 과제
 
-### push_swap
+### [push_swap](https://github.com/Clearsu/42_push_swap)
 - 두 개의 스택을 사용해 pop, push, rotate, reverse rotate를 최소한의 횟수로 사용해 하나의 스택에 정렬하는 프로그램 구현
 - 스택 자료구조와 정렬 알고리즘에 대해 학습하는 과제
 
@@ -22,19 +22,19 @@
 - 각 점 별 높낮이 정보가 담긴 2차원 맵을 3차원으로 화면에 나타내는 프로그램 구현
 - 투영과 Bresenham's line algorithm을 이용해 기초적인 3D 그래픽에 대해 학습하는 과제
 
-### pipex
+### [pipex](https://github.com/Clearsu/42_pipex)
 - Shell의 파이프라인('|')를 모방하여, 프로세스의 출력을 다른 프로세스로 전달하는 프로그램 구현
 - 프로세스와 프로세스 간 통신에 대해 학습하는 과제
 
-### minishell
+### [minishell](https://github.com/Clearsu/42_minishell)
 - OS와 사용자 간의 인터페이스인 Shell 프로그램 구현
 - 프로세스 관리, 파이프라인과 리다이렉션, 시그널 처리, 명령어 파싱, 환경변수 처리에 대해 이해하고 적용하는 과제
 
-### philosopher
+### [philosopher](https://github.com/Clearsu/42_philosopher)
 - 식사하는 철학자 문제를 멀티스레드로 시뮬레이션하는 프로그램 구현
 - 동시성과 교착 상태, 그리고 교착 상태와 레이스 컨디션을 방지하는 방법에 대해 이해하고 적용하는 과제
 
-### cub3d
+### [cub3d](https://github.com/Clearsu/42_Cub3D)
 - 레이캐스팅을 이용한 3D 맵 내부에서 이동할 수 있는 프로그램 구현 
 - 레이캐스팅 구현의 수학적 원리에 대해 이해하고 적용하는 과제
 
