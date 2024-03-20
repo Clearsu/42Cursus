@@ -2,15 +2,15 @@
 42서울에서 학습한 프로젝트들입니다.
 
 ## C 프로젝트
-### libft
+### [libft](https://github.com/Clearsu/42_libft)
 - 추후 과제 진행에 필요한 C 함수들을 구현
 - 문자열과 메모리를 다루는 법에 대해 학습하는 과제
 
-### get_next_line
+### [get_next_line](https://github.com/Clearsu/42_get_next_line)
 - 매개변수로 주어진 file descriptor에서 한 줄씩 읽어 반환하는 함수 구현
 - 정적 변수와 복잡한 문자열 처리, 메모리 관리에 대해 학습하는 과제
 
-### ft_printf
+### [ft_printf](https://github.com/Clearsu/42_ft_printf)
 - `stdio.h`의 printf를 모방한 함수 구현
 - 가변인자 함수의 이해와 사용에 대해 학습하는 과제
 
@@ -18,7 +18,7 @@
 - 두 개의 스택을 사용해 pop, push, rotate, reverse rotate를 최소한의 횟수로 사용해 하나의 스택에 정렬하는 프로그램 구현
 - 스택 자료구조와 정렬 알고리즘에 대해 학습하는 과제
 
-### FDF
+### [FDF](https://github.com/Clearsu/42_FDF)
 - 각 점 별 높낮이 정보가 담긴 2차원 맵을 3차원으로 화면에 나타내는 프로그램 구현
 - 투영과 Bresenham's line algorithm을 이용해 기초적인 3D 그래픽에 대해 학습하는 과제
 
