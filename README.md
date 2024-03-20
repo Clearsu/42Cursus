@@ -1,3 +1,5 @@
+<img style="width: 600px;" src="https://github.com/Clearsu/42cursus/assets/67998022/9e5ecbf0-bf59-4787-9c28-f66bd7a141ba">
+
 # 42Cursus
 42서울에서 학습한 프로젝트들입니다.
 
