@@ -1,0 +1,36 @@
+[submodule "libft"]
+	path = libft
+	url = git@github.com:Clearsu/42_libft.git
+[submodule "get_next_line"]
+	path = get_next_line
+	url = git@github.com:Clearsu/42_get_next_line.git
+[submodule "ft_printf"]
+	path = ft_printf
+	url = git@github.com:Clearsu/42_ft_printf.git
+[submodule "pipex"]
+	path = pipex
+	url = git@github.com:Clearsu/42_pipex.git
+[submodule "FDF"]
+	path = FDF
+	url = git@github.com:Clearsu/42_FDF.git
+[submodule "push_swap"]
+	path = push_swap
+	url = git@github.com:Clearsu/42_push_swap.git
+[submodule "philosophers"]
+	path = philosophers
+	url = git@github.com:Clearsu/42_philosophers.git
+[submodule "cub3d"]
+	path = cub3d
+	url = git@github.com:Clearsu/42_Cub3D.git
+[submodule "minishell"]
+	path = minishell
+	url = git@github.com:Clearsu/42_minishell.git
+[submodule "cpp"]
+	path = cpp
+	url = git@github.com:Clearsu/CPPmodule.git
+[submodule "webserv"]
+	path = webserv
+	url = git@github.com:Clearsu/webserv.git
+[submodule "ft_transcendence"]
+	path = ft_transcendence
+	url = git@github.com:Clearsu/ft_transcendence.git
