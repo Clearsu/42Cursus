@@ -42,12 +42,12 @@
 ### CPP
 - 상속, 캡슐화, 다형성, 추상화, 오버로딩, 오버라이딩, 인터페이스, 추상 클래스 등 객체지향의 핵심 개념과 C++ STL을 학습하는 과제
 
-### webserv
+### [webserv](https://github.com/Clearsu/webserv)
 - Nginx를 모방한 HTTP 웹서버 구현
 - 싱글스레드 환경에서 비동기 입출력 다중화 구현 및 HTTP를 이해하고 적용하는 과제
 
 ## 웹 프로젝트
-### ft_transcendence
+### [ft_transcendence](https://github.com/Clearsu/ft_transcendence)
 - 온라인 탁구 게임, 채팅 기능을 가진 SPA 웹 어플리케이션을 JavaScript, HTML, CSS, BootStrap을 사용하여 구현
 - 서버/클라이언트 통신, 웹 어플리케이션/사용자 간 상호작용, 소켓 통신에 대해 이해하고 적용하는 과제
 
