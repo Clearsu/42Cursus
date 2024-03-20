@@ -34,3 +34,6 @@
 [submodule "ft_transcendence"]
 	path = ft_transcendence
 	url = git@github.com:Clearsu/ft_transcendence.git
+[submodule "inception"]
+	path = inception
+	url = git@github.com:Clearsu/42_inception.git
