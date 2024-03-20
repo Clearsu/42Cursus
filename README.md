@@ -30,7 +30,7 @@
 - OS와 사용자 간의 인터페이스인 Shell 프로그램 구현
 - 프로세스 관리, 파이프라인과 리다이렉션, 시그널 처리, 명령어 파싱, 환경변수 처리에 대해 이해하고 적용하는 과제
 
-### [philosopher](https://github.com/Clearsu/42_philosopher)
+### [philosopher](https://github.com/Clearsu/42_philosophers)
 - 식사하는 철학자 문제를 멀티스레드로 시뮬레이션하는 프로그램 구현
 - 동시성과 교착 상태, 그리고 교착 상태와 레이스 컨디션을 방지하는 방법에 대해 이해하고 적용하는 과제
 
