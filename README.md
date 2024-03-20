@@ -55,4 +55,4 @@
 
 ## Environment
 ### [inception](https://github.com/Clearsu/42_inception)
-- Docker, docker-compose를 사용하여 Wordpress 웹사이트를 호스팅하는 과제
+- Nginx, php-fpm, MariaDB 이미지를 빌드하고 컨테이너 실행 및 Docker 네트워크를 구축하여 Wordpress 웹사이트를 호스팅하는 과제
