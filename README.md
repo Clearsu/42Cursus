@@ -60,4 +60,4 @@ These are projects learned at 42 Seoul.
 ## Environment
 
 ### [inception](https://github.com/Clearsu/42_inception)
-- A project to build Nginx, php-fpm, and MariaDB images, run containers, and set up a Docker network to host a WordPress website.
+- A project to build Nginx, php-fpm, and MariaDB Docker images, run containers, and set up a Docker network to host a WordPress website.
